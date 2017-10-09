@@ -182,7 +182,7 @@ void Setfile2INO::printIno(QString filePath)
         tempStr_2 += QString("C%1S[0] = ").arg(iC);
         tempStr_3 += QString("C[%1] = C%1S[1]; ").arg(iC);
     }
-    pL1(tempStr_2 + QString("C[0]; //End of Session"));
+    pL1(tempStr_2 + QString("C[0] = State::ENDSTATE;//End of Session"));
     pL1(tempStr_3 + QString("//Entry of Component"));
     pL1( "State::NEXTSTATE = C[1];//Entry of Session");
 
@@ -401,7 +401,7 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                 break;
             }
             case StripType::whenTime :{
-                QString format = "\t%1->TimerSet = []()-> float {%2}; //3";
+                QString format = "\t%1->TimerSet = []()-> float {%2}; //%3";
                 name_switch = "TimerSetSTATE";
                 QString t = pick_t_c_s(dom_s_s.firstChildElement(DOM_TIME));
                 QString inner = QString("return %1;").arg(t);

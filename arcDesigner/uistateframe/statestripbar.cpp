@@ -98,6 +98,7 @@ void StateStripBar::checkDom()
             dom.parentNode().removeChild(dom);
         SCPP_ASSERT_THROW(fatherNode.firstChildElement(nodeName).isNull());
     };
+    QDomNode dom_code_text;
     switch(type){
     case StripType::doVar :
         deleteDom(dom_data, DOM_DOPIN);
@@ -105,7 +106,10 @@ void StateStripBar::checkDom()
         deleteDom(dom_data, DOM_TIME);
         deleteDom(dom_data, DOM_COUNT);
         deleteDom(dom_data, DOM_NEXTSTATE);
-        dom_data.firstChildElement(DOM_CODE).firstChild().setNodeValue(DOVAR_DEF_TEXT);
+        dom_code_text = dom_data.firstChildElement(DOM_CODE).firstChild();
+        if(dom_code_text.nodeValue().isEmpty()) {
+            dom_code_text.setNodeValue(DOVAR_DEF_TEXT);
+        }
         break;
     case StripType::doPin :
         deleteDom(dom_data, DOM_CODE);
@@ -118,7 +122,10 @@ void StateStripBar::checkDom()
         deleteDom(dom_data, DOM_DOPIN);
         deleteDom(dom_data, DOM_TIME);
         deleteDom(dom_data, DOM_COUNT);
-        dom_data.firstChildElement(DOM_CODE).firstChild().setNodeValue(WHENVAR_DEF_TEXT);
+        dom_code_text = dom_data.firstChildElement(DOM_CODE).firstChild();
+        if(dom_code_text.nodeValue().isEmpty()) {
+            dom_code_text.setNodeValue(DOVAR_DEF_TEXT);
+        }
         break;
     case StripType::whenCount :
         deleteDom(dom_data, DOM_CODE);

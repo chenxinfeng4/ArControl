@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Variant Assignment</string>
+   <string>Variable Assignment</string>
   </property>
   <property name="windowIcon">
    <iconset resource="resource.qrc">

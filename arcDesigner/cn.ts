@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="zh_CN">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>DesignerSetFile</name>
     <message>
@@ -521,13 +521,13 @@
         <translation type="unfinished">查看</translation>
     </message>
     <message>
-        <location filename="profiledialog.cpp" line="57"/>
-        <location filename="profiledialog.cpp" line="121"/>
+        <location filename="profiledialog.cpp" line="55"/>
+        <location filename="profiledialog.cpp" line="125"/>
         <source>Choose Arduino IDE</source>
         <translation type="unfinished">选择Arduino IDE</translation>
     </message>
     <message>
-        <location filename="profiledialog.cpp" line="166"/>
+        <location filename="profiledialog.cpp" line="170"/>
         <source>File-Element %1 context %2 error!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -541,37 +541,37 @@
     </message>
     <message>
         <location filename="globalparas.cpp" line="30"/>
-        <location filename="statecontent.cpp" line="245"/>
+        <location filename="statecontent.cpp" line="246"/>
         <source>doVar</source>
         <translation>改变量</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="31"/>
-        <location filename="statecontent.cpp" line="255"/>
+        <location filename="statecontent.cpp" line="256"/>
         <source>doPin</source>
         <translation>激活Pin</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="32"/>
-        <location filename="statecontent.cpp" line="273"/>
+        <location filename="statecontent.cpp" line="274"/>
         <source>whenVar</source>
         <translation>当变量</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="33"/>
-        <location filename="statecontent.cpp" line="281"/>
+        <location filename="statecontent.cpp" line="282"/>
         <source>whenCount</source>
         <translation>当计数</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="34"/>
-        <location filename="statecontent.cpp" line="287"/>
+        <location filename="statecontent.cpp" line="288"/>
         <source>whenTime</source>
         <translation>当超时</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="35"/>
-        <location filename="statecontent.cpp" line="293"/>
+        <location filename="statecontent.cpp" line="294"/>
         <source>whenPin</source>
         <translation>当Pin</translation>
     </message>
@@ -676,7 +676,8 @@
     <name>VarAssignDialog</name>
     <message>
         <location filename="varassigndialog.ui" line="14"/>
-        <source>Variant Assignment</source>
+        <source>Variable Assignment</source>
+        <oldsource>Variant Assignment</oldsource>
         <translation type="unfinished">&quot;变量&quot; 管理</translation>
     </message>
     <message>
