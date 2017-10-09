@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/arcDesigner.ico</file>
+        <file>images/arcDesigner.png</file>
+        <file>cn.qm</file>
+        <file>images/ArduinoPin.png</file>
+        <file>deployment/ino/ArControl.h</file>
+        <file>deployment/ino/ArControl_AllinOne.h</file>
+    </qresource>
+</RCC>

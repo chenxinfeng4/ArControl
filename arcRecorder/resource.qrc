@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/arcRecorder.ico</file>
+        <file>images/arcRecorder.png</file>
+        <file>cn.qm</file>
+    </qresource>
+</RCC>
