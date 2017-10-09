@@ -2,6 +2,17 @@
 ---
 + Author: Chenxinfeng
 + Email  : chenxinfeng@ibp.hust.edu.cn
++ Copyright (C) 2017, Huazhong University of Science and Technology.  GNU LGPL v2.1.
++ Source-code download: https://github.com/chenxinfeng4/ArControl
++ Binary-release download: https://github.com/chenxinfeng4/ArControl/releases
++ PCB drafts download:  https://github.com/chenxinfeng4/ArControl/releases
+
+
+
+Reference codes
+
++ QFirmata: https://github.com/firmata/protocol
++ SCPP_ASSERT from Vladimir Kushnir
 
 ## Introduction
 
@@ -83,7 +94,7 @@ ArControl relays on Arduino-IDE. You should download the IDE from offical [site]
 
 ### Download and install ArControl
 
-As for general purpose, the **binary-release** version are recommended. ArControl is only verified on **Microsoft Windows PC**. You can recompile the **source-code** to make adaptations.
+As for general purpose, the [**binary-release**](https://github.com/chenxinfeng4/ArControl/releases) version are recommended. ArControl is only verified on **Microsoft Windows PC**. You can recompile the [**source-code**](https://github.com/chenxinfeng4/ArControl) to make adaptations.
 
 + If you want to use binary-release directly, just download and unzip it.
 
