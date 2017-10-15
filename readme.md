@@ -6,6 +6,7 @@
 + Source-code download: https://github.com/chenxinfeng4/ArControl
 + Binary-release download: https://github.com/chenxinfeng4/ArControl/releases
 + PCB drafts download:  https://github.com/chenxinfeng4/ArControl/releases
++ The work is currently submitting to **Frontiers**.
 
 
 
@@ -13,6 +14,12 @@ Reference codes
 
 + QFirmata: https://github.com/firmata/protocol
 + SCPP_ASSERT from Vladimir Kushnir
+
+
+
+## 中文版说明 (Pages for Chinese)
+
+请查看 `readme中文.md`。
 
 ## Introduction
 
