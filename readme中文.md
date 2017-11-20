@@ -1,7 +1,7 @@
 # ArControl 使用指南
 ---
 + 作者: 陈昕枫, 华中科技大学，武汉光电国家实验室
-+ 邮箱  : chenxinfeng@ibp.hust.edu.cn
++ 邮箱  : chenxinfeng@hust.edu.cn
 + Copyright (C) 2017, 华中科技大学.  GNU LGPL v2.1.
 + 源代码下载: https://github.com/chenxinfeng4/ArControl
 + 可执行文件下载: https://github.com/chenxinfeng4/ArControl/releases
@@ -16,13 +16,15 @@
 + SCPP_ASSERT from Vladimir Kushnir
 
 ## 中文版特有前言
-拿着国家的补助、奖学金，我不能只图把自己的成果写成英文发表在国外期刊上。不管是说明文档，还是软件，还是即将发表的文章，我都会努力给份中文版本，方便国人使用。
+不管是说明文档，还是软件，还是即将发表的文章，我都会努力给份中文版本，方便国人使用。
 ## 介绍
 ---
 ### 什么是ArControl
-神经科学研究需要往往需要涉及动物行为学实验，而这个实验平台在商业上卖的很贵。我的ArControl是一套建立在Arduino（当前只支持UNO）上的平台，它可以控制硬件给予动物刺激，检测动物的实时行为并做出反应。它是一个动物行为研究强大的平台。
+神经科学研究需要往往需要涉及动物行为学实验，而这个实验平台 (又称作 **Skinner box**) 在商业上价格昂贵。作者的ArControl是一套建立在Arduino（当前只支持UNO）上的动物行为学平台，它可以控制硬件给予动物刺激，检测动物的行为并做出反应。ArControl 不仅仅**便宜又强大，可以替代商业系统**。而且因为系统设计具备实时特性，ArControl 甚至**具有商业系统都难以媲美的高时间精准度**。
 
-具有以下特点：
+ArControl系统已经通过了相关的验证工作，包括硬性参数指标和实际的动物行为学实验验证，可以安心使用。
+
+ArControl具有以下特点：
 
 + 全方面 - 它包含硬件设计和软件设计，行为学任务设计和实验数据采集。
 + 便宜 - 不需要特定的或昂贵的硬件
@@ -31,13 +33,13 @@
 + 实时操作系统 -- 编写的任务文件最终会自动翻译成原生态 Arduino 脚本“ino”。任务是直接运行在 Arduino 板上，不需要与电脑交互就完整地被执行。所以它具有极高的时间精度(<1ms)，并且不受电脑负载的影响。
 
 
-![Figure1](http://img.image-storage.com/3372520490/a160bb0fc7604.png)
+![Figure1](http://img.image-storage.com/3930389188/d0a34ff317774.jpg)
 
 >**图一  ArControl的连接图示和硬件电子电路**。（**A**）电路的总览。Arduino板在其中起到了核心的作用。它通过数字引脚检测动物的响应、输出刺激信号，并把这些数据传回电脑再记录下载。ArControl利用定义了6个输入通道和8个输出通道。（**B**）ArControl硬件：Arduino UNO板和做电压转换的驱动电路。（**C**）连接驱动电路的接线器，终端电器在这里插入。传感器(输入电器)设定用5V驱动，刺激器(输出电器)设定可用 5V/12V 驱动。
 
 ![附图2](http://img.image-storage.com/3372520490/a6f620abef274.png)
 
-> **附图一 小鼠行为学常用的终端电器** 。"Sesor" 传感器（接输入通道）用来检测小鼠的 "舔" 行为; LED灯和扬声器用于给予条件刺激 (接输出通道）; 电磁阀用于发放水滴奖赏或吹气惩罚 (接输出通道)。
+> **附图 小鼠行为学常用的终端电器** 。"Sesor" 传感器（接输入通道）用来检测小鼠的 "舔" 行为; LED灯和扬声器用于给予条件刺激 (接输出通道）; 电磁阀用于发放水滴奖赏或吹气惩罚 (接输出通道)。
 
 ### ArControl利用“状态机”进行编程
 
@@ -49,7 +51,7 @@
 
 ![Figure2](http://img.image-storage.com/3372520490/c2085a15c8c04.png)
 
->**图2 图示ArControl使用的状态机语言**。每个状态机都是一个实体，拥有系统的“do-function”用来给予输出信号 和 “when-function”来控制状态机之间的转化。 （**B**）一个时序任务 (既行为学任务、Session)和次级的Component都是状态机集合的虚拟概念。 （**C**）“Go/No-Go”辨别学习的“Go-trial”可以利用状态机概念建模。
+>**图2 图示ArControl使用的状态机语言**。(**A**)每个状态机都是一个实体，拥有系统的“do-function”用来给予输出信号 和 “when-function”来控制状态机之间的转化。 （**B**）一个时序任务 (既行为学任务、Session)和次级的Component都是状态机集合的虚拟概念。 （**C**）“Go/No-Go”辨别学习的“Go-trial”可以利用状态机概念建模。
 
 > 
 
@@ -139,7 +141,7 @@ ArControl依赖于Arduino-IDE。所以你应该下载并安装Arduino-IDE， [�
 
 
 
-`ArControl 记录器 ` 可以自动的采集数据。你可以用作者附带的 Matlab 函数`BF_arc2mat.m` 来讲这个数据文件从 TXT 转化为 MAT 格式。
+`ArControl 记录器 ` 可以自动的采集数据。你可以用作者附带的 Matlab 函数`BF_arc2mat.m` ，将该数据文件从 TXT 转化为 MAT 格式。
 
 ![](http://img.image-storage.com/734783758/d44e2c4f1d124.png)
 
