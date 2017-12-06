@@ -1,11 +1,12 @@
 # ArControl Guidence
 ---
-+ Author: Chenxinfeng
-+ Email  : chenxinfeng@ibp.hust.edu.cn
++ Author: Xinfeng Chen (陈昕枫)
++ Email  : chenxinfeng@hust.edu.cn
 + Copyright (C) 2017, Huazhong University of Science and Technology.  GNU LGPL v2.1.
 + Source-code download: https://github.com/chenxinfeng4/ArControl
 + Binary-release download: https://github.com/chenxinfeng4/ArControl/releases
 + PCB drafts download:  https://github.com/chenxinfeng4/ArControl/releases
++ The work is currently submitting to **Frontiers**.
 
 
 
@@ -14,68 +15,80 @@ Reference codes
 + QFirmata: https://github.com/firmata/protocol
 + SCPP_ASSERT from Vladimir Kushnir
 
+
+
+## 中文版说明 (Pages for Chinese)
+
+请查看 `readme中文.md`。
+
 ## Introduction
 
 ---
 ### What's the ArControl
 
-The goal of ArControl is to establish an Arduino-based (UNO only) behavioral platform, which control devices to deliver stimulation and monitor behavioral response. It's a powerful solution for behavioral researches.
+The goal of ArControl is to establish an **Arduino-based (UNO only) behavioral platform (as Skinner box)**, which control devices to deliver stimulation and monitor behavioral response. The ArControl is not
+merely a **cheap and powerful alternative** to commercial behavioral platforms. Meanwhile, the ArControl is superior to the commercial systems in that it was a genuine **real-time system** with high temporal resolution. ArControl is supposed to be a powerful solution for behavioral researches in psychology and neuroscience.
 
-The basic features of this platform include: 
+Through both the technical parameters assessment and the practical behavioral experiments in mice, our ArControl platform was proven to be reliable and adaptive within various behavioral tasks.
 
-+ Comprehensive – it combines software and hardware, behavioral task design and experimental data collection; 
+The basic features of this platform are: 
+
++ Comprehensive – it combines **software and hardware**, **behavioral task design and experimental data collection**; 
 
 + Inexpensive – neither dedicated nor expensive hardware is essential;
 
-+ General purpose – it’s applicable to multiple behavior tasks; 
++ General purpose – it’s applicable to **multiple behavioral tasks**; 
 
-+ Easy to use – behavior task can be decomposed by the straightforward State Notation concept, and designed via a friendly GUI without need to master script language.
++ Easy to use – behavior task can be decomposed by the straightforward State Notation concept, and designed via a friendly GUI **without need to master script language**.
 
-+ Real-time performance – it has high temporal resolution and free from the load of computer.
-
-
++ Real-time performance – it has **high temporal resolution (<1ms)** and **free from the load of computer**.,
 
 
-,
+![Figure1](http://img.image-storage.com/3930389188/d0a34ff317774.jpg)
 
-![Figure1](http://img.image-storage.com/734783758/2e575ac931fd4.jpg)
+> **Figure 1. Diagram and hardware of the ArControl’s electroniccircuit**. (**A**) Overview of the electronic circuit. Arduino is the core controller detects animal response, sends simulations via digital pin, and logs data to the host computer. ArControl supports 6 input and 8 output digital channels. (**B**) The hardware of ArControl: Arduino Uno R3, the driver circuit for voltage conversion. (**C**) The driver hub provides slots for terminal devices. Sensors can work at 5V, and stimulators can alternatively work at 5/12V.
 
-> **Diagram and hardware of the ArControl’s electroniccircuit**. (**a**) Overview of the electronic circuit. Arduino is the core controller detects animal response, sends simulations via digital pin, and logs data to the host computer. ArControl supports 6 input and 8 output digital channels. (**b**) The hardware of ArControl: Arduino Uno R3, the driver circuit for voltage conversion. (**c**) The driver hub provides slots for terminal devices. Sensors can work at 5V, and stimulators can alternatively work at 5/12V.
+![figs2](http://img.image-storage.com/3372520490/a6f620abef274.png)
 
-
+> **Common instruments for mice behavioural platform**. "Sensor" is a captive sensor for detecting mice lick. "Light" is a LED lamp. "Buzzer" produces a buzzing sound as a tone signal. "Solenoid-Valve"  control the air-puff and the water-drop.
 
 ### ArControl uses State Notation to design tasks
 
 Inspired by Graphic State Notation, we succeeded in grafting State Notation Pattern into ArControl platform (**Figure 2a, b**). The schedule is constructed at hierarchical levels: Session (top), Component (middle), and State (lowest). The State is the basic structure using State Notion design pattern. The Component and the Session are the primary and the secondary collection of States (**Figure 2b**). Generally, the terms of Session, schedule, and behavior task are equal concepts indeed. Utilizing the State Notion Pattern, a schedule is dissembled as a serials of States. Each State specifies a stimulus configuration in subject’s environment and a set of time and/or response requirements that cause state transition (**Figure 2a**). There is one and only one State to be active at any moment. Session will sequentially move from current State to next State, until reaching the terminal. 
 
+![GoNoGo](http://img.image-storage.com/3372520490/ff7e68d0a8bb4.png)
 
-
-![Figure2](http://img.image-storage.com/734783758/fac050169fbe4.jpg)
-
->**Figure 2 Diagram of State Notation Pattern utilized by ArControl. **(**a**) The State has a *do-function*
->to deliver stimulus, and *when-functions *to master transitions cross States. (**b**) The Component and Session structures are the primary and secondary collection of States.
+> **Diagram of Go/No-Go Task**
 
 
 
-### ArControl has tow parts of GUI
+![Figure2](http://img.image-storage.com/3372520490/c2085a15c8c04.png)
 
-The ArControl software suite consists of two individual parts -- the Designer (**Figure 3a**) and the Recorder (**Figure S1a**) -- for the purpose of designing and running a Session respectively. The ArControl Designer is core program, where users apply State Notation concept to achieve the Session construction.
+>**Figure 2 Diagram of State Notation Pattern utilized by ArControl.** (**A**) The State has a *do-function*
+>to deliver stimulus, and *when-functions*to master transitions cross States. (**B**) Component (abbr. C) and Session structures are the primary and the secondary collection of States (abbr. S) . (**C**) Illustration of a Go Trial in the Go/No-Go task 
 
-The ArControl Recorder is the other part of ArControl software suite. The basic functions of it contain clicking to start/stop running ready Session, collecting the data flow and displaying as table and chart contents (**Figure S1a**). Besides, there is a straightforward utility tool plugged in —Firmata— intent to debug the input and output devices.
+
+
+### ArControl has two parts of GUI
+
+The ArControl software suite consists of two individual parts -- the Designer (**Figure 3A**) and the Recorder (**Figure S1A**) -- for the purpose of designing and running a Session respectively. The ArControl Designer is core program, where users apply State Notation concept to achieve the Session construction.
+
+The ArControl Recorder is the other part of ArControl software suite. The basic functions of it contain clicking to start/stop running ready Session, collecting the data flow and displaying as table and chart contents (**Figure S1A**). Besides, there is a straightforward utility tool plugged in —Firmata— intent to debug the input and output devices.
 
 The two parts can run individually. In the source file, they are named as **"arcDersigner.exe"** and **"arcRecorder.exe"**
 
 ![ArControl GUI logo](http://img.image-storage.com/734783758/5541334dfb454.png)
 
-![Figure2](http://img.image-storage.com/734783758/ea1bd14e8d7f4.jpg)
+![Figure2](http://img.image-storage.com/3372520490/28befd124aad4.png)
 
-> **Figure 3.** Apply ArControl-Designer to design Session. (**a**) The main window of ArControl-Designer.
-> It supports two *do-function *and four* when-function* types for each State. (**b, c**) Typical pop-up windows to configure a *do-function *(**b**) and a *when-function *(**c**). (**e**) The layout defines and
-> initializes the global variables, which can be share among States.
+> **Figure 3.**  **Apply ArControl-Designer to design Session**. (**A**) Main window of the ArControl Designer
+> shows an implementation of the Go/No-Go task. (**B, C**) Typical pop-up windows to configure a *do-function*(**B**) and a *when-function*(**C**). (**D**) Window defines and initializes the Global Variable.
 
-![Figure2](http://img.image-storage.com/734783758/845f4ddafa4c4.jpg)
+The basic functions of the ArControl Recorder was clicking to start/stop the running of a ready Session, as well as collecting and displaying the data flow (**Figure S1A-C**). A useful tool (Firmata) was provided to directly debug the input and the output devices.
 
-> **Supplementary Figure 1. The data collection from ArControl. **(**a**) The main window of ArControl-Recorder. (**b**) The serial monitor window of ArControl-Recorder. Numbers after colon represent the beginning and duration time in milliseconds. (**c**) A matched segment extracted from the data file.
+![Figure2](http://img.image-storage.com/3372520490/c1abe799557d4.png)
+
+> **Supplementary Figure 1. The data collection from ArControl.** (**A**) The main window of ArControl-Recorder. (**B**) The serial monitor window of ArControl-Recorder. Numbers after colon represent the beginning and duration time in milliseconds. (**C**) A matched segment extracted from the data file.
 
 
 
@@ -110,17 +123,18 @@ As for general purpose, the [**binary-release**](https://github.com/chenxinfeng4
 
 ### Compose your first task  -- "Light3"
 
-It's nature that different choices lead to different results. It's our first task to follow this schedule (below).  Even a proficient programmer may takes half an hour to implement such schedule, using Arduino C++ langue. However, ArControl makes things easier even for beginners.
+It's nature that different choices lead to different results. It's our first task to follow this schedule (below).  Even a proficient programmer may take half an hour to implement such schedule by using native Arduino C++ langue. However, ArControl makes things easier. Through a user-friendly GUI, there is no need to
+master any script language.
 
 ![shedule](http://img.image-storage.com/734783758/fd28ea989ce64.gif)
 
-> The sequence of events in **Light3 task**. You will get Yellow Ligth (4sec)  Green Ligth (3 sec) or Red Ligth (2 sec), depending on the your choice of Left, Right or Wait.
+> **Sequent events of Light3 task**. You will get Yellow Ligth (4sec)  Green Ligth (3 sec) or Red Ligth (2 sec), depending on the your choice of Left, Right or Wait.
 
 The schedule was decomposed with ArControl Designer as figure below. This demo has been embeded in release version, and it can alse be found in `ArControl Designer> File > Open in > Light3`.
 
 ![Light3](http://img.image-storage.com/734783758/d8716e4cdab94.png)
 
->  The schedule was decomposed with ArControl Designer. Besides, an extra restraint ("max loop = 100 -> Exit Session") were added.
+>  **Light3 schedule is decomposed with ArControl Designer**. Besides, an extra restraint ("max loop = 10 -> Exit Session") is added.
 
 ![Priority ranks](http://img.image-storage.com/734783758/8ed7fded7e904.png)
 
@@ -128,7 +142,7 @@ The schedule was decomposed with ArControl Designer as figure below. This demo h
 
 ![Light3 run](http://img.image-storage.com/734783758/d4d96b7692924.png)
 
-> Run a "Light3" task. Data was viewed as log in "Data Stream" pannel, as table in middle pannel, as chart in right pannel, and was collected to data file under "Datafile Folder".
+> **Run a "Light3" task.** Data was viewed as log in "Data Stream" pannel, as table in middle pannel, as chart in right pannel, and was collected to data file under "Datafile Folder".
 
 
 
@@ -234,7 +248,7 @@ Avoid to use `0` as the value of parameter in `ArControl Designer`.
 
 ### Skills: Parameters value support Variables 
 
-Global Variables are defined in `Edit > Var Assignment`, dynamicly refreshed in `doVar` or `whenVar`, sharable among States, practicable for parameters value.
+Global Variables are defined in `Edit > Var Assignment`, dynamicly refreshed in `doVar` or `whenVar`, sharable among States, and practicable for parameter value replacement.
 
 ![](http://img.image-storage.com/734783758/441c3c846c5e4.png)
 
@@ -246,11 +260,5 @@ Limited with the 2Kb SRAM of Arduino UNO, 20 States are the maximum size of a Se
 
 ### Warn: 200 Hz is the maximum frequence of [INx]
 
-ArControl could record 200Hz TTL signal from all 6 input channels simultaneously, and 700Hz when focusing on a single channel, with ±1ms (95% confidence, round effect) accuracy around the truth.
-
-
-
-
-
-
+ArControl could record 200Hz TTL signal from all 6 input channels simultaneously, and 700Hz when focusing on a single channel, with ±1ms (95% confidence, round effect) accuracy.
 
