@@ -1,16 +1,22 @@
 # ArControl Guidence
 ---
+![logo1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/logo1.jpg)
+
 + Author: Xinfeng Chen (陈昕枫)
 + Email  : chenxinfeng@hust.edu.cn
 + Copyright (C) 2017, Huazhong University of Science and Technology.  GNU LGPL v2.1.
 + Source-code download: https://github.com/chenxinfeng4/ArControl
 + Binary-release download: https://github.com/chenxinfeng4/ArControl/releases
 + PCB drafts download:  https://github.com/chenxinfeng4/ArControl/releases
-+ The work is currently submitting to **Frontiers**.
++ **Documents (Wiki)**: https://github.com/chenxinfeng4/ArControl/wiki
 
 
+Cite This
 
-Reference codes
++ **Chen, X.**, and Li, H. (2017). [ArControl: An Arduino-Based Comprehensive Behavioral Platform with Real-Time Performance.](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) Front. Behav. Neurosci. 11, 244. doi: 10.3389/fnbeh.2017.00244.
+
+
+Reference Codes
 
 + QFirmata: https://github.com/firmata/protocol
 + SCPP_ASSERT from Vladimir Kushnir
@@ -24,6 +30,8 @@ Reference codes
 ## Introduction
 
 ---
+> You can visit [Documents (Wiki)](https://github.com/chenxinfeng4/ArControl/wiki) for the lastest update, and check our paper [(Chen and Li, 2017)](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) for other details.
+
 ### What's the ArControl
 
 The goal of ArControl is to establish an **Arduino-based (UNO only) behavioral platform (as Skinner box)**, which control devices to deliver stimulation and monitor behavioral response. The ArControl is not
@@ -44,7 +52,7 @@ The basic features of this platform are:
 + Real-time performance – it has **high temporal resolution (<1ms)** and **free from the load of computer**.,
 
 
-![Figure1](http://img.image-storage.com/3930389188/d0a34ff317774.jpg)
+![Figure1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1.jpg)
 
 > **Figure 1. Diagram and hardware of the ArControl’s electroniccircuit**. (**A**) Overview of the electronic circuit. Arduino is the core controller detects animal response, sends simulations via digital pin, and logs data to the host computer. ArControl supports 6 input and 8 output digital channels. (**B**) The hardware of ArControl: Arduino Uno R3, the driver circuit for voltage conversion. (**C**) The driver hub provides slots for terminal devices. Sensors can work at 5V, and stimulators can alternatively work at 5/12V.
 
@@ -56,7 +64,7 @@ The basic features of this platform are:
 
 Inspired by Graphic State Notation, we succeeded in grafting State Notation Pattern into ArControl platform (**Figure 2a, b**). The schedule is constructed at hierarchical levels: Session (top), Component (middle), and State (lowest). The State is the basic structure using State Notion design pattern. The Component and the Session are the primary and the secondary collection of States (**Figure 2b**). Generally, the terms of Session, schedule, and behavior task are equal concepts indeed. Utilizing the State Notion Pattern, a schedule is dissembled as a serials of States. Each State specifies a stimulus configuration in subject’s environment and a set of time and/or response requirements that cause state transition (**Figure 2a**). There is one and only one State to be active at any moment. Session will sequentially move from current State to next State, until reaching the terminal. 
 
-![GoNoGo](http://img.image-storage.com/3372520490/ff7e68d0a8bb4.png)
+![Go_NoGo schedule](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Go_NoGo_task.jpg)
 
 > **Diagram of Go/No-Go Task**
 
@@ -126,21 +134,21 @@ As for general purpose, the [**binary-release**](https://github.com/chenxinfeng4
 It's nature that different choices lead to different results. It's our first task to follow this schedule (below).  Even a proficient programmer may take half an hour to implement such schedule by using native Arduino C++ langue. However, ArControl makes things easier. Through a user-friendly GUI, there is no need to
 master any script language.
 
-![shedule](http://img.image-storage.com/734783758/fd28ea989ce64.gif)
+![shedule](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/choose3.gif)
 
 > **Sequent events of Light3 task**. You will get Yellow Ligth (4sec)  Green Ligth (3 sec) or Red Ligth (2 sec), depending on the your choice of Left, Right or Wait.
 
 The schedule was decomposed with ArControl Designer as figure below. This demo has been embeded in release version, and it can alse be found in `ArControl Designer> File > Open in > Light3`.
 
-![Light3](http://img.image-storage.com/734783758/d8716e4cdab94.png)
+![Light3](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/choose3_layout.png)
 
 >  **Light3 schedule is decomposed with ArControl Designer**. Besides, an extra restraint ("max loop = 10 -> Exit Session") is added.
 
-![Priority ranks](http://img.image-storage.com/734783758/8ed7fded7e904.png)
+![Priority ranks](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/priority_ranks.png)
 
 > Priority ranks (sequences) of `doXXX` and `whenXXX`. Items in `whenPin` are in equal priorities.
 
-![Light3 run](http://img.image-storage.com/734783758/d4d96b7692924.png)
+![Light3 run](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/choose3_run.png)
 
 > **Run a "Light3" task.** Data was viewed as log in "Data Stream" pannel, as table in middle pannel, as chart in right pannel, and was collected to data file under "Datafile Folder".
 
@@ -154,7 +162,7 @@ The `ArControl Designer` saved the previous `Light3` layout as *Light3.aconf*, a
 
 
 
-![Light3.ino](http://img.image-storage.com/734783758/8136a46b51194.png)
+![Light3.ino](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/choose3_ino.png)
 
 
 
@@ -172,15 +180,11 @@ Two common behavior tasks, a Go/No-Go task (Gomez et al., 2007; Dolzani et al., 
 
 The schedules were illustrated as figures below. This demos have been embeded in release version, and can be found in `ArControl Designer> File > Open in > Go_NoGo` and `ArControl Designer> File > Open in > twoAFPC` . 
 
-
-
-
-
-![Go_NoGo schedule](http://img.image-storage.com/734783758/a84e291b3b2b4.png)
+![Go_NoGo schedule](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Go_NoGo_task.jpg)
 
 > In the **Go/NoGo task**, mice were body restricted via a head bar and body tube (Guo et al., 2014) and were required to discriminate a go cue (tone) and a no-go cue (light). They would consequently get a reward (water-drop) or a punishment (air-puff) once they respond (lick) to the go cue (tone) or no-go cue (light) during a response window, respectively.
 
-![2AFPC task](http://img.image-storage.com/734783758/8473b8bee42a4.png)
+![2AFPC task](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/2AFPC_task.jpg)
 
 > In the **2AFPC task**, animals were required to initiate a trial by licking the central port, and sequentially move to a left or a right port to obtain a reward. Only one port was rewarded by 75% at a time. In 25% of trials, neither port was rewarded. If no reward was delivered, animals would be punished with an extra time out. Rewarded port was periodically switched across time.
 
