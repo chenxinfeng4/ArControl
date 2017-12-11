@@ -1,14 +1,15 @@
 function pfmats = BF_arc2mat(pfnames)
-% 转化 ArControl .txt 文件为 .mat。 可同时转化多个。
+%Convert ArControl .TXT to Matlab .MAT
 %function BF_arc2mat(pfnames)
-%----Input 参数---------
-% pfnames    : daq文件路径, 可省略
+%-------------Input Paras---------
+% pfnames    : TXT file from ArControl
 %
-%----Output 参数---------
-% pfmats     : mat文件路径，cell类型
+%-------------Output Para---------
+% pfmats     : file of generated MAT, cell type.
 %
-%----Example-------------
-%BF_arc2mat(); %弹出对话框
+%--------------Example-------------
+%BF_arc2mat(); %Pop up File Dialog
+%BF_arc2mat({'1.txt', '2.txt'});
 
 if ~exist('pfnames', 'var')
     pfnames = uigetfilemult('*.txt');
@@ -44,12 +45,12 @@ save(pfnew, '-struct', 'MAT');
 function pfname=uigetfilemult(varargin)
 [fname,pname]=uigetfile(varargin{:},'MultiSelect','on');
 switch class(fname)
-    case 'double'%没有载入文件
+    case 'double'%no file
         pfname={};
         return
-    case 'char' %载入一个文件
+    case 'char' %single file
         pfname={[pname,fname]};
-    case 'cell' %载入多个文件
+    case 'cell' %files
         pfname=cell(size(fname));
         for i=1:length(fname)
             pfname(i)={[pname,fname{i}]};
