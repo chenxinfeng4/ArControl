@@ -56,6 +56,6 @@
 
 ArControl使用 IN1-6 和 OUT1-8 来标注输入设备和输出设备。它们统一由软件来控制，由硬件来驱动。
 
-![demo4](E:\ArControl_ReportCollection\ArControl_github_realse\Readme\images\demo4.jpg)
+![demo4](./images/demo4.jpg)
 
 > 设备连接槽的工作示意图。

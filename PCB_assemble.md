@@ -58,6 +58,6 @@ The Server Board, in `ArControl_PCB/serverboard`, is a simple hub that makes lon
 
 The input and output devices are marked as *IN 1-6* and *OUT 1-8*, where they are identically managed managed through ArControl Software and powered by the **Device Connectors**.
 
-![demo4](E:\ArControl_ReportCollection\ArControl_github_realse\Readme\images\demo4.jpg)
+![demo4](./images/demo4.jpg)
 
 > Structure of Device Connector.
