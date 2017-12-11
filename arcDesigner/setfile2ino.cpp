@@ -377,7 +377,7 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                     inner = QString("cpp_keepon(OUT%1, %2);").arg(numPin).arg(t);
                 }
                 else if(outmode==DOM_BLINK){
-                    inner = QString("cpp_Hz_A(OUT%1, %2, %3, %4").arg(numPin).arg(t).arg(freq).arg(duty);
+                    inner = QString("cpp_Hz_A(OUT%1, %2, %3, %4);").arg(numPin).arg(t).arg(freq).arg(duty);
                 }
                 record_cond = format.arg(CxSx).arg(inner).arg(Strip_comm);
                 break;
