@@ -1,6 +1,11 @@
 ArControl (Arduino Controler) is an Arduino (UNO Rev3) real-time platform 
 for inputs detection and outputs stimulation. Academic researchers using ArControl
-should cite our paper (*on the way*) in their works.
+should cite the paper in their works.
+
+- Chen, X., and Li, H. (2017). ArControl: An Arduino-Based Comprehensive Behavioral 
+Platform with Real-Time Performance. Front. Behav. Neurosci. 11, 244. 
+doi: 10.3389/fnbeh.2017.00244.
+
 
     Copyright (C) 2017, Huazhong University of Science and Technology
 
@@ -22,4 +27,4 @@ should cite our paper (*on the way*) in their works.
 
 Chen Xinfeng
 chenxinfeng@hust.edu.cn
-Oct. 2017
+Dec. 2017

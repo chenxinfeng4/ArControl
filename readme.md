@@ -37,7 +37,7 @@ I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You ca
 
 ## Cite This
 
-- Xinfeng Chen, Haohong Li. 2017. Frontiers. ArControl: An Arduino-based comprehensive behavioral platform with real-time performance. (In Press).
+- **Chen, X.**, and Li, H. (2017). [ArControl: An Arduino-Based Comprehensive Behavioral Platform with Real-Time Performance.](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) Front. Behav. Neurosci. 11, 244. doi: 10.3389/fnbeh.2017.00244.
 
 ## Reference codes
 
