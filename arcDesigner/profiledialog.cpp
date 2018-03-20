@@ -175,8 +175,6 @@ void ProfileDialog::file_to_this()
     this->arduinoIDE = readItem(DOM_ARDUINO);
     // language
     this->lang = readItem(DOM_LANG, STR_L_LANG.at(0), STR_L_LANG);
-    //Input signal Low/High(true) as trigger!?
-    this->aiSignal = readItem(DOM_INPUTVOLTAGE, "LOW", STR_L_INPUT) == "HIGH";
     //record level
     this->recordLevel = readItem(DOM_RECORDLEVEL, "3", STR_L_LEVEL).toInt();
     //task name echo
@@ -214,8 +212,6 @@ void ProfileDialog::write_to_file(bool useGUI)
     addItem(DOM_ARDUINO, this->arduinoIDE, searchArduinoIDEinWin());
     //language
     addItem(DOM_LANG, this->lang, "English");
-    //Input signal Low/High as trigger!?
-    addItem(DOM_INPUTVOLTAGE, (this->aiSignal ? "HIGH" :"LOW"), "LOW");
     //record level
     addItem(DOM_RECORDLEVEL, QString::number(this->recordLevel), "3");
     //task name echo
@@ -243,8 +239,6 @@ void ProfileDialog::data_to_gui()
 {
     ui->lineEdit_pathIDE->setText(this->arduinoIDE);
     ui->comboBox_lang->setCurrentIndex(indexOf(STR_L_LANG, this->lang));
-    ui->radioButton_low->setChecked(!this->aiSignal);
-    ui->radioButton_high->setChecked(this->aiSignal);
     ui->comboBox_level->setCurrentIndex(this->recordLevel - 1);
     ui->CKB_echotask->setChecked(this->echoTask);
     ui->comboBox_start->setCurrentIndex(indexOf(STR_L_START, this->startModel));
@@ -255,7 +249,6 @@ void ProfileDialog::gui_to_data()
     this->arduinoIDE = ui->lineEdit_pathIDE->text();
     qDebug()<<"comboBox_lang"<<ui->comboBox_lang->currentIndex();
     this->lang = STR_L_LANG.at(ui->comboBox_lang->currentIndex());
-    this->aiSignal = ui->radioButton_high->isChecked();
     this->recordLevel = ui->comboBox_level->currentIndex() + 1;
     this->echoTask = ui->CKB_echotask->isChecked();
     this->startModel = STR_L_START.at(ui->comboBox_start->currentIndex());

@@ -18,8 +18,9 @@ namespace  GLOBAL_PARA {
                   DOM_TIME("time"), DOM_COUNT("count"), DOM_NEXTSTATE("nextstate"),
                   DOM_FIXED("fixed"), DOM_RANGE("range"), DOM_GOELSE("goelse"),
                   ATT_FIXED("fixed"), ATT_FROM("from"), ATT_TO("to"), ATT_PROB("probability"),
-                  ATT_GO("go"), ATT_ELSE("else"), ATT_ISCOMP("iscomponent");
-    const QString DOM_RECORDLEVEL("RECORD_LEVEL"), DOM_INPUTVOLTAGE("INPUT_VOLTAGE"), DOM_ECHOTASK("ECHO_TASK"),
+                  ATT_GO("go"), ATT_ELSE("else"), ATT_ISCOMP("iscomponent"),
+                  ATT_ISHIGH("isHigh");
+    const QString DOM_RECORDLEVEL("RECORD_LEVEL"), DOM_ECHOTASK("ECHO_TASK"),
                   DOM_START("START_MODEL"), DOM_LANG("LANG"), ATT_VALUE("value");
     const QStringList STR_L_STYPE = QStringList()
             <<"doVar"<<"doPin"<<"whenVar"<<"whenCount"<<"whenTime"<<"whenPin"; //state strip type
@@ -50,8 +51,12 @@ namespace  GLOBAL_PARA {
             << "rgb(4, 116, 217)" << "rgb(83, 140, 49)"   //whenVar whenCount
             << "rgb(80, 169, 194)" << "rgb(38, 222, 168)"; //whenTime whenPin
     const QString STYLE_LABEL  = "QLabel {background-color:%1;};";
+    const QString COMMENT_HINT("COMMENT itself won't affect task running at all, "\
+                               "but it's a good way to write notes.");
     const QString STATE_HINT("- etc: \"3\"  =>  \"C3S1\" or \"S3\"\n "\
                              "- WARN: \"0\"  =>  treat as SESION END");
+    const QString WHEN_ISHIGH_HINT("- CHECKED: It's trigged when signal is HIGH. \n"\
+                                   "- UNCHECKED:            wehn signal is LOW!");
     const QString COUNT_HINT("- etc: \"3\"  => the counter(c) increase at this STATE-entry, \n" \
                              "              when (c) equal to \"3\" , goto NextState & reset (c) \n"
                              "- WARN: \"0\"  =>  treat as \"+∞\", will never be satisfied");

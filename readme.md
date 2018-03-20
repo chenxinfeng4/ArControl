@@ -37,6 +37,8 @@ I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You ca
 
 ## Cite This
 
+Academic researchers using ArControl should cite our paper in their works.
+
 - **Chen, X.**, and Li, H. (2017). [ArControl: An Arduino-Based Comprehensive Behavioral Platform with Real-Time Performance.](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) Front. Behav. Neurosci. 11, 244. doi: 10.3389/fnbeh.2017.00244.
 
 ## Reference codes

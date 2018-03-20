@@ -50,5 +50,9 @@ void trDeclaration() //in order to support multi_language translation, by LINGUI
         QObject::tr("- etc: \"3\"  =>  3Hz");
         QObject::tr("- etc: \"3\"  =>  3% on, 97% off" );
         QObject::tr("- etc: \"3\"  =>  P(GO)=3%, P(ELSE)=97%");
+        QObject::tr("- CHECKED: It's trigged when signal is HIGH. \n"\
+                    "- UNCHECKED:            wehn signal is LOW!");
+        QObject::tr("COMMENT itself won't affect task running at all, "\
+                    "but it's a good way to write notes.");
     }
 }

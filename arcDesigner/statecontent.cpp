@@ -38,6 +38,7 @@ void StateContent::createUi(Ui::MainWindow *ui_)
 
     /* add TOOL_TIP_HINT */
     ui->comboBox_outMode->setToolTip(TR(OUTMODE_HINT));
+    ui->lineEdit_comm->setToolTip(TR(COMMENT_HINT));
     ui->lineEdit_Duty->setToolTip(TR(DUTY_HINT));
     ui->lineEdit_Freq->setToolTip(TR(FREQ_HINT));
     ui->lineEdit_stateProb->setToolTip(TR(PROB_HINT));
@@ -58,6 +59,7 @@ void StateContent::createUi(Ui::MainWindow *ui_)
     ui->lineEdit_stateGo->setToolTip(TR(STATE_HINT));
     ui->lineEdit_stateElse->setToolTip(TR(STATE_HINT));
     ui->lineEdit_stateFixed->setToolTip(TR(STATE_HINT));
+    ui->checkBox_inChan->setToolTip(TR(WHEN_ISHIGH_HINT));
 }
 
 StateContent *StateContent::getInstance()
@@ -162,7 +164,9 @@ void StateContent::gui_to_dom()
     }
     case whenPin:{
         int chan_num = ui->comboBox_inChan->currentIndex()+1;
+        bool is_high = ui->checkBox_inChan->isChecked();
         setAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER, QString::number(chan_num));
+        setAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, (is_high? "true":"false"));
         setHas_count_time_state(false, true, true);
         break;
     }
@@ -292,8 +296,10 @@ void StateContent::dom_to_gui()
     case StripType::whenPin: {
         ui->stackedMain->setCurrentIndex(STACK_IND_WHENPIN);
         ui->dockWidget->setWindowTitle(QObject::tr("whenPin"));
-        int chan_num = QString(getAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER)).toInt(); //1-8
+        int chan_num = QString(getAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER)).toInt(); //PIN 1-8
+        bool is_high = getAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, "true") == "true"; //HIGH or LOW
         ui->comboBox_inChan->setCurrentIndex(chan_num - 1);
+        ui->checkBox_inChan->setChecked(is_high);
         setHas_main_count_time_state(true, false, 0, true);
         setSpacer_stateHigh(true);
         break;

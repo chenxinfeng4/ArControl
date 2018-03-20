@@ -80,7 +80,6 @@ private:
     // status data
     QString arduinoIDE;
     QString lang;
-    bool aiSignal;
     bool echoTask;
     int  recordLevel; //[1 | 2 | 3]
     QString startModel;

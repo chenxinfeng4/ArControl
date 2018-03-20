@@ -47,7 +47,6 @@ struct pin_assign{
 
 bool get_echoTask(QDomElement dom_root);
 int get_recordLevel(QDomElement dom_root);
-bool get_inputVRevesal(QDomElement dom_root);
 QString get_startLevel(QDomElement dom_root);
 QList<var_assign> get_varAssign(QDomElement dom_root);
 QList<pin_assign> get_pinAssign(QDomElement dom_root);
@@ -71,6 +70,7 @@ void Setfile2INO::printIno(QString filePath)
     QFile fileIno(outIno);
     SCPP_ASSERT_THROW(fileIno.open(QFile::WriteOnly | QFile::Text),"Cannot open file!");
     QTextStream out(&fileIno);
+    out.setCodec("utf-8");
 
     /* get dom info */
     SCPP_ASSERT_THROW(!doc.isNull());
@@ -88,10 +88,6 @@ void Setfile2INO::printIno(QString filePath)
     //[1] if AI_REVERSE
     pL("///////////////////////////////////////////////////////////////////////////////////");
     pL("//////////////////////////////ArControl Style//////////////////////////////////////");
-    pL("// if AI_REVERSE");
-    if(get_inputVRevesal(dom_root)){
-        pL("#define AI_REVERSE		//IN1-6 signal rest at HIGH, work at LOW ");
-    }
     //[2] if echo_task
     pL("// if echo task name");
     if(get_echoTask(dom_root)){
@@ -229,12 +225,6 @@ int get_recordLevel(QDomElement dom_root) /* [1 | 2 | 3] */
     QString text = dom_root.firstChildElement(DOM_PROFILE).firstChildElement(DOM_RECORDLEVEL).text();
     SCPP_ASSERT_THROW( (QStringList()<<"1"<<"2"<<"3").contains(text) );
     return text.toInt();
-}
-bool get_inputVRevesal(QDomElement dom_root)/* [true | false] */
-{
-    QString text = dom_root.firstChildElement(DOM_PROFILE).firstChildElement(DOM_INPUTVOLTAGE).text();
-    SCPP_ASSERT_THROW( (QStringList()<<"HIGH"<<"LOW").contains(text) );
-    return text=="LOW";
 }
 QString get_startLevel(QDomElement dom_root) /* [0 | 1 | 2 | 3] */
 {
@@ -413,7 +403,9 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                 QString format = "\t%1->evtListener = []()-> bool {%2}; //%3";
                 name_switch = "evtListenerSTATE";
                 QString numPin = dom_s_s.firstChildElement(DOM_WHENPIN).attribute(ATT_NUMBER);
-                QString inner = QString("return cpp_ListenAI(IN%1);").arg(numPin);
+                bool is_high = dom_s_s.firstChildElement(DOM_WHENPIN).attribute(ATT_ISHIGH, "true")=="true";
+                QString pinValue = is_high?"HIGH":"LOW";
+                QString inner = QString("return cpp_ListenAI(IN%1, %2);").arg(numPin).arg(pinValue);
                 record_cond = format.arg(CxSx).arg(inner).arg(Strip_comm);
                 has_state = true;
                 break;
