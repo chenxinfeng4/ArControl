@@ -1,4 +1,4 @@
-# ArControl Guidence
+# ArControl Guidence (2017-12-11)
 ---
 ![logo1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/logo1.jpg)
 
@@ -30,7 +30,7 @@ Reference Codes
 ## Introduction
 
 ---
-> You can visit [Documents (Wiki)](https://github.com/chenxinfeng4/ArControl/wiki) for the lastest update, and check our paper [(Chen and Li, 2017)](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) for other details.
+> You are suggested to visit [Documents (Wiki)](https://github.com/chenxinfeng4/ArControl/wiki) for the lastest update, and check our paper [(Chen and Li, 2017)](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) for other details.
 
 ### What's the ArControl
 

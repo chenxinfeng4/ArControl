@@ -421,28 +421,12 @@ void cpp_Hz_B(int PinNum, float duration, float Hz_A, float Duty100_A, float Hz_
   cpp_HzDuty(PinNum, duration, Hz_A, Duty100_A / 100.0, Hz_B, Duty100_B / 100.0);
 }
 
-//cpp_Listen(int PinNum, boolean PinState)
-//    PinState is expectant-status, if so, return true.
-//    Suit for DI port
-//cpp_Listen(int PinNum, boolean PinState)
-//    PinState为预期的PinNumber引脚状态，如果的确是，则返回true
-//    适用于读取"数字输入"端口
-inline boolean cpp_Listen(int PinNum, boolean PinState = HIGH)
-{
-  return digitalRead(PinNum) == PinState;
-}
-
 //cpp_ListenAI(int PinNum, int PinValue, boolean mode)
 //    PinValue: = threshold; mode =1 beyond th,  =0 under th.
 //    Suit for AI port
 //cpp_ListenAI(int PinNum, int PinValue, boolean mode)
 //    PinValue: = 阈值; mode =1 高于阈值, =0 低于阈值
 //    适用于读取"模拟输入"端口
-#ifdef AI_REVERSE                      //LOW-V is signal
-const boolean defaultmode = LOW;
-#else                                  //HIGH-V is signal
-const boolean defaultmode = HIGH;
-#endif
 inline boolean cpp_ListenAI(int PinNum, boolean PinState = defaultmode)
 {
   return digitalRead(PinNum + A0) == PinState;     //A0==14 for Arduino-UNO

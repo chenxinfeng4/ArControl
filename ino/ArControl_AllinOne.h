@@ -26,7 +26,7 @@ extern const int AIpin[];
 //UNO_SPEEDUP  pinScaning():    [1.2  7    7    7    7    7    7]  us while work-pinScaning()-leisure.
 //                              [0.8  16   16   16   16   16  16]  us while work-pinScaning()-engaged (at least).
 //NONE UNO_SPEEDUP pinScaning():[1.2  9    18   24   29   34  40]  us while work-pinScaning()-leisure.
-//                              [1.2  9    18   24   29   34  40]  us while work-pinScaning()-leisure (at least).
+//                              [1.2  9    18   24   29   34  40]  us while work-pinScaning()-engaged (at least).
 void pinScaning()
 {
     static boolean doinit = 1;
