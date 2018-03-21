@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionPin_Assignment, SIGNAL(triggered(bool)), pinAssignDialog, SLOT(show()));
     connect(ui->actionVar_Assignment, SIGNAL(triggered(bool)), varAssignDialog, SLOT(show()));
     connect(ui->actionProfile, SIGNAL(triggered(bool)), profileDialog, SLOT(show()));
+    connect(ui->actionAbout_me, SIGNAL(triggered(bool)),   this, SLOT(on_action_aboutme_triggered()));
 
     /* connect signal slot in CLASS */
     connect(designerSetFile, SIGNAL(want_settings_take()), stateContent, SLOT(gui_to_dom())); //this => file
@@ -117,4 +118,19 @@ void MainWindow::tastList_changed(const QStringList & taskList)
         MN_taskList << ac;
     }
     ui->menuOpen_in->addActions(MN_taskList);
+}
+
+void MainWindow::on_action_aboutme_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowIcon(this->windowIcon());
+    msgBox.setWindowTitle("About ArControl");
+    msgBox.setText(QString("").append(VERSION_INFO::VERSION_NUM)
+                   .append("    (").append(VERSION_INFO::VERSION_TIME).append(")").append("<br><br>")
+                   .append("Further: <a href = https://github.com/chenxinfeng4/ArControl>tutorials</a>").append("<br>")
+                   .append("Cite: <a href = https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full>this work</a> <br>")
+                   .append("Authour: Xinfeng Chen (陈昕枫) <br>")
+                   .append("Open source: <u>GNU LGPL v2.1</u>"));
+
+    msgBox.exec();
 }

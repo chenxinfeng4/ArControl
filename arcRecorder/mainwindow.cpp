@@ -14,6 +14,7 @@
 #include "onlinesetfile.h"
 #include "profilereader.h"
 #include "arcfirmata/arcfirmata.h"
+#include "globalparas.h"
 #include <QtSerialPort/QSerialPort>
 #include <QThread>
 #include <QFileDialog>
@@ -69,6 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNew,  SIGNAL(triggered(bool)),       onlineSetFile, SLOT(want_task_new()));
     connect(ui->actionSave_as_default, SIGNAL(triggered(bool)), onlineSetFile, SLOT(want_task_savedefault()));
     connect(ui->actionExit, SIGNAL(triggered(bool)),       this,          SLOT(close()));
+    connect(ui->actionAbout_me, SIGNAL(triggered(bool)),   this, SLOT(on_action_aboutme_triggered()));
 
     connect(onlineSetFile, SIGNAL(give_table(bool,QString,QString,bool)), onlineTable, SLOT(giveto_this(bool,QString,QString,bool)));
     connect(onlineSetFile, SIGNAL(clean_table()),          onlineTable, SLOT(clean_table()));
@@ -159,4 +161,19 @@ void MainWindow::on_actionFirmata_Test_triggered()
 
     /* show window */
     arcFirmata->showNormal();
+}
+
+void MainWindow::on_action_aboutme_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowIcon(this->windowIcon());
+    msgBox.setWindowTitle("About ArControl");
+    msgBox.setText(QString("").append(VERSION_INFO::VERSION_NUM)
+                   .append("    (").append(VERSION_INFO::VERSION_TIME).append(")").append("<br><br>")
+                   .append("Further: <a href = https://github.com/chenxinfeng4/ArControl>tutorials</a>").append("<br>")
+                   .append("Cite: <a href = https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full>this work</a> <br>")
+                   .append("Authour: Xinfeng Chen (陈昕枫) <br>")
+                   .append("Open source: <u>GNU LGPL v2.1</u>"));
+
+    msgBox.exec();
 }

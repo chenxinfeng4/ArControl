@@ -149,162 +149,158 @@
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="386"/>
+        <location filename="mainwindow.ui" line="385"/>
         <source>Arduino</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="413"/>
+        <location filename="mainwindow.ui" line="412"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="422"/>
+        <location filename="mainwindow.ui" line="421"/>
         <source>HelloWorld</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="443"/>
+        <location filename="mainwindow.ui" line="442"/>
         <source>Freeze</source>
         <translation>界面冻结</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="456"/>
+        <location filename="mainwindow.ui" line="455"/>
         <source>AutoC</source>
         <translation>自动清除</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="485"/>
+        <location filename="mainwindow.ui" line="484"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="498"/>
+        <location filename="mainwindow.ui" line="497"/>
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="513"/>
+        <location filename="mainwindow.ui" line="512"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="516"/>
+        <location filename="mainwindow.ui" line="515"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="530"/>
+        <location filename="mainwindow.ui" line="529"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="533"/>
+        <location filename="mainwindow.ui" line="532"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="538"/>
+        <location filename="mainwindow.ui" line="537"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="541"/>
+        <location filename="mainwindow.ui" line="540"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="546"/>
+        <location filename="mainwindow.ui" line="545"/>
         <source>Save as</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="549"/>
+        <location filename="mainwindow.ui" line="548"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="554"/>
+        <location filename="mainwindow.ui" line="553"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="557"/>
+        <location filename="mainwindow.ui" line="556"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="565"/>
+        <location filename="mainwindow.ui" line="564"/>
         <source>Stream Window</source>
         <translation>数据流窗口</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="570"/>
-        <source>about me</source>
+        <location filename="mainwindow.ui" line="569"/>
+        <source>About me</source>
+        <oldsource>about me</oldsource>
         <translation>关于 我</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="575"/>
-        <source>About Qt</source>
-        <translation>关于 Qt</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="580"/>
+        <location filename="mainwindow.ui" line="579"/>
         <source>Eject</source>
         <translation>弹出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="583"/>
+        <location filename="mainwindow.ui" line="582"/>
         <source>hello world</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="586"/>
+        <location filename="mainwindow.ui" line="585"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="591"/>
+        <location filename="mainwindow.ui" line="590"/>
         <source>Reload</source>
         <translation>重新连接</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="594"/>
+        <location filename="mainwindow.ui" line="593"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="599"/>
+        <location filename="mainwindow.ui" line="598"/>
         <source>Eject All</source>
         <translation>弹出所有</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="604"/>
+        <location filename="mainwindow.ui" line="603"/>
         <source>Info</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="607"/>
+        <location filename="mainwindow.ui" line="606"/>
         <source>Ctrl+I</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="612"/>
+        <location filename="mainwindow.ui" line="611"/>
         <source>Save as default</source>
         <translation>保存为默认</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="617"/>
+        <location filename="mainwindow.ui" line="616"/>
         <source>Firmata Test</source>
         <translation>Firmata 测试</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="126"/>
+        <location filename="mainwindow.cpp" line="129"/>
         <source>Exit Application</source>
         <translation>退出程序</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="127"/>
+        <location filename="mainwindow.cpp" line="130"/>
         <source>A task is being RUNNING, sure to exit now?</source>
         <translation>有任务正在运行, 确定立即退出?</translation>
     </message>
@@ -325,28 +321,28 @@
 <context>
     <name>OnlineManagerBar</name>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="49"/>
+        <location filename="onlinemanagerbar.cpp" line="50"/>
         <source>Project</source>
         <translation>项目</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="49"/>
-        <location filename="onlinemanagerbar.cpp" line="87"/>
+        <location filename="onlinemanagerbar.cpp" line="50"/>
+        <location filename="onlinemanagerbar.cpp" line="88"/>
         <source>Add a new item:</source>
         <translation>添加一个新的:</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="87"/>
+        <location filename="onlinemanagerbar.cpp" line="88"/>
         <source>Subject</source>
         <translation>子项</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="152"/>
+        <location filename="onlinemanagerbar.cpp" line="163"/>
         <source>STOP</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="168"/>
+        <location filename="onlinemanagerbar.cpp" line="179"/>
         <source>START</source>
         <translation>开始</translation>
     </message>
@@ -464,62 +460,62 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="serialcheck.cpp" line="40"/>
+        <location filename="serialcheck.cpp" line="39"/>
         <source>Connecting ...</source>
         <translation>正在连接 ...</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="50"/>
+        <location filename="serialcheck.cpp" line="49"/>
         <source>Try Baund-Rate: %1</source>
         <translation>尝试 波特率: %1</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="224"/>
+        <location filename="serialcheck.cpp" line="223"/>
         <source>Port: </source>
         <translation>端口: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="225"/>
+        <location filename="serialcheck.cpp" line="224"/>
         <source>Location: </source>
         <translation>位置: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="226"/>
+        <location filename="serialcheck.cpp" line="225"/>
         <source>Description: </source>
         <translation>描述: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="227"/>
+        <location filename="serialcheck.cpp" line="226"/>
         <source>Manufacturer: </source>
         <translation>制造商: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="228"/>
+        <location filename="serialcheck.cpp" line="227"/>
         <source>Serial number: </source>
         <translation>串口编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="229"/>
+        <location filename="serialcheck.cpp" line="228"/>
         <source>Vendor Identifier: </source>
         <translation>制造商编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="230"/>
+        <location filename="serialcheck.cpp" line="229"/>
         <source>Product Identifier: </source>
         <translation>产品编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="231"/>
+        <location filename="serialcheck.cpp" line="230"/>
         <source>Busy: </source>
         <translation>忙碌: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="231"/>
+        <location filename="serialcheck.cpp" line="230"/>
         <source>Yes</source>
         <translation>是的</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="231"/>
+        <location filename="serialcheck.cpp" line="230"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -532,13 +528,13 @@
 <context>
     <name>SerialCheck</name>
     <message>
-        <location filename="serialcheck.cpp" line="186"/>
-        <location filename="serialcheck.cpp" line="191"/>
+        <location filename="serialcheck.cpp" line="185"/>
+        <location filename="serialcheck.cpp" line="190"/>
         <source>Reload</source>
         <translation>重新连接</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="222"/>
+        <location filename="serialcheck.cpp" line="221"/>
         <source>Serial List</source>
         <translation>串口信息列表</translation>
     </message>

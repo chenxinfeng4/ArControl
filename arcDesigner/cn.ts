@@ -47,321 +47,331 @@
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="139"/>
+        <location filename="mainwindow.ui" line="80"/>
+        <source>Help</source>
+        <translation>帮助</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="146"/>
         <source>Comment</source>
         <translation>注释</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="190"/>
+        <location filename="mainwindow.ui" line="197"/>
         <source>Insert Global Vars:</source>
         <translation>插入 &quot;变量&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="209"/>
+        <location filename="mainwindow.ui" line="216"/>
         <source>Var_A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="214"/>
+        <location filename="mainwindow.ui" line="221"/>
         <source>Var_B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="222"/>
+        <location filename="mainwindow.ui" line="229"/>
         <source>//write your code(Arduino C++)
 // to calculate Vars.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="262"/>
-        <location filename="mainwindow.ui" line="431"/>
+        <location filename="mainwindow.ui" line="269"/>
+        <location filename="mainwindow.ui" line="438"/>
         <source>Channel</source>
         <translation>通道</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="270"/>
+        <location filename="mainwindow.ui" line="277"/>
         <source>OUT1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="275"/>
+        <location filename="mainwindow.ui" line="282"/>
         <source>OUT2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="280"/>
+        <location filename="mainwindow.ui" line="287"/>
         <source>OUT3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="288"/>
+        <location filename="mainwindow.ui" line="295"/>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="296"/>
+        <location filename="mainwindow.ui" line="303"/>
         <source>Turn</source>
         <translation>开启/关闭</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="301"/>
+        <location filename="mainwindow.ui" line="308"/>
         <source>KeepOn</source>
         <translation>持续开启</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="306"/>
+        <location filename="mainwindow.ui" line="313"/>
         <source>Blink</source>
         <translation>闪烁</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="341"/>
+        <location filename="mainwindow.ui" line="348"/>
         <source>Turn On</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="382"/>
+        <location filename="mainwindow.ui" line="389"/>
         <source>Freq</source>
         <translatorcomment>占空比(%)</translatorcomment>
         <translation>频率</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="392"/>
+        <location filename="mainwindow.ui" line="399"/>
         <source>Duty(%)</source>
         <translation>占空比(%)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="439"/>
+        <location filename="mainwindow.ui" line="446"/>
         <source>IN1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="444"/>
+        <location filename="mainwindow.ui" line="451"/>
         <source>IN2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="449"/>
+        <location filename="mainwindow.ui" line="456"/>
         <source>IN3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="454"/>
+        <location filename="mainwindow.ui" line="461"/>
         <source>IN4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="459"/>
+        <location filename="mainwindow.ui" line="466"/>
         <source>IN5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="464"/>
+        <location filename="mainwindow.ui" line="471"/>
         <source>IN6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="472"/>
+        <location filename="mainwindow.ui" line="479"/>
         <source>Signal</source>
         <translation>触发信号</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="479"/>
+        <location filename="mainwindow.ui" line="486"/>
         <source>Is High</source>
         <translation>高(/低) 电平</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="512"/>
+        <location filename="mainwindow.ui" line="519"/>
         <source>Count</source>
         <translation>计数</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="519"/>
-        <location filename="mainwindow.ui" line="568"/>
-        <location filename="mainwindow.ui" line="758"/>
-        <location filename="mainwindow.ui" line="807"/>
-        <location filename="mainwindow.ui" line="1025"/>
-        <location filename="mainwindow.ui" line="1091"/>
+        <location filename="mainwindow.ui" line="526"/>
+        <location filename="mainwindow.ui" line="575"/>
+        <location filename="mainwindow.ui" line="765"/>
+        <location filename="mainwindow.ui" line="814"/>
+        <location filename="mainwindow.ui" line="1032"/>
+        <location filename="mainwindow.ui" line="1098"/>
         <source>Fixed</source>
         <translation>固定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="524"/>
-        <location filename="mainwindow.ui" line="763"/>
-        <location filename="mainwindow.ui" line="1030"/>
+        <location filename="mainwindow.ui" line="531"/>
+        <location filename="mainwindow.ui" line="770"/>
+        <location filename="mainwindow.ui" line="1037"/>
         <source>Range</source>
         <translation>范围随机</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="529"/>
-        <location filename="mainwindow.ui" line="768"/>
-        <location filename="mainwindow.ui" line="1035"/>
+        <location filename="mainwindow.ui" line="536"/>
+        <location filename="mainwindow.ui" line="775"/>
+        <location filename="mainwindow.ui" line="1042"/>
         <source>GoElse</source>
         <translation>双向概率随机</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="626"/>
-        <location filename="mainwindow.ui" line="865"/>
-        <location filename="mainwindow.ui" line="1159"/>
+        <location filename="mainwindow.ui" line="633"/>
+        <location filename="mainwindow.ui" line="872"/>
+        <location filename="mainwindow.ui" line="1166"/>
         <source>To</source>
         <translation>到</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="636"/>
-        <location filename="mainwindow.ui" line="875"/>
-        <location filename="mainwindow.ui" line="1146"/>
+        <location filename="mainwindow.ui" line="643"/>
+        <location filename="mainwindow.ui" line="882"/>
+        <location filename="mainwindow.ui" line="1153"/>
         <source>Rand From</source>
         <translation>随机 从</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="673"/>
-        <location filename="mainwindow.ui" line="912"/>
-        <location filename="mainwindow.ui" line="1196"/>
+        <location filename="mainwindow.ui" line="680"/>
+        <location filename="mainwindow.ui" line="919"/>
+        <location filename="mainwindow.ui" line="1203"/>
         <source>Prob(%)</source>
         <translation>概率(%)</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="689"/>
-        <location filename="mainwindow.ui" line="928"/>
-        <location filename="mainwindow.ui" line="1209"/>
-        <source>Probability 0-100</source>
-        <translation>概率 0-100</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="696"/>
         <location filename="mainwindow.ui" line="935"/>
         <location filename="mainwindow.ui" line="1216"/>
+        <source>Probability 0-100</source>
+        <translation>概率 0-100</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="703"/>
+        <location filename="mainwindow.ui" line="942"/>
+        <location filename="mainwindow.ui" line="1223"/>
         <source>Go</source>
         <translation>则</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="716"/>
-        <location filename="mainwindow.ui" line="955"/>
-        <location filename="mainwindow.ui" line="1236"/>
+        <location filename="mainwindow.ui" line="723"/>
+        <location filename="mainwindow.ui" line="962"/>
+        <location filename="mainwindow.ui" line="1243"/>
         <source>Else</source>
         <translation>否则</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="751"/>
+        <location filename="mainwindow.ui" line="758"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1003"/>
+        <location filename="mainwindow.ui" line="1010"/>
         <source>Go State</source>
         <translation>跳转 &quot;状态机&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1043"/>
+        <location filename="mainwindow.ui" line="1050"/>
         <source>State</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1053"/>
+        <location filename="mainwindow.ui" line="1060"/>
         <source>Component</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1267"/>
+        <location filename="mainwindow.ui" line="1274"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1270"/>
+        <location filename="mainwindow.ui" line="1277"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1275"/>
+        <location filename="mainwindow.ui" line="1282"/>
         <source>Save as</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1278"/>
+        <location filename="mainwindow.ui" line="1285"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1283"/>
+        <location filename="mainwindow.ui" line="1290"/>
         <source>Save as default</source>
         <translation>另存为默认</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1288"/>
+        <location filename="mainwindow.ui" line="1295"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1291"/>
+        <location filename="mainwindow.ui" line="1298"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1296"/>
+        <location filename="mainwindow.ui" line="1303"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1299"/>
+        <location filename="mainwindow.ui" line="1306"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1304"/>
+        <location filename="mainwindow.ui" line="1311"/>
         <source>Pin Assignment</source>
         <translation>硬件引脚管理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1309"/>
+        <location filename="mainwindow.ui" line="1316"/>
         <source>Var Assignment</source>
         <translation>变量管理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1314"/>
+        <location filename="mainwindow.ui" line="1321"/>
         <source>Profile</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1319"/>
+        <location filename="mainwindow.ui" line="1326"/>
         <source>Minimum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1324"/>
+        <location filename="mainwindow.ui" line="1331"/>
         <source>Maxmum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1329"/>
+        <location filename="mainwindow.ui" line="1336"/>
         <source>Preferred</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1334"/>
+        <location filename="mainwindow.ui" line="1341"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1339"/>
+        <location filename="mainwindow.ui" line="1346"/>
         <source>tans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1344"/>
+        <location filename="mainwindow.ui" line="1351"/>
         <source>Ignored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1349"/>
+        <location filename="mainwindow.ui" line="1356"/>
         <source>trans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1352"/>
+        <location filename="mainwindow.ui" line="1359"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="87"/>
+        <location filename="mainwindow.ui" line="1364"/>
+        <source>About me</source>
+        <translation>关于 我</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="88"/>
         <source>Are your sure to EXIT?</source>
         <translation>是否退出?</translation>
     </message>

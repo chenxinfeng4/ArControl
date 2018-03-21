@@ -61,6 +61,7 @@ private:
 
 private slots:
     void tastList_changed(const QStringList &);
+    void on_action_aboutme_triggered();
 };
 
 #endif // MAINWINDOW_H

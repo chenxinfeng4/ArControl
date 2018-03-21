@@ -45,6 +45,7 @@ private slots:
 
     void on_actionFirmata_Test_triggered();
 
+    void on_action_aboutme_triggered();
 private:
     Ui::MainWindow *ui;
 };
