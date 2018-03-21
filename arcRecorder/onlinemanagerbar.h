@@ -48,6 +48,7 @@ public slots:
     void on_COB_proj_activated(const QString &arg1);
     void on_COB_subj_activated(const QString &arg1);
     void on_BTN_start_clicked();
+    void when_serial_isconnected(bool); //when Serial port is connected
     void when_spont_start();
     void when_spont_stop();
     void when_press_start();        //emit raise_press_start()

@@ -30,6 +30,7 @@ OnlineManagerBar::OnlineManagerBar(QObject *parent,
     if(this->COB_proj->count()>0)
         this->on_COB_proj_activated(this->COB_proj->currentText());
     this->LE_time->setStyleSheet(stopBG);
+    this->BTN_start->setEnabled(false);
     /* connect SINGAL with SLOT */
     connect(COB_proj, SIGNAL(activated(QString)), this, SLOT(on_COB_proj_activated(QString)) );
     connect(COB_subj, SIGNAL(activated(QString)), this, SLOT(on_COB_subj_activated(QString)) );
@@ -121,6 +122,16 @@ void OnlineManagerBar::on_BTN_start_clicked()
         this->when_press_stop();
     }
 }
+void OnlineManagerBar::when_serial_isconnected(bool isconnected)
+{
+    if(isconnected){           /*connected to serial */
+        this->BTN_start->setEnabled(true);
+    }
+    else if(!this->startstuts){ /*no serial & not during RECORDING */
+        this->BTN_start->setEnabled(false);
+    }
+}
+
 void OnlineManagerBar::when_spont_start()
 {
     this->startme();

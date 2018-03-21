@@ -136,12 +136,12 @@ TasktoArduino::TasktoArduino(QObject *parent,
 }
 void TasktoArduino::when_stdout_ready()
 {
-    const QString str = this->process->readAllStandardOutput();
+    const QString str = QString::fromLocal8Bit(this->process->readAllStandardOutput());
     emit send_stdout(str);
 }
 void TasktoArduino::when_stderr_ready()
 {
-    const QString str = this->process->readAllStandardError();
+    const QString str = QString::fromLocal8Bit(this->process->readAllStandardError());
     emit send_stderr(str);
 }
 void TasktoArduino::want_process_kill()

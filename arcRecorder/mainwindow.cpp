@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(onlineManagerBar, SIGNAL(raise_press_stop()), serialFlowControl, SLOT(when_press_stop()));
     connect(onlineManagerBar,  SIGNAL(changeFdir(QString&)),serialFlowControl,SLOT(when_dataDir_change(QString&)));
     connect(onlineManagerBar, SIGNAL(stop()),             serialCheck, SLOT(on_AC_reload()));
+    connect(serialFlowControl, SIGNAL(raise_isconnect(bool)),onlineManagerBar,SLOT(when_serial_isconnected(bool)));
     connect(serialFlowControl, SIGNAL(raise_spont_start()), onlineManagerBar, SLOT(when_spont_start()));
     connect(serialFlowControl, SIGNAL(raise_spont_stop()),  onlineManagerBar, SLOT(when_spont_stop()));
     connect(tasktoArduino   ,  SIGNAL(raise_eject()),      serialCheck, SLOT(on_AC_eject()));

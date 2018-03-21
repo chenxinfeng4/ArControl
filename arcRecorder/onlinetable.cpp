@@ -37,7 +37,7 @@ OnlineTable::OnlineTable(QObject *parent,
     tableWidget->setEditTriggers(QAbstractItemView::DoubleClicked);
     tableWidget->setEnabled(true);
     QStringList str_headers;
-    str_headers << "Vis." << "Key" << "Comment" << "Count";
+    str_headers << tr("Vis.") << tr("Key") << tr("Comment") << tr("Count");
     tableWidget->setHorizontalHeaderLabels(str_headers);
 
 #ifndef GLOBALLY_INIT_ON

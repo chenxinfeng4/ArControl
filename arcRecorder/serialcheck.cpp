@@ -15,8 +15,7 @@
 
 using namespace SERIALCHECK_PARA;
 using namespace SERIALCHECK_PRIVATE;
-const QList<int> BAUDRATE_LIST = {250000, 9600, 230400,115200,74880, 57600,
-                                  38400, 19200, 4800, 2400, 1200, 300};
+const QList<int> BAUDRATE_LIST = {250000, 9600};
 
 void SERIALCHECK_PRIVATE::autoBaundRate(QSerialPort *serial, int &baund_pre, bool &ok)
 {

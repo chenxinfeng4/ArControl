@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="zh_CN">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>ArcFirmata</name>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="20"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="22"/>
         <source>ArControl Firmata</source>
         <translation>ArControl Firmata</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="137"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="139"/>
         <source>Connectting to %1!</source>
         <translation>连接到 %1!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="143"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="145"/>
         <source>ERROR: %1 may be USING by other program!</source>
         <translation>错误: %1 可能正在被其它程序使用!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="154"/>
-        <location filename="arcfirmata/arcfirmata.cpp" line="155"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="156"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="157"/>
         <source>Successed to disconnect!</source>
         <translation>成功关闭连接!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="173"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="175"/>
         <source>Successed to connect!</source>
         <translation>成功建立连接!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="209"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="211"/>
         <source>Waiting for loading!</source>
         <translation>等待加载!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="213"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="215"/>
         <source>Successed to load!</source>
         <translation>成功加载!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="218"/>
-        <location filename="arcfirmata/arcfirmata.cpp" line="222"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="220"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="224"/>
         <source>ERROR: fail to load!</source>
         <translation>错误: 加载失败!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="241"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="243"/>
         <source>initialize</source>
         <translation>初始化</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="242"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="244"/>
         <source>connect</source>
         <translation>建立连接</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="243"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="245"/>
         <source>disconnect</source>
         <translation>关闭连接</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="245"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="247"/>
         <source>Serial:</source>
         <translation>串口:</translation>
     </message>
@@ -371,19 +371,42 @@
     </message>
 </context>
 <context>
+    <name>OnlineTable</name>
+    <message>
+        <location filename="onlinetable.cpp" line="40"/>
+        <source>Vis.</source>
+        <translation>显示</translation>
+    </message>
+    <message>
+        <location filename="onlinetable.cpp" line="40"/>
+        <source>Key</source>
+        <translation>观测项</translation>
+    </message>
+    <message>
+        <location filename="onlinetable.cpp" line="40"/>
+        <source>Comment</source>
+        <translation>注释</translation>
+    </message>
+    <message>
+        <location filename="onlinetable.cpp" line="40"/>
+        <source>Count</source>
+        <translation>计数</translation>
+    </message>
+</context>
+<context>
     <name>PIN_AI</name>
     <message>
-        <location filename="arcfirmata/pin_ai.cpp" line="22"/>
+        <location filename="arcfirmata/pin_ai.cpp" line="24"/>
         <source>analog input  </source>
         <translation>模拟输入</translation>
     </message>
     <message>
-        <location filename="arcfirmata/pin_ai.cpp" line="22"/>
+        <location filename="arcfirmata/pin_ai.cpp" line="24"/>
         <source>digital input </source>
         <translation>数字输入</translation>
     </message>
     <message>
-        <location filename="arcfirmata/pin_ai.cpp" line="23"/>
+        <location filename="arcfirmata/pin_ai.cpp" line="25"/>
         <source>digital output</source>
         <translation>数字输出</translation>
     </message>
@@ -391,17 +414,17 @@
 <context>
     <name>PIN_DO</name>
     <message>
-        <location filename="arcfirmata/pin_do.cpp" line="26"/>
+        <location filename="arcfirmata/pin_do.cpp" line="30"/>
         <source>digital input </source>
         <translation>数字输入</translation>
     </message>
     <message>
-        <location filename="arcfirmata/pin_do.cpp" line="26"/>
+        <location filename="arcfirmata/pin_do.cpp" line="30"/>
         <source>digital output</source>
         <translation>数字输出</translation>
     </message>
     <message>
-        <location filename="arcfirmata/pin_do.cpp" line="28"/>
+        <location filename="arcfirmata/pin_do.cpp" line="32"/>
         <source>digital pwm  </source>
         <translation>脉冲宽调制输出</translation>
     </message>
@@ -526,7 +549,7 @@
         <location filename="tasktoarduino.cpp" line="46"/>
         <location filename="tasktoarduino.cpp" line="65"/>
         <source>Abort</source>
-        <translation>关于</translation>
+        <translation>停止</translation>
     </message>
     <message>
         <location filename="tasktoarduino.cpp" line="51"/>
