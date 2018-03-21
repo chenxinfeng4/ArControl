@@ -427,7 +427,7 @@ void cpp_Hz_B(int PinNum, float duration, float Hz_A, float Duty100_A, float Hz_
 //cpp_ListenAI(int PinNum, int PinValue, boolean mode)
 //    PinValue: = 阈值; mode =1 高于阈值, =0 低于阈值
 //    适用于读取"模拟输入"端口
-inline boolean cpp_ListenAI(int PinNum, boolean PinState = defaultmode)
+inline boolean cpp_ListenAI(int PinNum, boolean PinState = HIGH)
 {
   return digitalRead(PinNum + A0) == PinState;     //A0==14 for Arduino-UNO
 }
