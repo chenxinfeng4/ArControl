@@ -198,7 +198,7 @@ void ArcFirmata::onInitTask()
         p.setProgram(arduino_debug);
         p.setArguments(arglist);
         connect(&p, &QProcess::readyReadStandardError, [&](){
-            QString msg = QString(p.readAllStandardError());
+            QString msg = QString::fromLocal8Bit(p.readAllStandardError()); //Correct Windows non-EN char-set
             qDebug()<<msg;
             statusBar()->showMessage(msg);
         });
@@ -209,7 +209,7 @@ void ArcFirmata::onInitTask()
         });
         p.start();
         statusBar()->showMessage(tr("Waiting for loading!"));
-        p.waitForFinished(25000);
+        p.waitForFinished(40000);
         if(p.exitStatus()==QProcess::NormalExit && p.exitCode()==0){
             /* success to upload */
             statusBar()->showMessage(tr("Successed to load!"), 2000);

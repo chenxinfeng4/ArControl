@@ -256,7 +256,7 @@ void SerialFlowControl::when_real_start()
         this->datafile->close();
     }
 
-    QString fname = QDateTime::currentDateTime().toString("yyMMddHHmmss") + ".txt";
+    QString fname = QDateTime::currentDateTime().toString("yyyy-MMdd-HHmmss") + ".txt";
     QString pfname = this->datadir + "/" + fname;
     this->datafile->setFileName(pfname);
     if(!this->datafile->open(QIODevice::WriteOnly)) {

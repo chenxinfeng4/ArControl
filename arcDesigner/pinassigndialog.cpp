@@ -1,4 +1,4 @@
-#include "pinassigndialog.h"
+﻿#include "pinassigndialog.h"
 #include "ui_pinassigndialog.h"
 #include "globalparas.h"
 
@@ -33,7 +33,7 @@ void PinAssignDialog::initUi()
         QTableWidget * tableWidget = (icase? ui->tableInput : ui->tableOutput);
         const int colCount(3), rowCount = (icase? IN_CHAN_COUNT : OUT_CHAN_COUNT);
         QStringList str_h_headers, str_v_headers;
-        str_h_headers << "Pin" << "Enable" << "Comment";
+        str_h_headers << tr("Pin") << tr("Enable") << tr("Comment");
         QString label1 = (icase? "IN%1" : "OUT%1"); //"IN1 - IN6", "OUT1 - OUT8"
         QString label2 = (icase? "A%1"  : "D%1");   //"A0  - A5" , "D2   - D9"
         const char size_h_headers[colCount] = {50, 50, 100}; //colum width

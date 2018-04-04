@@ -426,6 +426,21 @@
         <source>Output</source>
         <translation>输出通道</translation>
     </message>
+    <message>
+        <location filename="pinassigndialog.cpp" line="36"/>
+        <source>Pin</source>
+        <translation>引脚</translation>
+    </message>
+    <message>
+        <location filename="pinassigndialog.cpp" line="36"/>
+        <source>Enable</source>
+        <translation>启用</translation>
+    </message>
+    <message>
+        <location filename="pinassigndialog.cpp" line="36"/>
+        <source>Comment</source>
+        <translation>注释</translation>
+    </message>
 </context>
 <context>
     <name>ProfileDialog</name>
