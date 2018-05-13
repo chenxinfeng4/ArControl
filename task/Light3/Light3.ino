@@ -9,6 +9,30 @@ const char taskName[] = __FILE__;
 #include "E:/ArControl_ReportCollection/ArControl_github_realse/ino/ArControl.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////task info///////////////////////////////////////////
+#define INFO "" \
+		"@OUT1:#Green\n" \
+		"@OUT2:#Red\n" \
+		"@OUT3:#Yellow\n" \
+		"@OUT4:#4\n" \
+		"@OUT5:#5\n" \
+		"@OUT6:#6\n" \
+		"@OUT7:#7\n" \
+		"@OUT8:#8\n" \
+		"@IN1:#LeftPoke\n" \
+		"@IN2:#RightPoke\n" \
+		"@IN3:#3\n" \
+		"@IN4:#4\n" \
+		"@IN5:#5\n" \
+		"@IN6:#6\n" \
+		"@C1:Light3 (loop=10)\n" \
+		"@C1S1:Swither\n" \
+		"@C1S2:Green 3sec\n" \
+		"@C1S3:Red 2sec\n" \
+		"@C1S4:Yellow 4sec\n" \
+		""
+
+///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////global vars/////////////////////////////////////////
 double Var_1 = -2;
 double Var_2 = 0;
@@ -31,7 +55,7 @@ const int  IN4 = 3; 	//#4
 const int  IN5 = 4; 	//#5
 const int  IN6 = 5; 	//#6
 void hardware_SETUP(){
-	Serial.begin(250000);
+	Serial.print(F(INFO));
 	pinMode(OUT1, OUTPUT);
 	pinMode(OUT2, OUTPUT);
 	pinMode(OUT3, OUTPUT);

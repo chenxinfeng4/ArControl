@@ -15,21 +15,52 @@ if ~exist('pfnames', 'var')
     pfnames = uigetfilemult('*.txt');
 end
 pfmats = cell(size(pfnames));
-for i=1:length(pfnames);
+for i=1:length(pfnames)
+    pfmats{i} = trans(pfnames{i});
+end
+
+if ~exist('pfnames', 'var')
+    pfnames = uigetfilemult('*.txt');
+end
+pfmats = cell(size(pfnames));
+for i=1:length(pfnames)
     pfmats{i} = trans(pfnames{i});
 end
 
 %%
 function pfnew = trans(pf)
-[~, f, ~] = fileparts(pf);
-pfnew = regexprep(pf, '\.txt$', '.mat');
+pfnew = regexprep(pf, '\.txt$', '_arc.mat');
 MAT = struct();
-fid = fopen(pf);
+fid = fopen(pf, 'r', 'n', 'utf-8');
 frewind(fid); %to the begin of file;
+
+% header %
+expression_header = '^@(IN\d+|OUT\d+|C\d+|C\d+S\d+):(.*)$';
+expression_taskname = '^-----(\w+)-----$';
+expression_arcbg = '^ArC-bg$';
+MAT.info = struct();
+isokfile = false;
+while ~feof(fid)
+    str=fgetl(fid);
+    if regexp(str, expression_header, 'once')
+        Style = regexprep(str,expression_header,'$1');
+        comment = regexprep(str,expression_header,'$2');
+        MAT.info.(Style) = comment;
+    elseif regexp(str, expression_taskname, 'once')
+        taskname= regexprep(str,expression_taskname,'$1');
+        MAT.info.task = taskname;
+    elseif regexp(str,expression_arcbg, 'once')
+        isokfile = true;
+        break;
+    end
+end
+assert(isokfile, 'It''s NOT a data file from ArControl!');
+
+% data %
 expression = '^(IN\d+|OUT\d+|C\d+S\d+):(\w.*)$';
 while ~feof(fid)
     str=fgetl(fid);
-    if isequal(str, -1); return; end;
+    if isequal(str, -1); return; end
     if regexp(str,expression,'once')
         Style = regexprep(str,expression,'$1');
         Nums = regexprep(str,expression,'$2');
@@ -39,7 +70,6 @@ while ~feof(fid)
 end
 fclose(fid);
 save(pfnew, '-struct', 'MAT');
-
 
 
 function pfname=uigetfilemult(varargin)
