@@ -519,9 +519,9 @@ void State_SETUP();                    //Definition outside | 在外部实现
 void printFilename();
 void setup()
 {
-
-  hardware_SETUP(); 
+  Serial.begin(250000);
   Serial.println("ArControl");
+  hardware_SETUP(); 
   printFilename();
   State_SETUP();
   ENDSTATE_SETUP();

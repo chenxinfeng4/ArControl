@@ -52,8 +52,10 @@ QList<var_assign> get_varAssign(QDomElement dom_root);
 QList<pin_assign> get_pinAssign(QDomElement dom_root);
 int get_countC(QDomElement dom_root); //[1-nc]
 int get_countCx(QDomElement dom_root, int numC); //[1-ns]
+QList<QString> get_commCx(QDomElement dom_root, int numC);
 void print_Cx_at(QDomElement dom_root, int numC);
 void print_Sx_at(QDomElement dom_Sx, int numC, int numS);
+
 void Setfile2INO::printIno(QString filePath)
 {
     /* check file and load content */
@@ -119,6 +121,32 @@ void Setfile2INO::printIno(QString filePath)
         pL(QString("#include \"%1ino/ArControl_AllinOne.h\"").arg(currentDir));
     }
     pL("");
+
+    /* task infomation (data file header) */
+    pL("///////////////////////////////////////////////////////////////////////////////////");
+    pL("///////////////////////////////task info///////////////////////////////////////////");
+    pL("#define INFO \"\" \\");
+    QList<pin_assign> L_pin_assign = get_pinAssign(dom_root);
+    foreach(pin_assign data_item, L_pin_assign){
+        if(!data_item.isEnable)
+            continue;
+        QString type = (data_item.isIn?"IN":"OUT");
+        pL2(QString("\"@%1%2:%3\\n\" \\").arg(type).arg(data_item.num).arg(data_item.comm));
+    }
+    int countC = get_countC(dom_root);
+    for(int iC=1; iC<=countC; ++iC){
+        QList<QString> data_comm = get_commCx(dom_root, iC); //comments: Cx->CxS1->CxS2->...
+        QString iC_comm = data_comm.at(0);
+        pL2(QString("\"@C%1:%2\\n\" \\").arg(iC).arg(iC_comm));
+        int countS = data_comm.count() - 1;
+        for(int iS=1; iS<=countS; iS++){
+           QString iS_comm = data_comm.at(iS);
+           pL2(QString("\"@C%1S%2:%3\\n\" \\").arg(iC).arg(iS).arg(iS_comm));
+        }
+    }
+    pL2("\"\"");
+    pL("");
+
     /* global vars */
     pL("///////////////////////////////////////////////////////////////////////////////////");
     pL("///////////////////////////////global vars/////////////////////////////////////////");
@@ -130,7 +158,6 @@ void Setfile2INO::printIno(QString filePath)
     /* pin comment and default-assignment */
     pL("///////////////////////////////////////////////////////////////////////////////////");
     pL("//////////////////////////////Hardware Setup///////////////////////////////////////");
-    QList<pin_assign> L_pin_assign = get_pinAssign(dom_root);
     foreach(pin_assign data_item, L_pin_assign){
         if(!data_item.isEnable)
             continue;
@@ -139,7 +166,7 @@ void Setfile2INO::printIno(QString filePath)
         pL(QString("const int %1%2 = %3; \t//%4").arg(type).arg(data_item.num).arg(pinNum).arg(data_item.comm));
     }
     pL("void hardware_SETUP(){");
-    pL1("Serial.begin(250000);");
+    pL1("Serial.print(F(INFO));");
     foreach(pin_assign data_item, L_pin_assign){
         if(data_item.isIn || !data_item.isEnable)
             continue;
@@ -150,7 +177,6 @@ void Setfile2INO::printIno(QString filePath)
     /* session states */
     pL("///////////////////////////////////////////////////////////////////////////////////");
     pL("///////////////////////////////State Setup/////////////////////////////////////////");
-    int countC = get_countC(dom_root);
     QString tempStr = "";
     for(int iC=1; iC<=countC; ++iC){
         pL(QString("#define numC%1 %2").arg(iC).arg(get_countCx(dom_root, iC)));
@@ -289,6 +315,32 @@ int get_countCx(QDomElement dom_root, int numC)
     }
     return counter;
 }
+
+QList<QString> get_commCx(QDomElement dom_root, int numC)
+{
+    /* 获取Cx 和 CxSx 的注释:
+     * QList<QString> = Comments in Cx->CxS1->CxS2->CxS3->...
+     */
+    SCPP_ASSERT_THROW( numC>0 && numC <= get_countC(dom_root));
+    QDomElement dom = dom_root.firstChildElement(DOM_SESSION);
+    QDomElement dom_c = dom.firstChildElement(DOM_COMPONENT);
+    for(int i=1; i<numC; ++i)
+        dom_c = dom_c.nextSiblingElement(DOM_COMPONENT);
+
+    QList<QString> data;
+    QString Cx_comm = dom_c.attribute(ATT_COMM);
+    data << Cx_comm;
+    QDomElement dom_s = dom_c.firstChildElement(DOM_STATE);
+    for(int numS=1; true; ++numS) {
+        if(dom_s.isNull())
+            break;
+        QString CxSx_comm = dom_s.attribute(ATT_COMM);
+        data << CxSx_comm;
+        dom_s = dom_s.nextSiblingElement(DOM_STATE);
+    }
+    return data;
+}
+
 void print_Cx_at(QDomElement dom_root, int numC)
 {
     SCPP_ASSERT_THROW( numC>0 && numC <= get_countC(dom_root));
@@ -301,7 +353,7 @@ void print_Cx_at(QDomElement dom_root, int numC)
     pL(QString("///Component [%1]:%2").arg(numC).arg(comm));
     /* go inside state */
     QDomElement dom_s = dom_c.firstChildElement(DOM_STATE);
-    for(int numS=1; 1==1; ++numS) {
+    for(int numS=1; true; ++numS) {
         if(dom_s.isNull())
             break;
         print_Sx_at(dom_s, numC, numS);

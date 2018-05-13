@@ -70,6 +70,10 @@ SerialFlowControl::SerialFlowControl(QObject     *parent,
     connect(this,SIGNAL(raise_spont_start()), this, SLOT(when_real_start()));
     connect(this,SIGNAL(raise_spont_stop()), this, SLOT(when_real_stop()));
     this->DW_container->setEnabled(this->isConnect);
+    /* 用stream托管文件，以创建utf-8 */
+    this->datastreamout.setDevice(this->datafile);
+    this->datastreamout.setCodec("utf-8");
+
 }
 
 void SerialFlowControl::calDataHot()
@@ -121,18 +125,28 @@ void SerialFlowControl::timerEvent(QTimerEvent * event)
 
 void SerialFlowControl::receive_readLine(const QString & str)
 {
-//    qDebug()<<"read as::"<<str;
-
+    /* Show in Text-Flow-Window */
     this->PTE_data_buff.append(str);
     if(!this->CKB_freeze->isChecked()){ /* free to show flowing data */
         this->PTE_data->appendPlainText(this->PTE_data_buff.trimmed());//默认处理尾巴换行样式
         this->PTE_data_buff.clear();
     }
 
+    /* File: header parts */
+    if (this->isStarted == false) {
+        if (str.contains(BG_HEADER_STRING)) {
+            file_header.clear();
+            file_header += str;
+        }
+        else if(!str.contains(BG_FLOW_STRING)){
+            file_header += str;
+        }
+    }
+
     /* 是否是开始or结束的信号 */
     if (this->isStarted) {
         /* 把数据流写入文件 */
-        this->datafile->write(str.toLocal8Bit()); //write "ArC-end" to file bg
+        this->datastreamout << str;  //write "ArC-end" to file bg
         /* 加入datahash */
         int ind = str.indexOf(QChar(DATA_HINT_CHAR));
         if(ind>=1){
@@ -146,12 +160,12 @@ void SerialFlowControl::receive_readLine(const QString & str)
             emit raise_spont_stop();
         }
     }
-    else {
+    else if(str.contains(BG_FLOW_STRING)){
         /* 已经结束，等待开始的信号 "ArC-bg"*/
-        if(str.contains(BG_FLOW_STRING)){
-            emit raise_spont_start();
-            this->datafile->write(str.toLocal8Bit()); //write "ArC-bg" to file bg
-        }
+        emit raise_spont_start();
+
+        this->datastreamout << this->file_header;
+        this->datastreamout << str; //write "ArC-bg" to file bg
     }
 }
 

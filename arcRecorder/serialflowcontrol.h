@@ -5,6 +5,7 @@
 #include <QHash>
 #include <QtGlobal>
 #include <QtSerialPort/QSerialPort>
+#include <QTextStream>
 
 #include "main.h"
 
@@ -18,8 +19,9 @@ class QFile;
 
 namespace SERIALFLOWCONTROL_PARA
 {
-    const char END_FLOW_STRING[] = "ArC-end";
+    const char BG_HEADER_STRING[]  = "ArControl";
     const char BG_FLOW_STRING[] = "ArC-bg";
+    const char END_FLOW_STRING[] = "ArC-end";
     const char MY_STRBEGIN[] = "b";
     const int  MAX_LINES = 100;
     const char DATA_HINT_CHAR = ':';
@@ -74,10 +76,11 @@ private:
     volatile bool isConnect_pre;//保存上次的结果
     volatile bool isStarted;    //ArControl是否真实开始 在接受到"ArC"字符后确定
     QFile        *datafile;     //暂时存储的file，全路径('C:/a/b/proj_a/subj_b/171203123011.txt')
+    QTextStream   datastreamout;//接管datafile的 out 流
     QString       datadir;      //datafile的存放目录, 全路径('C:/a/b/proj_a/subj_b')
     QString       PTE_data_buff; //暂时没有传到PTE中的数据
     QHash<QString, StreamItem>  *datahash; //存放运行时的所有item计数
-
+    QString       file_header;   //文件的 header 从 "ArControl"到"-----TASKNAME-----";
 signals:
     void raise_spont_start();   //自发开始
     void raise_spont_stop();    //自发结束
