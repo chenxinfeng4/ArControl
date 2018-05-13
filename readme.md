@@ -4,12 +4,14 @@ ArControl is a **Arduino** based digital signals control system. A special appli
 
 ![Figure1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1.jpg)
 
+![Figure2](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1_2.jpg)
+
 ## Features
 
 - [x] Comprehensive – it combines **software and hardware**, **behavioral task design and experimental data collection**.
 - [x] Inexpensive – neither dedicated nor expensive hardware is essential.
 - [x] General purpose - it’s applicable to **multiple behavioral tasks**.
-- [x] Easy to use – behavior task can be decomposed by the straightforward State Notation concept, and designed via a friendly GUI **without need to master script language**.
+- [x] Easy to use – behavior task can be decomposed by the straightforward State Notation concept, and designed via a friendly GUI **without need to master script language**. You are free from knownledge about C++ / Arduino / Matlab coding.
 - [x] Real-time performance – it has **high temporal resolution (<1ms)** and **free from the load of computer**.
 
 ## Requirements
