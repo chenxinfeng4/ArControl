@@ -16,7 +16,7 @@ namespace  GLOBAL_PARA {
                   DOM_KEEPON("keepon"), DOM_BLINK("blink"), DOM_TURN("turnon"),
                    ATT_FREQ("freq"), ATT_DUTY("duty"), DOM_WHENPIN("whenPin"),
                   DOM_TIME("time"), DOM_COUNT("count"), DOM_NEXTSTATE("nextstate"),
-                  DOM_FIXED("fixed"), DOM_RANGE("range"), DOM_GOELSE("goelse"),
+                  DOM_FIXED("fixed"), DOM_RANGE("range"), DOM_GOELSE("goelse"), DOM_ENDUP("endup"),
                   ATT_FIXED("fixed"), ATT_FROM("from"), ATT_TO("to"), ATT_PROB("probability"),
                   ATT_GO("go"), ATT_ELSE("else"), ATT_ISCOMP("iscomponent"),
                   ATT_ISHIGH("isHigh");
@@ -35,6 +35,8 @@ namespace  GLOBAL_PARA {
             << DOM_TURN << DOM_KEEPON << DOM_BLINK;
     const QStringList STR_L_RANDMODE = QStringList()
             << DOM_FIXED << DOM_RANGE << DOM_GOELSE;
+    const QStringList STR_L_STATEMODE = QStringList()
+            << DOM_FIXED << DOM_RANGE << DOM_GOELSE << DOM_ENDUP;
     const QStringList STR_L_LANG = QStringList()
             << "English" << "简体中文";
     const QStringList STR_L_LANG_TRANSLATOR = QStringList()
@@ -70,7 +72,7 @@ namespace  GLOBAL_PARA {
 
 namespace VERSION_INFO {
     const QString VERSION_NUM("V0.2");
-    const QString VERSION_TIME("2018-03-21");
+    const QString VERSION_TIME("2018-05-24");
 }
 
 QDomElement createTempElement(QString nodeName);

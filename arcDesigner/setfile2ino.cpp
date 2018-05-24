@@ -465,12 +465,20 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
             /* print goto-state */
             pL(record_cond);
             if(has_state){
-                QString csNum = pick_t_c_s(dom_s_s.firstChildElement(DOM_NEXTSTATE));
-                bool isComponent = dom_s_s.firstChildElement(DOM_NEXTSTATE).attribute(ATT_ISCOMP)=="true";
-                QString CxS = isComponent? "C" : QString("C%1S").arg(numC);
-                QString format = "\t%1->%2 = []()-> State* {int n=%3; return %4[n];};";
-                QString record_gostate = format.arg(CxSx).arg(name_switch).arg(csNum).arg(CxS);
-                pL(record_gostate);
+                QDomElement dom_nextstate = dom_s_s.firstChildElement(DOM_NEXTSTATE);
+                if(dom_nextstate.attribute(ATT_TYPE) == DOM_ENDUP) {
+                    QString format = "\t%1->%2 = []()-> State* {return C[0];};";
+                    QString record_gostate = format.arg(CxSx).arg(name_switch);
+                    pL(record_gostate);
+                }
+                else {
+                    QString csNum = pick_t_c_s(dom_nextstate);
+                    bool isComponent = dom_s_s.firstChildElement(DOM_NEXTSTATE).attribute(ATT_ISCOMP)=="true";
+                    QString CxS = isComponent? "C" : QString("C%1S").arg(numC);
+                    QString format = "\t%1->%2 = []()-> State* {int n=%3; return %4[n];};";
+                    QString record_gostate = format.arg(CxSx).arg(name_switch).arg(csNum).arg(CxS);
+                    pL(record_gostate);
+                }
             }
             if(type == StripType::whenPin){
                 pL(QString("\t%1->addlisten();").arg(CxSx));
@@ -478,6 +486,5 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
         }//end if
         dom_s_s = dom_s_s.nextSiblingElement(DOM_SSTRIP);
     }
-
 }
 // [2] end

@@ -1042,6 +1042,11 @@
             <string>GoElse</string>
            </property>
           </item>
+          <item>
+           <property name="text">
+            <string>EndUp</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item row="3" column="0">
@@ -1261,6 +1266,7 @@
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="page_endup"/>
          </widget>
         </item>
        </layout>

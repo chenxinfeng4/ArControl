@@ -134,3 +134,4 @@ void MainWindow::on_action_aboutme_triggered()
 
     msgBox.exec();
 }
+

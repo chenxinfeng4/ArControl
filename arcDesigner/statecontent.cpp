@@ -28,11 +28,19 @@ void StateContent::createUi(Ui::MainWindow *ui_)
     this->setEnabled(false);
     ui->comboBox_inChan->view()->setFixedHeight(95);    //full display 6 items
     ui->comboBox_outChan->view()->setFixedHeight(128);  //full display 8 items
-
+    QSizePolicy sp_retain2 = ui->radioButton_isC->sizePolicy();
+    sp_retain2.setRetainSizeWhenHidden(true);
+    ui->radioButton_isC->setSizePolicy(sp_retain2);
     /* connect SIGNAL and SLOT */
     connect(ui->comboBox_timeMode, SIGNAL(currentIndexChanged(int)), ui->stack_Time, SLOT(setCurrentIndex(int)));
     connect(ui->comboBox_countMode, SIGNAL(currentIndexChanged(int)), ui->stack_Count, SLOT(setCurrentIndex(int)));
     connect(ui->comboBox_stateMode, SIGNAL(currentIndexChanged(int)), ui->stack_state, SLOT(setCurrentIndex(int)));
+    connect(ui->comboBox_stateMode, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            [=](int index){
+                bool isVisible = index != ui->comboBox_stateMode->count()-1;
+                ui->radioButton_isC->setVisible(isVisible);
+                ui->radioButton_isS->setVisible(isVisible);
+    });
     connect(ui->comboBox_outMode, SIGNAL(currentIndexChanged(int)), this, SLOT(on_comboBox_outMode_currentIndexChanged(int)));
     connect(ui->comboBox_var,     SIGNAL(activated(QString)), this, SLOT(on_comboBox_var_activated(QString)));
 
@@ -202,7 +210,7 @@ void StateContent::gui_to_dom()
         QString nodeName= DOM_NEXTSTATE;
         auto dom = dom_state_strip.firstChildElement(nodeName);
         int modeIndex  = ui->comboBox_stateMode->currentIndex();
-        dom.setAttribute(ATT_TYPE,  STR_L_RANDMODE.at(modeIndex));
+        dom.setAttribute(ATT_TYPE,  STR_L_STATEMODE.at(modeIndex));
         ui2att(dom, DOM_FIXED,  ATT_FIXED, ui->lineEdit_stateFixed);
         ui2att(dom, DOM_RANGE,  ATT_FROM,  ui->lineEdit_stateFrom);
         ui2att(dom, DOM_RANGE,  ATT_TO,    ui->lineEdit_stateTo);
@@ -333,7 +341,7 @@ void StateContent::dom_to_gui()
     }
     if(has_state){
         auto dom = dom_state_strip.firstChildElement(DOM_NEXTSTATE);
-        int modeIndex  = indexOf(STR_L_RANDMODE, dom.attribute(ATT_TYPE)); //0-2
+        int modeIndex  = indexOf(STR_L_STATEMODE, dom.attribute(ATT_TYPE)); //0-2
         ui->comboBox_stateMode->setCurrentIndex(modeIndex);
         att2ui(dom, DOM_FIXED, ATT_FIXED, ui->lineEdit_stateFixed);
         att2ui(dom, DOM_RANGE, ATT_FROM, ui->lineEdit_stateFrom);
