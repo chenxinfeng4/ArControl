@@ -6,7 +6,10 @@ const char taskName[] = __FILE__;
 // how to start ArControl
 #define START_SOFT
 // recording level
-#include "E:/ArControl_ReportCollection/ArControl_github_realse/ino/ArControl.h"
+#define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
+#define AI2IN 1		//AIx -> INy
+#define DO2OUT -1	//DOx -> OUTy
+#include "E:/ArControl_ReportCollection/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -84,7 +87,7 @@ void State_SETUP()
 ///Component [1]:Light3 (loop=10)
 	///C1S[1]: Swither
 	C1S[1]->CountSet = []()-> int {return 10;}; //n=10 -> STOP
-	C1S[1]->CountSetSTATE = []()-> State* {int n=0; return C1S[n];};
+	C1S[1]->CountSetSTATE = []()-> State* {return C[0];};
 	C1S[1]->TimerSet = []()-> float {return 3;}; //t=3sec -> S3
 	C1S[1]->TimerSetSTATE = []()-> State* {int n=3; return C1S[n];};
 	C1S[1]->evtListener = []()-> bool {return cpp_ListenAI(IN1, HIGH);}; //leftPoke -> S2
