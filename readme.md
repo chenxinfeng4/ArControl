@@ -35,7 +35,7 @@ I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You ca
 
 ## Contact
 
-  Contact me on email chenxinfeng@hust.edu.cn . If you find an issure, open a ticked on it.
+  Contact me on email chenxinfeng@pku.edu.cn . If you find an issure, open a ticked on it.
 
 ## Cite This
 
