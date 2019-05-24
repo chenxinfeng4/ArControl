@@ -44,6 +44,7 @@ namespace TASKTOARDUINO_PARA
 {
     const char REFRESH_HINT[] = "<Refresh>";
     extern QString ARDUINO_DEBUG;
+    extern QString ARDUINO_BOARD;
     const int  TIMEOUT = 40;
 }
 class TasktoArduino : public QObject

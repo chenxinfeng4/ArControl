@@ -4,7 +4,7 @@
 #include <QDomDocument>
 #include "main.h"
 namespace  GLOBAL_PARA {
-    const QString DOM_PINALL("PIN_ASSIGN"), DOM_ARDUINO("ARDUINO_DEBUG"),
+    const QString DOM_PINALL("PIN_ASSIGN"), DOM_ARDUINO("ARDUINO_DEBUG"),DOM_ARDUINOBOARD("ARDUINO_BOARD"),
                   DOM_ARC("ARC_DESIGNER"), DOM_SETTINGS("SETTINGS"), DOM_PROFILE("PROFILE"),
                   DOM_VARALL("VAR_ASSIGN"),  DOM_PINALL_PIN("PIN"), DOM_VARALL_VAR("VAR"),
                   DOM_INFO("INFO"), ATT_VERSION("version"), ATT_DATE("date"),
@@ -39,6 +39,8 @@ namespace  GLOBAL_PARA {
             << DOM_FIXED << DOM_RANGE << DOM_GOELSE << DOM_ENDUP;
     const QStringList STR_L_LANG = QStringList()
             << "English" << "简体中文";
+    const QStringList STR_L_ARDUINOBOARD = QStringList()
+            << "Uno" << "Mega";
     const QStringList STR_L_LANG_TRANSLATOR = QStringList()
             << "" << ":/cn.qm";
     const QStringList STR_L_BOOL = QStringList()
@@ -72,7 +74,7 @@ namespace  GLOBAL_PARA {
 
 namespace VERSION_INFO {
     const QString VERSION_NUM("V0.2");
-    const QString VERSION_TIME("2018-05-24");
+    const QString VERSION_TIME("2019-05-24");
 }
 
 QDomElement createTempElement(QString nodeName);

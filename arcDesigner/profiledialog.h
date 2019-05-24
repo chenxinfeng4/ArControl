@@ -43,7 +43,7 @@ private:
 
 //}
 namespace PROFILEDIALOG_PARA {
-    const QString PINMAP_IMAGE = ":/images/ArduinoPin.png";
+    const QStringList PINMAP_IMAGE = QStringList()<<":/images/Arduino_UNO_Pin.png"<<":/images/Arduino_Mega_Pin.png";
 }
 class ProfileDialog : public QDialog
 {
@@ -79,6 +79,7 @@ private:
 private:
     // status data
     QString arduinoIDE;
+    QString arduinoBoard;
     QString lang;
     bool echoTask;
     int  recordLevel; //[1 | 2 | 3]

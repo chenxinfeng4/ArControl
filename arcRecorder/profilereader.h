@@ -19,11 +19,13 @@ class ProfileReader : public QObject
     Q_OBJECT
 public:
     QString getArduino();
+    QString getBoard();
     static ProfileReader * getInstance();
     void checkProfile(bool newapath=false);
 
 private:
     QString arduino_debug;
+    QString arduino_board;  //["uno" | "mega"]
     bool hasChecked;
 
     static ProfileReader * instance;

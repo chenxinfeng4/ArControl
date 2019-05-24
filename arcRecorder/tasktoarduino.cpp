@@ -23,6 +23,7 @@ using namespace TASKTOARDUINO_PRIVATE;
 using namespace TASKTOARDUINO_PARA;
 
 QString TASKTOARDUINO_PARA::ARDUINO_DEBUG = "";
+QString TASKTOARDUINO_PARA::ARDUINO_BOARD = "";
 
 // [1] extern functions
 QStringList getSubDirs(QDir); //in "onlinemanagerbar.h"
@@ -209,10 +210,11 @@ void TasktoArduino::on_COB_tasks_activate(const QString &arg1)
         QMessageBox::critical(0, tr("Error"), tr("None Serial-Port selected!"));
     }
     else { /* prepare to DOWNLOAD task -> Arduino */
+        getFromProfile();  //update "ARDUINO_DEBUG" & "ARDUINO_BOARD"
         QString taskroot=TasktoArduino::taskrootPath();
         QFileInfo f(taskroot + "/" + arg1 + "/" + arg1 + ".ino");
         if(f.exists() && f.isFile() && f.isReadable()) {
-            this->dialog->setLabelTitle(tr("Uploading %1 to UNO@(%2)").arg(arg1).arg(portName));
+            this->dialog->setLabelTitle(tr("Uploading %1 to %2@(%3)").arg(arg1).arg(ARDUINO_BOARD.toUpper()).arg(portName));
             this->upload_task(f.absoluteFilePath());
         }
         else {
@@ -223,7 +225,6 @@ void TasktoArduino::on_COB_tasks_activate(const QString &arg1)
 void TasktoArduino::upload_task(const QString &arg1)
 {
     /* 从配置文件中读取 ARDUINO_DEBUG */
-    getFromProfile();  //update "ARDUINO_DEBUG"
     QFileInfo fi(ARDUINO_DEBUG);
     try{
         SCPP_ASSERT_THROW(!ARDUINO_DEBUG.isEmpty(), "None arduino-debug exist");
@@ -236,7 +237,7 @@ void TasktoArduino::upload_task(const QString &arg1)
     /* 开始烧录 */
     emit raise_eject();
     QStringList arglist;
-    arglist <<"--board"<<"arduino:avr:uno"
+    arglist <<"--board"<<"arduino:avr:"+ARDUINO_BOARD
             <<"--port"<<this->serial->portName()
             <<"--upload"<<arg1;
     qDebug()<<ARDUINO_DEBUG<<arglist;
@@ -274,5 +275,6 @@ static void checkTaskrootPath()
 void TASKTOARDUINO_PRIVATE::getFromProfile()
 {
     ARDUINO_DEBUG = ProfileReader::getInstance()->getArduino();
+    ARDUINO_BOARD = ProfileReader::getInstance()->getBoard();
 }
 // [4] end

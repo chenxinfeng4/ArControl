@@ -3,7 +3,9 @@
         <file>images/arcDesigner.ico</file>
         <file>images/arcDesigner.png</file>
         <file>cn.qm</file>
-        <file>images/ArduinoPin.png</file>
+        <file>images/Arduino_UNO_Pin.png</file>
+		<file>images/Arduino_Mega_Pin.png</file>
+		<file>images/Arduino_Mega_Future_Pin.png</file>
         <file>deployment/ino/ArControl.h</file>
         <file>deployment/ino/ArControl_AllinOne.h</file>
     </qresource>

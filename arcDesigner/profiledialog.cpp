@@ -60,13 +60,9 @@ void ProfileDialog::pickArduinoIDE()
 
 void ProfileDialog::on_BTN_viewpin_clicked()
 {
-    imageWindow->show();
-}
-
-void ProfileDialog::initUI()
-{
     /* image */
-    QImageReader reader(PINMAP_IMAGE);
+    int ind = ui->comboBox_board->currentIndex();
+    QImageReader reader(PINMAP_IMAGE.at(ind));
     reader.setAutoTransform(true);
     const QImage newImage = reader.read();
     if (newImage.isNull()){
@@ -78,7 +74,12 @@ void ProfileDialog::initUI()
 
     imageLabel->setPixmap(QPixmap::fromImage(newImage));
     imageWindow->setWindowFlags(Qt::Popup);
+    imageWindow->show();
 
+}
+
+void ProfileDialog::initUI()
+{
     /* read profile.xml*/
     try{
         this->file_to_this();
@@ -173,6 +174,8 @@ void ProfileDialog::file_to_this()
 
     // arduino_debug.exe
     this->arduinoIDE = readItem(DOM_ARDUINO);
+    // arduino_board
+    this->arduinoBoard = readItem(DOM_ARDUINOBOARD, "Uno", STR_L_ARDUINOBOARD);
     // language
     this->lang = readItem(DOM_LANG, STR_L_LANG.at(0), STR_L_LANG);
     //record level
@@ -210,6 +213,8 @@ void ProfileDialog::write_to_file(bool useGUI)
 
     //arduino_debug.exe
     addItem(DOM_ARDUINO, this->arduinoIDE, searchArduinoIDEinWin());
+    //arduino board
+    addItem(DOM_ARDUINOBOARD, this->arduinoBoard, "Uno");
     //language
     addItem(DOM_LANG, this->lang, "English");
     //record level
@@ -238,6 +243,7 @@ void ProfileDialog::check_file(bool forceCreate)
 void ProfileDialog::data_to_gui()
 {
     ui->lineEdit_pathIDE->setText(this->arduinoIDE);
+    ui->comboBox_board->setCurrentIndex(indexOf(STR_L_ARDUINOBOARD, this->arduinoBoard));
     ui->comboBox_lang->setCurrentIndex(indexOf(STR_L_LANG, this->lang));
     ui->comboBox_level->setCurrentIndex(this->recordLevel - 1);
     ui->CKB_echotask->setChecked(this->echoTask);
@@ -247,6 +253,7 @@ void ProfileDialog::data_to_gui()
 void ProfileDialog::gui_to_data()
 {
     this->arduinoIDE = ui->lineEdit_pathIDE->text();
+    this->arduinoBoard = STR_L_ARDUINOBOARD.at(ui->comboBox_board->currentIndex());
     qDebug()<<"comboBox_lang"<<ui->comboBox_lang->currentIndex();
     this->lang = STR_L_LANG.at(ui->comboBox_lang->currentIndex());
     this->recordLevel = ui->comboBox_level->currentIndex() + 1;

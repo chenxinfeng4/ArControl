@@ -47,6 +47,7 @@ struct pin_assign{
 
 bool get_echoTask(QDomElement dom_root);
 int get_recordLevel(QDomElement dom_root);
+QString get_arduinoBoard(QDomElement dom_root);
 QString get_startLevel(QDomElement dom_root);
 QList<var_assign> get_varAssign(QDomElement dom_root);
 QList<pin_assign> get_pinAssign(QDomElement dom_root);
@@ -115,7 +116,14 @@ void Setfile2INO::printIno(QString filePath)
         pL(QString("#include \"%1ino/ArControl.h\"").arg(currentDir));
     }
     else if(recordLevel==3){
-        pL("#define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
+        QString arduinoBoard = get_arduinoBoard(dom_root);
+        int arduinoBoardIndex = indexOf(STR_L_ARDUINOBOARD, arduinoBoard); //Uno=1; Mega=2;
+        if(arduinoBoardIndex == 0){
+            pL("#define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
+        }
+        else{
+            pL("#define MEGA_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
+        }
         pL("#define AI2IN 1		//AIx -> INy");
         pL("#define DO2OUT -1	//DOx -> OUTy");
         pL(QString("#include \"%1ino/ArControl_AllinOne.h\"").arg(currentDir));
@@ -251,6 +259,12 @@ int get_recordLevel(QDomElement dom_root) /* [1 | 2 | 3] */
     QString text = dom_root.firstChildElement(DOM_PROFILE).firstChildElement(DOM_RECORDLEVEL).text();
     SCPP_ASSERT_THROW( (QStringList()<<"1"<<"2"<<"3").contains(text) );
     return text.toInt();
+}
+QString get_arduinoBoard(QDomElement dom_root) /* [Uno | Mega] */
+{
+    QString text = dom_root.firstChildElement(DOM_PROFILE).firstChildElement(DOM_ARDUINOBOARD).text();
+    SCPP_ASSERT_THROW( STR_L_ARDUINOBOARD.contains(text) );
+    return text;
 }
 QString get_startLevel(QDomElement dom_root) /* [0 | 1 | 2 | 3] */
 {

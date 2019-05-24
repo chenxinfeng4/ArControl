@@ -65,6 +65,46 @@ void pinScaning()
     }
 }
 #else
+#ifdef MEGA_SPEEDUP//Promote speed of AI-pinScaning for MEGA 2560 board. Recommend.
+// Haven't tested the speed yet
+void pinScaning()
+{
+    static boolean doinit = 1;
+    static unsigned long t_raise[6];
+    static byte pre_status = 0; //[NULL NULL A5<-A0]
+    static byte AI_enable = 0; //[NULL NULL A5<-A0]
+    char prefix[] = "IN";
+    if(doinit) {                       // do init, the first time
+        doinit = 0;
+        unsigned long AppBeginTime = mySaver.getAppBeginTime();
+        for(int i = 0; i < 6; ++i) {
+            t_raise[i] = AppBeginTime;   //when pin start with HIGH
+        }
+        for(int i = 0; i < sizeof(AIpin) / sizeof(int); ++i) {
+            bitWrite(AI_enable, AIpin[i], 1);
+        }
+    }
+    byte now_status = PINF,changed_status;
+#ifdef AI_REVERSE
+    now_status = ~now_status;
+#endif
+    changed_status = (pre_status ^ now_status) & AI_enable;
+    if(changed_status !=  0) {   //reduce time consume
+        unsigned long now_time = millis();
+        for(int i = 0; i < 6; ++i) {
+            if(bitRead(changed_status, i)) {
+                if(bitRead(now_status, i)) { //up slope
+                    t_raise[i] = now_time;
+                }
+                else {              //down slope
+                    sendmsg(prefix, i + AI2IN, t_raise[i], now_time);
+                }
+            }
+        }
+        pre_status = now_status;
+    }
+}
+#else
 void pinScaning()
 {
     static boolean doinit = 1;
@@ -105,6 +145,8 @@ void pinScaning()
     }
 }
 #endif
+#endif
+
 
 // DO_PIN for pinWriting()?
 const boolean DOrecord[] = {0,0,1,1,1,1,1,1,1,1,1,0,0,0};

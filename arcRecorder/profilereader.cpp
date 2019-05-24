@@ -41,6 +41,14 @@ QString ProfileReader::getArduino()
     return this->arduino_debug;
 }
 
+QString ProfileReader::getBoard()
+{
+    if(!this->hasChecked)
+        this->checkProfile();
+    this->hasChecked=true;
+    return this->arduino_board;
+}
+
 void ProfileReader::checkProfile(bool newapath)
 {
     QFileInfo finfo(PROFILE_FILE);
@@ -110,6 +118,29 @@ void ProfileReader::checkProfile(bool newapath)
     doc.save(out, QDomNode::EncodingFromDocument);
     f.close();
     this->arduino_debug = dom_arduino.text();
+
+    /* See what is the Arduino Board */
+    QDomElement dom_arduinoBoard = root.firstChildElement(DOM_ARDUINOBOARD);
+    if(dom_arduinoBoard.isNull()){
+        qDebug()<<">>>>dom_arduinoBoard.isNull()";
+        dom_arduinoBoard = doc.createElement(DOM_ARDUINOBOARD);
+        root.appendChild(dom_arduinoBoard);
+    }
+//    if(dom_arduinoBoard.firstChildElement().isNull()){
+//        qDebug()<<">>>>dom_arduinoBoard.firstChildElement().isNull()";
+//        dom_arduinoBoard.appendChild(doc.createTextNode(""));
+//        dom_arduinoBoard.firstChild().setNodeValue(STR_L_ARDUINOBOARD.at(0));
+//    }
+    QString arduino_board_tmp = dom_arduinoBoard.text();
+    SCPP_ASSERT_THROW( STR_L_ARDUINOBOARD.contains(arduino_board_tmp) );
+    qDebug()<<">>>>arduino_board_tmp"<<arduino_board_tmp;
+    if(indexOf(STR_L_ARDUINOBOARD, arduino_board_tmp)==0){
+        this->arduino_board = "uno";
+    }
+    else {
+        this->arduino_board = "mega";
+    }
+
 }
 
 void ProfileReader::reArduinoPath()
