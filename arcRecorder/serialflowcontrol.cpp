@@ -11,6 +11,8 @@
 #include <QDateTime>
 #include <QFile>
 #include <QDebug>
+#include <QProcess>
+#include <QDir>
 
 #include "onlinemanagerbar.h"
 #include "serialflowcontrol.h"
@@ -293,6 +295,12 @@ void SerialFlowControl::when_real_stop()
     if (this->datafile->isOpen()) {
         this->datafile->close();
     }
+
+    /* txt 转化为 mat 文件*/
+    QString CONVERTER = QDir::currentPath()+"/pytools/BF_arc2mat";
+    QStringList arglist = QStringList() << this->datafile->fileName();
+    QProcess *p = new QProcess();
+    p->start(CONVERTER, arglist);
 
     /* 改变标志位 */
     qDebug()<<"real stop!";

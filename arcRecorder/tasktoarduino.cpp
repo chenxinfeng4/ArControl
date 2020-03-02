@@ -244,7 +244,7 @@ void TasktoArduino::upload_task(const QString &arg1)
 
     this->want_process_kill();
     QProcess * p = this->process;
-    QString ARDUINO_DEBUG_proxy = QDir::currentPath()+"/pytools/uploadtask.exe";
+    QString ARDUINO_DEBUG_proxy = QDir::currentPath()+"/pytools/uploadtask";
     p->setProgram(ARDUINO_DEBUG_proxy);
     p->setArguments(arglist);
 
