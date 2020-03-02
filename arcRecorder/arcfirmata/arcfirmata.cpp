@@ -7,6 +7,7 @@
 #include <QStatusBar>
 #include <QProcess>
 #include <QLabel>
+#include <QDir>
 
 #define QT_NO_DEBUG_OUTPUT
 #define A0 14
@@ -184,18 +185,15 @@ void ArcFirmata::onInitTask()
         arduino_debug = arduino_debug.replace('\\', '/');
         int ind = arduino_debug.lastIndexOf('/');
         SCPP_ASSERT_THROW(ind>=0, "Arduino debuger path have not profiled yet!");
-        QString std_firmata = arduino_debug.left(ind)
-                           + "/libraries/Firmata/examples/StandardFirmata/StandardFirmata.ino";
         QString portName = _portComboBox->currentText();
         SCPP_ASSERT_THROW(!portName.isEmpty(), "Haven't choose COM yet!");
         QStringList arglist = QStringList()
-                               <<"--board"<<"arduino:avr:uno"
-                               <<"--port"<<portName
-                               <<"--upload"<<std_firmata;
-        qDebug()<<arduino_debug<<arglist;
+                              <<"--port"<<portName;
+        QString ARDUINO_DEBUG_proxy = QDir::currentPath()+"/pytools/uploadfirmata.exe";
+        qDebug()<<ARDUINO_DEBUG_proxy<<arglist;
         /* set process */
         QProcess p;
-        p.setProgram(arduino_debug);
+        p.setProgram(ARDUINO_DEBUG_proxy); //p.setProgram(arduino_debug);
         p.setArguments(arglist);
         connect(&p, &QProcess::readyReadStandardError, [&](){
             QString msg = QString::fromLocal8Bit(p.readAllStandardError()); //Correct Windows non-EN char-set

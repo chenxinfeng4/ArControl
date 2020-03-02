@@ -244,7 +244,8 @@ void TasktoArduino::upload_task(const QString &arg1)
 
     this->want_process_kill();
     QProcess * p = this->process;
-    p->setProgram(ARDUINO_DEBUG);
+    QString ARDUINO_DEBUG_proxy = QDir::currentPath()+"/pytools/uploadtask.exe";
+    p->setProgram(ARDUINO_DEBUG_proxy);
     p->setArguments(arglist);
 
     /*  Set timeout trigger */
