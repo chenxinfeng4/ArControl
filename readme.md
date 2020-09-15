@@ -19,6 +19,11 @@ ArControl is a **Arduino** based digital signals control system. A special appli
 - Windows 7/10
 - Arduino IDE
 
+## Boards Support
+
+- Arduino UNO (recommend; 6 Inputs, 8 Outputs)
+- Arduino Mega2560 (more RAM; 6 Inputs, 8 Outputs)
+
 ## Guidence
 
 I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You can find tons of useful thing there.
