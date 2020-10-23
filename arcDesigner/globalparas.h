@@ -40,7 +40,7 @@ namespace  GLOBAL_PARA {
     const QStringList STR_L_LANG = QStringList()
             << "English" << "简体中文";
     const QStringList STR_L_ARDUINOBOARD = QStringList()
-            << "Uno" << "Mega";
+            << "Uno" << "Mega" << "Nano";
     const QStringList STR_L_LANG_TRANSLATOR = QStringList()
             << "" << ":/cn.qm";
     const QStringList STR_L_BOOL = QStringList()

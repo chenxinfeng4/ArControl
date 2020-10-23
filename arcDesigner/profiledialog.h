@@ -43,7 +43,7 @@ private:
 
 //}
 namespace PROFILEDIALOG_PARA {
-    const QStringList PINMAP_IMAGE = QStringList()<<":/images/Arduino_UNO_Pin.png"<<":/images/Arduino_Mega_Pin.png";
+    const QStringList PINMAP_IMAGE = QStringList()<<":/images/Arduino_UNO_Pin.png"<<":/images/Arduino_Mega_Pin.png"<<":/images/Arduino_Nano_Pin.png";
 }
 class ProfileDialog : public QDialog
 {

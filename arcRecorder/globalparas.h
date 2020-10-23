@@ -9,7 +9,7 @@ namespace  GLOBAL_PARA {
     const QStringList STR_L_LANG_TRANSLATOR = QStringList()
             << "" << ":/cn.qm";
     const QStringList STR_L_ARDUINOBOARD = QStringList()
-            << "Uno" << "Mega";
+            << "Uno" << "Mega" << "Nano";
     const QString PROFILE_FILE("profile.xml");
     const QString DOM_PROFILE("PROFILE"), DOM_LANG("LANG"),
                   DOM_ARDUINOBOARD("ARDUINO_BOARD"), DOM_ARDUINO("ARDUINO_DEBUG");

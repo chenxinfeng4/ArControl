@@ -137,8 +137,11 @@ void ProfileReader::checkProfile(bool newapath)
     if(indexOf(STR_L_ARDUINOBOARD, arduino_board_tmp)==0){
         this->arduino_board = "uno";
     }
-    else {
+    else if(indexOf(STR_L_ARDUINOBOARD, arduino_board_tmp)==1){
         this->arduino_board = "mega";
+    }
+    else {
+        this->arduino_board = "nano";
     }
 
 }

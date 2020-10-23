@@ -211,6 +211,11 @@
          <string>Mega 2560 (INPUT=6, OUTPUT=8)</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Nano 328 (INPUT=6, OUTPUT=8)</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

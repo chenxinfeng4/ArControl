@@ -10,15 +10,39 @@ import time
 """
 Fast upload arcontrol task to the arduino board, comparing to the original arduino ide. 
 Xinfeng Chen, 2020-2-14
-
+$ conda create -n py37 python=3.7.0
+$ conda activate py37
+$ pip install pyinstaller click
 $ pyinstaller uploadtask.py
 """
 
+"""
+FOR DEBUG:
+1. Compile to HEX file
+> f'"{arduino_debug_p}" --board {_board} --verify --pref build.path={temp_path} {filename}'
+
+--UNO--
+> "D:\L_Arduino\arduino_debug.exe" --board arduino:avr:uno --verify --pref build.path=D:\test1 "F:\ArControl_github_sourcecode\arcRecorder\task\Task_1\Task_1.ino"
+--MEGA--
+> "D:\L_Arduino\arduino_debug.exe" --board arduino:avr:mega:cpu=atmega2560 --verify --pref build.path=D:\test1 "F:\ArControl_github_sourcecode\arcRecorder\task\Task_1\Task_1.ino"
+--NANO--
+> "D:\L_Arduino\arduino_debug.exe" --board arduino:avr:nano:cpu=atmega328 --verify --pref build.path=D:\test1 "F:\ArControl_github_sourcecode\arcRecorder\task\Task_1\Task_1.ino"
+
+2. Upload HEX file to the board
+> f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -P{port} -b115200 -D -Uflash:w:"{file_hex}":i'
+
+--UNO--
+> "D:\L_Arduino\hardware/tools/avr/bin/avrdude" -q -q -C "D:\L_Arduino/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -PCOM13 -b115200 -D -Uflash:w:"D:\test1\Task_1.ino.hex":i
+--MEGA--
+> "D:\L_Arduino\hardware/tools/avr/bin/avrdude" -q -q -C "D:\L_Arduino/hardware/tools/avr/etc/avrdude.conf" -V -patmega2560 -cwiring -PCOM13 -b115200 -D -Uflash:w:"D:\test1\Task_1.ino.hex":i
+--NANO--
+> "D:\L_Arduino\hardware/tools/avr/bin/avrdude" -q -q -C "D:\L_Arduino/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -PCOM4 -b57600 -D -Uflash:w:"D:\test1\Task_1.ino.hex":i
+"""
 
 _board = None
 _hex_mtime = None
 _arc_board = None
-BOARD_MAP = {'Uno': 'arduino:avr:uno', 'Mega': 'arduino:avr:mega:cpu=atmega2560'}
+BOARD_MAP = {'Uno': 'arduino:avr:uno', 'Mega': 'arduino:avr:mega:cpu=atmega2560', 'Nano': 'arduino:avr:nano:cpu=atmega328'}
 
 
 @click.command()
@@ -38,6 +62,8 @@ def hello(arcupdate, verify, upload, board, port, filename):
     ## CASE 2: --verify or --upload
     if board == "arduino:avr:mega":
         board = "arduino:avr:mega:cpu=atmega2560"
+    elif board == "arduino:avr:nano":
+        board = BOARD_MAP['Nano']
 
     if len(filename)==0:
         print('No INO file input!', file=sys.stderr)
@@ -103,6 +129,8 @@ def do_upload(filename, board, port):
         cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -P{port} -b115200 -D -Uflash:w:"{file_hex}":i'
     elif board == BOARD_MAP['Mega']:
         cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega2560 -cwiring -P{port} -b115200 -D -Uflash:w:"{file_hex}":i'
+    elif board == BOARD_MAP['Nano']:
+        cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -P{port} -b57600 -D -Uflash:w:"{file_hex}":i'
     else:
         print("Error: ArControl did NOT support for {board}", file=sys.stderr)
         yes = False

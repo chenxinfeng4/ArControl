@@ -3,7 +3,7 @@
 #How to set up this environment
 ## 1. install python package
 pip install shutil, pyinstaller, mat4py
-python >= 3.7
+python == 3.7.0
 
 ## 2. Scripts to EXEs
 pyinstaller BF_arcmat.py

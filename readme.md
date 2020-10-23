@@ -1,6 +1,6 @@
 # ![logo1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/logo1.jpg)
 ---
-ArControl is a **Arduino** based digital signals control system. A special application for ArControl is to establish a **animal behavioral platform (as Skinner box)**, which control devices to deliver stimulation and monitor behavioral response. 
+ArControl is a **Arduino** based digital signals control system. A special application for ArControl is to establish a **animal behavioral platform (as Skinner box)**, which control devices to deliver stimulation and monitor behavioral response. ArControl is also useful to generate Optogenetic TTL pulses.
 
 ![Figure1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1.jpg)
 
@@ -23,8 +23,9 @@ ArControl is a **Arduino** based digital signals control system. A special appli
 
 - Arduino UNO (recommend; 6 Inputs, 8 Outputs)
 - Arduino Mega2560 (more RAM; 6 Inputs, 8 Outputs)
+- Arduino Nano328 (small size; 6 Inputs, 8 Outputs)
 
-## Guidence
+## Guidance
 
 I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You can find tons of useful thing there.
 
@@ -47,6 +48,7 @@ I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You ca
 Academic researchers using ArControl should cite our paper in their works.
 
 - **Chen, X.**, and Li, H. (2017). [ArControl: An Arduino-Based Comprehensive Behavioral Platform with Real-Time Performance.](https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full) Front. Behav. Neurosci. 11, 244. doi: 10.3389/fnbeh.2017.00244.
+- 陈昕枫. (2018). *基于 Arduino 系统的动物行为自动控制平台的构建及其应用* (Master's thesis, 华中科技大学). *[中国知网检索](https://oversea.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&dbname=CMFD201901&filename=1018784966.nh&v=1uz5%25mmd2F1PVD8TWyrXO0NeiWYUDvM4exSqMqQm867oAanYBfLHiwtWRH4cS1c2OSIE0)*
 
 ## Reference codes
 

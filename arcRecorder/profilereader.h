@@ -25,7 +25,7 @@ public:
 
 private:
     QString arduino_debug;
-    QString arduino_board;  //["uno" | "mega"]
+    QString arduino_board;  //["uno" | "mega" | "nano"]
     bool hasChecked;
 
     static ProfileReader * instance;

@@ -121,8 +121,11 @@ void Setfile2INO::printIno(QString filePath)
         if(arduinoBoardIndex == 0){
             pL("#define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
         }
-        else{
+        else if(arduinoBoardIndex == 1){
             pL("#define MEGA_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
+        }
+        else{
+            pL("#define NANO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning");
         }
         pL("#define AI2IN 1		//AIx -> INy");
         pL("#define DO2OUT -1	//DOx -> OUTy");
@@ -260,7 +263,7 @@ int get_recordLevel(QDomElement dom_root) /* [1 | 2 | 3] */
     SCPP_ASSERT_THROW( (QStringList()<<"1"<<"2"<<"3").contains(text) );
     return text.toInt();
 }
-QString get_arduinoBoard(QDomElement dom_root) /* [Uno | Mega] */
+QString get_arduinoBoard(QDomElement dom_root) /* [Uno | Mega | Nano] */
 {
     QString text = dom_root.firstChildElement(DOM_PROFILE).firstChildElement(DOM_ARDUINOBOARD).text();
     SCPP_ASSERT_THROW( STR_L_ARDUINOBOARD.contains(text) );
