@@ -1,940 +1,940 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ARC_DESIGNER>
  <PROFILE>
-  <ARDUINO_DEBUG>F:/Arduino/arduino_debug.exe</ARDUINO_DEBUG>
-  <ARDUINO_BOARD>Uno</ARDUINO_BOARD>
+  <ARDUINO_DEBUG>D:/L_Arduino/arduino_debug.exe</ARDUINO_DEBUG>
+  <ARDUINO_BOARD>Nano</ARDUINO_BOARD>
   <LANG>English</LANG>
   <RECORD_LEVEL>3</RECORD_LEVEL>
   <ECHO_TASK>true</ECHO_TASK>
   <START_MODEL>START_SOFT</START_MODEL>
  </PROFILE>
  <SETTINGS>
-  <INFO version="0.8" name="ArControl Designer" date="2020-03-02, 11:54:04"/>
+  <INFO name="ArControl Designer" date="2020-10-24, 00:05:38" version="0.8"/>
   <VAR_ASSIGN>
-   <VAR value="-2" name="Var_1"/>
-   <VAR value="0" name="Var_2"/>
-   <VAR value="1" name="Var_3"/>
+   <VAR name="Var_1" value="-2"/>
+   <VAR name="Var_2" value="0"/>
+   <VAR name="Var_3" value="1"/>
   </VAR_ASSIGN>
   <PIN_ASSIGN>
-   <PIN number="1" isEnable="true" type="OUT" comment="#1"/>
-   <PIN number="2" isEnable="true" type="OUT" comment="#NoGoCue"/>
-   <PIN number="3" isEnable="true" type="OUT" comment="#3"/>
-   <PIN number="4" isEnable="true" type="OUT" comment="#GoCue"/>
-   <PIN number="5" isEnable="true" type="OUT" comment="#Airpuf"/>
-   <PIN number="6" isEnable="true" type="OUT" comment="#Water"/>
-   <PIN number="7" isEnable="true" type="OUT" comment="#7"/>
-   <PIN number="8" isEnable="true" type="OUT" comment="#8"/>
-   <PIN number="1" isEnable="true" type="IN" comment="#1"/>
-   <PIN number="2" isEnable="true" type="IN" comment="#Lick"/>
-   <PIN number="3" isEnable="true" type="IN" comment="#3"/>
-   <PIN number="4" isEnable="true" type="IN" comment="#4"/>
-   <PIN number="5" isEnable="true" type="IN" comment="#5"/>
-   <PIN number="6" isEnable="true" type="IN" comment="#6"/>
+   <PIN type="OUT" number="1" isEnable="true" comment="#1"/>
+   <PIN type="OUT" number="2" isEnable="true" comment="#NoGoCue"/>
+   <PIN type="OUT" number="3" isEnable="true" comment="#3"/>
+   <PIN type="OUT" number="4" isEnable="true" comment="#GoCue"/>
+   <PIN type="OUT" number="5" isEnable="true" comment="#Airpuf"/>
+   <PIN type="OUT" number="6" isEnable="true" comment="#Water"/>
+   <PIN type="OUT" number="7" isEnable="true" comment="#7"/>
+   <PIN type="OUT" number="8" isEnable="true" comment="#8"/>
+   <PIN type="IN" number="1" isEnable="true" comment="#1"/>
+   <PIN type="IN" number="2" isEnable="true" comment="#Lick"/>
+   <PIN type="IN" number="3" isEnable="true" comment="#3"/>
+   <PIN type="IN" number="4" isEnable="true" comment="#4"/>
+   <PIN type="IN" number="5" isEnable="true" comment="#5"/>
+   <PIN type="IN" number="6" isEnable="true" comment="#6"/>
   </PIN_ASSIGN>
  </SETTINGS>
  <SESSION>
   <COMPONENT comment="init licks">
    <STATE comment="Wait lick">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenTime" comment="">
+    <STATE_STRIP type="whenTime" isEnable="false" comment="">
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenPin" comment="IN2 -> S2">
+    <STATE_STRIP type="whenPin" isEnable="true" comment="IN2 -> S2">
      <whenPin number="2"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Water">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="doPin" comment="OUT6 0.065s">
-     <doPin number="6" type="keepon">
+    <STATE_STRIP type="doPin" isEnable="true" comment="OUT6 0.065s">
+     <doPin type="keepon" number="6">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0.065"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="n=4 -> S3">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="n=4 -> S3">
      <count type="fixed">
       <fixed fixed="4"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="3"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=2 -> S1">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=2 -> S1">
      <time type="fixed">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=1 -> C2/C3">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=1 -> C2/C3">
      <time type="fixed">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="true" type="range">
+     <nextstate type="range" iscomponent="true">
       <fixed fixed="0"/>
-      <range from="2" to="3"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="3" from="2"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
   </COMPONENT>
   <COMPONENT comment="Go trial">
    <STATE comment="time interval">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=4~6 -> S2">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=4~6 -> S2">
      <time type="range">
       <fixed fixed="0"/>
-      <range from="4" to="6"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="6" from="4"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Cue">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="doPin" comment="OUT4 0.5sec">
-     <doPin number="4" type="keepon">
+    <STATE_STRIP type="doPin" isEnable="true" comment="OUT4 0.5sec">
+     <doPin type="keepon" number="4">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0.5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="->S3">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="->S3">
      <count type="fixed">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="3"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenTime" comment="">
+    <STATE_STRIP type="whenTime" isEnable="false" comment="">
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="wait lick">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=2 -> S5">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=2 -> S5">
      <time type="fixed">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenPin" comment="IN2 -> S4">
+    <STATE_STRIP type="whenPin" isEnable="true" comment="IN2 -> S4">
      <whenPin number="2"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="4"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Water">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="doPin" comment="OUT6 0.075sec">
-     <doPin number="6" type="keepon">
+    <STATE_STRIP type="doPin" isEnable="true" comment="OUT6 0.075sec">
+     <doPin type="keepon" number="6">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0.075"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=1.5->S6">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=1.5->S6">
      <time type="fixed">
       <fixed fixed="1.5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Miss">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="-> S6">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="-> S6">
      <count type="fixed">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenTime" comment="">
+    <STATE_STRIP type="whenTime" isEnable="false" comment="">
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="n=101 -> STOP">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="n=101 -> STOP">
      <count type="fixed">
       <fixed fixed="101"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="endup">
+     <nextstate type="endup" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=0.1->C2/C3">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=0.1->C2/C3">
      <time type="fixed">
       <fixed fixed="0.1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="true" type="goelse">
+     <nextstate type="goelse" iscomponent="true">
       <fixed fixed="0"/>
-      <range from="2" to="3"/>
-      <goelse else="3" go="2" probability="50"/>
+      <range to="3" from="2"/>
+      <goelse probability="50" else="3" go="2"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
   </COMPONENT>
   <COMPONENT comment="NoGo trial">
    <STATE comment="time interval">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=4~6 -> S2">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=4~6 -> S2">
      <time type="range">
       <fixed fixed="0"/>
-      <range from="4" to="6"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="6" from="4"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Cue">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="doPin" comment="OUT2 0.5sec">
-     <doPin number="2" type="keepon">
+    <STATE_STRIP type="doPin" isEnable="true" comment="OUT2 0.5sec">
+     <doPin type="keepon" number="2">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0.5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="->S3">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="->S3">
      <count type="fixed">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="3"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenTime" comment="">
+    <STATE_STRIP type="whenTime" isEnable="false" comment="">
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="wait lick">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=2 -> S5">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=2 -> S5">
      <time type="fixed">
       <fixed fixed="2"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenPin" comment="IN2 -> S4">
+    <STATE_STRIP type="whenPin" isEnable="true" comment="IN2 -> S4">
      <whenPin number="2"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="4"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Airpuff">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="doPin" comment="OUT5 0.5sec">
-     <doPin number="5" type="keepon">
+    <STATE_STRIP type="doPin" isEnable="true" comment="OUT5 0.5sec">
+     <doPin type="keepon" number="5">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0.5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="">
      <count type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=1.5->S6">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=1.5->S6">
      <time type="fixed">
       <fixed fixed="1.5"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Miss">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenCount" comment="-> S6">
+    <STATE_STRIP type="whenCount" isEnable="true" comment="-> S6">
      <count type="fixed">
       <fixed fixed="1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenTime" comment="">
+    <STATE_STRIP type="whenTime" isEnable="false" comment="">
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="6"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="">
-    <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+    <STATE_STRIP type="doVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+    <STATE_STRIP type="doPin" isEnable="false" comment="">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
       <blink freq="1" duty="50"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
-bool wantToGoNextState = false;
+    <STATE_STRIP type="whenVar" isEnable="false" comment="">
+     <CODE><![CDATA[//Write your Arduino C++ code below
+bool wantToGoNextState = false;
 return wantToGoNextState;]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenCount" comment="n=101 -> STOP">
+    <STATE_STRIP type="whenCount" isEnable="false" comment="n=101 -> STOP">
      <count type="fixed">
       <fixed fixed="101"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="true" type="whenTime" comment="t=0.1->C2/C3">
+    <STATE_STRIP type="whenTime" isEnable="true" comment="t=0.1->C2/C3">
      <time type="fixed">
       <fixed fixed="0.1"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="true" type="goelse">
+     <nextstate type="goelse" iscomponent="true">
       <fixed fixed="0"/>
-      <range from="2" to="3"/>
-      <goelse else="3" go="2" probability="50"/>
+      <range to="3" from="2"/>
+      <goelse probability="50" else="3" go="2"/>
      </nextstate>
     </STATE_STRIP>
-    <STATE_STRIP isEnable="false" type="whenPin" comment="">
+    <STATE_STRIP type="whenPin" isEnable="false" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
-      <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <range to="0" from="0"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>

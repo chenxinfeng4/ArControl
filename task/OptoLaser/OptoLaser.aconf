@@ -1,154 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ARC_DESIGNER>
  <PROFILE>
-  <ARDUINO_DEBUG>F:/Arduino/arduino_debug.exe</ARDUINO_DEBUG>
-  <ARDUINO_BOARD>Uno</ARDUINO_BOARD>
+  <ARDUINO_DEBUG>D:/L_Arduino/arduino_debug.exe</ARDUINO_DEBUG>
+  <ARDUINO_BOARD>Nano</ARDUINO_BOARD>
   <LANG>English</LANG>
   <RECORD_LEVEL>3</RECORD_LEVEL>
   <ECHO_TASK>true</ECHO_TASK>
   <START_MODEL>START_SOFT</START_MODEL>
  </PROFILE>
  <SETTINGS>
-  <INFO version="0.8" name="ArControl Designer" date="2020-03-02, 11:54:10"/>
+  <INFO version="0.8" name="ArControl Designer" date="2020-10-24, 00:39:10"/>
   <VAR_ASSIGN>
    <VAR value="-2" name="Var_1"/>
    <VAR value="0" name="Var_2"/>
    <VAR value="1" name="Var_3"/>
   </VAR_ASSIGN>
   <PIN_ASSIGN>
-   <PIN number="1" isEnable="true" type="OUT" comment="#Laser"/>
-   <PIN number="2" isEnable="true" type="OUT" comment="#2"/>
-   <PIN number="3" isEnable="true" type="OUT" comment="#3"/>
-   <PIN number="4" isEnable="true" type="OUT" comment="#4"/>
-   <PIN number="5" isEnable="true" type="OUT" comment="#5"/>
-   <PIN number="6" isEnable="true" type="OUT" comment="#6"/>
-   <PIN number="7" isEnable="true" type="OUT" comment="#7"/>
-   <PIN number="8" isEnable="true" type="OUT" comment="#8"/>
-   <PIN number="1" isEnable="true" type="IN" comment="#1"/>
-   <PIN number="2" isEnable="true" type="IN" comment="#2"/>
-   <PIN number="3" isEnable="true" type="IN" comment="#3"/>
-   <PIN number="4" isEnable="true" type="IN" comment="#4"/>
-   <PIN number="5" isEnable="true" type="IN" comment="#5"/>
-   <PIN number="6" isEnable="true" type="IN" comment="#6"/>
+   <PIN isEnable="true" type="OUT" comment="#Laser" number="1"/>
+   <PIN isEnable="true" type="OUT" comment="#2" number="2"/>
+   <PIN isEnable="true" type="OUT" comment="#3" number="3"/>
+   <PIN isEnable="true" type="OUT" comment="#4" number="4"/>
+   <PIN isEnable="true" type="OUT" comment="#5" number="5"/>
+   <PIN isEnable="true" type="OUT" comment="#6" number="6"/>
+   <PIN isEnable="true" type="OUT" comment="#7" number="7"/>
+   <PIN isEnable="true" type="OUT" comment="#8" number="8"/>
+   <PIN isEnable="true" type="IN" comment="#1" number="1"/>
+   <PIN isEnable="true" type="IN" comment="#2" number="2"/>
+   <PIN isEnable="true" type="IN" comment="#3" number="3"/>
+   <PIN isEnable="true" type="IN" comment="#4" number="4"/>
+   <PIN isEnable="true" type="IN" comment="#5" number="5"/>
+   <PIN isEnable="true" type="IN" comment="#6" number="6"/>
   </PIN_ASSIGN>
  </SETTINGS>
  <SESSION>
   <COMPONENT comment="Optogenetic Laser Pattern">
    <STATE comment="Active: 20Hz-5ms 1min">
     <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
     <STATE_STRIP isEnable="true" type="doPin" comment="blink (20Hz-5ms 1min)">
-     <doPin number="1" type="blink">
+     <doPin type="blink" number="1">
       <keepon/>
       <turnon isEnable="false"/>
-      <blink freq="20" duty="10"/>
+      <blink duty="10" freq="20"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="60"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="true" type="whenCount" comment="->S2">
      <count type="fixed">
       <fixed fixed="1"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="2"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="whenTime" comment="">
      <time type="range">
       <fixed fixed="0"/>
       <range from="40" to="60"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="2"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="whenPin" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>
    <STATE comment="Resting: 4-5min">
     <STATE_STRIP isEnable="false" type="doVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="doPin" comment="">
-     <doPin number="1" type="turnon">
+     <doPin type="turnon" number="1">
       <keepon/>
       <turnon isEnable="false"/>
-      <blink freq="1" duty="50"/>
+      <blink duty="50" freq="1"/>
      </doPin>
      <time type="fixed">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="whenVar" comment="">
-     <CODE><![CDATA[//Write your Arduino C++ code below
+     <CODE><![CDATA[//Write your Arduino C++ code below
 ]]></CODE>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="true" type="whenCount" comment="n=5 -> STOP">
      <count type="fixed">
       <fixed fixed="5"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </count>
-     <nextstate iscomponent="false" type="endup">
+     <nextstate type="endup" iscomponent="false">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="true" type="whenTime" comment="t=4-6min -> S1">
      <time type="range">
       <fixed fixed="0"/>
       <range from="240" to="360"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </time>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="1"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
     <STATE_STRIP isEnable="false" type="whenPin" comment="">
      <whenPin number="1"/>
-     <nextstate iscomponent="false" type="fixed">
+     <nextstate type="fixed" iscomponent="false">
       <fixed fixed="0"/>
       <range from="0" to="0"/>
-      <goelse else="0" go="0" probability="100"/>
+      <goelse probability="100" else="0" go="0"/>
      </nextstate>
     </STATE_STRIP>
    </STATE>

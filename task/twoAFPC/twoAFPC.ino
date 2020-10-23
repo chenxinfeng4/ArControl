@@ -9,7 +9,7 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "F:/ArControl/ino/ArControl_AllinOne.h"
+#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -123,7 +123,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_P_right=75;
+		
+		
 		
 		
 		
@@ -137,7 +141,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_pumpL=0.085;
+		
+		
 		
 		
 		
@@ -151,6 +159,8 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_BLen=cpp_Range_int(7, 14);
 		
 		
@@ -158,7 +168,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_rewardNN=0;
+		
+		
 		
 		
 		
@@ -175,26 +189,46 @@ void State_SETUP()
 	C2S[1]->dovar = []()-> void{
 		//Write your Arduino C++ code below
 		
+		
+		
 		Var_reward = 0;
+		
+		
+		
+		
 		
 		
 		
 		if (Var_missN>=2) {
 		
+		
+		
 			Var_missC = 3;
+		
+		
 		
 		}
 		
+		
+		
 		else {
 		
+		
+		
 			Var_missC = 7;
+		
+		
 		
 		}
 	};
 	C2S[1]->varListener = []()-> bool {
 		//Write your Arduino C++ code below
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		return Var_rewardNN>=200;;
 	}; //rwd=200 -> Stop
@@ -216,21 +250,39 @@ void State_SETUP()
 	C2S[3]->dovar = []()-> void{
 		//Write your Arduino C++ code below
 		
+		
+		
 		Var_reward = 1;
+		
+		
 		
 		Var_missN = 0;
 		
+		
+		
 		Var_rewardN++;
+		
+		
 		
 		Var_rewardNN++;
 		
 		
 		
+		
+		
+		
+		
 		if(Var_Block!='L'){ //Block first trial
+		
+		
 		
 			//cpp_keepon(OUT3, Var_pumpL*0.66); //left pump
 		
+		
+		
 			Var_Block = 'L';
+		
+		
 		
 		}
 	};
@@ -241,21 +293,47 @@ void State_SETUP()
 	C2S[4]->varListener = []()-> bool {
 		//Write your Arduino C++ code below
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
+		
+		
 		
 		
 		
 		if (Var_reward==1 && Var_rewardN>=Var_BLen) {
 		
+		
+		
 			Var_rewardN=0;
+		
+		
 		
 			Var_missN=1;
 		
+		
+		
 			Var_BLen=cpp_Range_int(7, 14);
+		
+		
 		
 			ShouldgotoState = true;
 		
+		
+		
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -286,6 +364,8 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		++Var_missN;
 	};
 	C2S[7]->CountSet = []()-> int {return 1;}; //-> S5
@@ -296,26 +376,46 @@ void State_SETUP()
 	C3S[1]->dovar = []()-> void{
 		//Write your Arduino C++ code below
 		
+		
+		
 		Var_reward = 0;
+		
+		
+		
+		
 		
 		
 		
 		if (Var_missN>=2) {
 		
+		
+		
 			Var_missC = 3;
+		
+		
 		
 		}
 		
+		
+		
 		else {
 		
+		
+		
 			Var_missC = 7;
+		
+		
 		
 		}
 	};
 	C3S[1]->varListener = []()-> bool {
 		//Write your Arduino C++ code below
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		return Var_rewardNN>=200;;
 	}; //rwd=200 -> Stop
@@ -337,21 +437,39 @@ void State_SETUP()
 	C3S[3]->dovar = []()-> void{
 		//Write your Arduino C++ code below
 		
+		
+		
 		Var_reward = 1;
+		
+		
 		
 		Var_missN = 0;
 		
+		
+		
 		Var_rewardN++;
+		
+		
 		
 		Var_rewardNN++;
 		
 		
 		
+		
+		
+		
+		
 		if(Var_Block!='R'){ //Block first trial
+		
+		
 		
 			//cpp_keepon(OUT4, Var_pumpR*0.66); //Right pump
 		
+		
+		
 			Var_Block = 'R';
+		
+		
 		
 		}
 	};
@@ -362,19 +480,35 @@ void State_SETUP()
 	C3S[4]->varListener = []()-> bool {
 		//Write your Arduino C++ code below
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		if (Var_reward==1 && Var_rewardN>=Var_BLen) {
 		
+		
+		
 			Var_rewardN=0;
+		
+		
 		
 		  Var_BLen=cpp_Range_int(7, 14);
 		
+		
+		
 			Var_missN=1;
+		
+		
 		
 			ShouldgotoState = true;
 		
+		
+		
 		}
+		
+		
 		
 		return ShouldgotoState;;
 	}; //switch -> C3
@@ -391,6 +525,16 @@ void State_SETUP()
 	///C3S[7]: MISS
 	C3S[7]->dovar = []()-> void{
 		//Write your Arduino C++ code below
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

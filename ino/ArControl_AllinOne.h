@@ -21,7 +21,7 @@ const int AIpin[] = {0,1,2,3,4,5}; //AI_PIN to pinScaning();
 extern const int AIpin[];
 #endif
 
-#ifdef UNO_SPEEDUP   //Promote speed of AI-pinScaning for UNO board. Recommend.
+#if defined UNO_SPEEDUP || defined NANO_SPEEDUP  //Promote speed of AI-pinScaning for UNO board. Recommend.
 ///AIpin choosed  counts        [NONE 1    2    3    4    5    6]
 //UNO_SPEEDUP  pinScaning():    [1.2  7    7    7    7    7    7]  us while work-pinScaning()-leisure.
 //                              [0.8  16   16   16   16   16  16]  us while work-pinScaning()-engaged (at least).
@@ -65,7 +65,7 @@ void pinScaning()
     }
 }
 #else
-#ifdef MEGA_SPEEDUP//Promote speed of AI-pinScaning for MEGA 2560 board. Recommend.
+#if defined MEGA_SPEEDUP//Promote speed of AI-pinScaning for MEGA 2560 board. Recommend.
 // Haven't tested the speed yet
 void pinScaning()
 {
