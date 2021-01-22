@@ -79,7 +79,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="269"/>
-        <location filename="mainwindow.ui" line="438"/>
+        <location filename="mainwindow.ui" line="469"/>
         <source>Channel</source>
         <translation>通道</translation>
     </message>
@@ -135,244 +135,264 @@
         <translation>占空比(%)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="446"/>
+        <location filename="mainwindow.ui" line="477"/>
         <source>IN1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="451"/>
+        <location filename="mainwindow.ui" line="482"/>
         <source>IN2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="456"/>
+        <location filename="mainwindow.ui" line="487"/>
         <source>IN3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="461"/>
+        <location filename="mainwindow.ui" line="492"/>
         <source>IN4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="466"/>
+        <location filename="mainwindow.ui" line="497"/>
         <source>IN5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="471"/>
+        <location filename="mainwindow.ui" line="502"/>
         <source>IN6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="479"/>
+        <location filename="mainwindow.ui" line="462"/>
         <source>Signal</source>
         <translation>触发信号</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="486"/>
-        <source>Is High</source>
-        <translation>高(/低) 电平</translation>
+        <location filename="mainwindow.ui" line="113"/>
+        <source>State Para</source>
+        <translation type="unfinished">State 参数</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="519"/>
+        <location filename="mainwindow.ui" line="439"/>
+        <source>Is High</source>
+        <translation>高电平</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="444"/>
+        <source>Is Low</source>
+        <translation>低电平</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="449"/>
+        <source>Rising Edge</source>
+        <translation>上升沿</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="454"/>
+        <source>Downing Edge</source>
+        <translation>下降沿</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="533"/>
         <source>Count</source>
         <translation>计数</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="526"/>
-        <location filename="mainwindow.ui" line="575"/>
-        <location filename="mainwindow.ui" line="765"/>
-        <location filename="mainwindow.ui" line="814"/>
-        <location filename="mainwindow.ui" line="1032"/>
-        <location filename="mainwindow.ui" line="1103"/>
+        <location filename="mainwindow.ui" line="540"/>
+        <location filename="mainwindow.ui" line="589"/>
+        <location filename="mainwindow.ui" line="779"/>
+        <location filename="mainwindow.ui" line="828"/>
+        <location filename="mainwindow.ui" line="1046"/>
+        <location filename="mainwindow.ui" line="1117"/>
         <source>Fixed</source>
         <translation>固定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="531"/>
-        <location filename="mainwindow.ui" line="770"/>
-        <location filename="mainwindow.ui" line="1037"/>
+        <location filename="mainwindow.ui" line="545"/>
+        <location filename="mainwindow.ui" line="784"/>
+        <location filename="mainwindow.ui" line="1051"/>
         <source>Range</source>
         <translation>范围随机</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="536"/>
-        <location filename="mainwindow.ui" line="775"/>
-        <location filename="mainwindow.ui" line="1042"/>
+        <location filename="mainwindow.ui" line="550"/>
+        <location filename="mainwindow.ui" line="789"/>
+        <location filename="mainwindow.ui" line="1056"/>
         <source>GoElse</source>
         <translation>双向概率随机</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="633"/>
-        <location filename="mainwindow.ui" line="872"/>
-        <location filename="mainwindow.ui" line="1171"/>
+        <location filename="mainwindow.ui" line="647"/>
+        <location filename="mainwindow.ui" line="886"/>
+        <location filename="mainwindow.ui" line="1185"/>
         <source>To</source>
         <translation>到</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="643"/>
-        <location filename="mainwindow.ui" line="882"/>
-        <location filename="mainwindow.ui" line="1158"/>
+        <location filename="mainwindow.ui" line="657"/>
+        <location filename="mainwindow.ui" line="896"/>
+        <location filename="mainwindow.ui" line="1172"/>
         <source>Rand From</source>
         <translation>随机 从</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="680"/>
-        <location filename="mainwindow.ui" line="919"/>
-        <location filename="mainwindow.ui" line="1208"/>
+        <location filename="mainwindow.ui" line="694"/>
+        <location filename="mainwindow.ui" line="933"/>
+        <location filename="mainwindow.ui" line="1222"/>
         <source>Prob(%)</source>
         <translation>概率(%)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="696"/>
-        <location filename="mainwindow.ui" line="935"/>
-        <location filename="mainwindow.ui" line="1221"/>
+        <location filename="mainwindow.ui" line="710"/>
+        <location filename="mainwindow.ui" line="949"/>
+        <location filename="mainwindow.ui" line="1235"/>
         <source>Probability 0-100</source>
         <translation>概率 0-100</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="703"/>
-        <location filename="mainwindow.ui" line="942"/>
-        <location filename="mainwindow.ui" line="1228"/>
+        <location filename="mainwindow.ui" line="717"/>
+        <location filename="mainwindow.ui" line="956"/>
+        <location filename="mainwindow.ui" line="1242"/>
         <source>Go</source>
         <translation>则</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="723"/>
-        <location filename="mainwindow.ui" line="962"/>
-        <location filename="mainwindow.ui" line="1248"/>
+        <location filename="mainwindow.ui" line="737"/>
+        <location filename="mainwindow.ui" line="976"/>
+        <location filename="mainwindow.ui" line="1262"/>
         <source>Else</source>
         <translation>否则</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="758"/>
+        <location filename="mainwindow.ui" line="772"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1010"/>
+        <location filename="mainwindow.ui" line="1024"/>
         <source>Go State</source>
         <translation>跳转 &quot;状态机&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1047"/>
+        <location filename="mainwindow.ui" line="1061"/>
         <source>EndUp</source>
         <translatorcomment>结束运行</translatorcomment>
         <translation>结束运行</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1055"/>
+        <location filename="mainwindow.ui" line="1069"/>
         <source>State</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1065"/>
+        <location filename="mainwindow.ui" line="1079"/>
         <source>Component</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1280"/>
+        <location filename="mainwindow.ui" line="1294"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1283"/>
+        <location filename="mainwindow.ui" line="1297"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1288"/>
+        <location filename="mainwindow.ui" line="1302"/>
         <source>Save as</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1291"/>
+        <location filename="mainwindow.ui" line="1305"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1296"/>
+        <location filename="mainwindow.ui" line="1310"/>
         <source>Save as default</source>
         <translation>另存为默认</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1301"/>
+        <location filename="mainwindow.ui" line="1315"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1304"/>
+        <location filename="mainwindow.ui" line="1318"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1309"/>
+        <location filename="mainwindow.ui" line="1323"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1312"/>
+        <location filename="mainwindow.ui" line="1326"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1317"/>
+        <location filename="mainwindow.ui" line="1331"/>
         <source>Pin Assignment</source>
         <translation>硬件引脚管理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1322"/>
+        <location filename="mainwindow.ui" line="1336"/>
         <source>Var Assignment</source>
         <translation>变量管理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1327"/>
+        <location filename="mainwindow.ui" line="1341"/>
         <source>Profile</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1332"/>
+        <location filename="mainwindow.ui" line="1346"/>
         <source>Minimum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1337"/>
+        <location filename="mainwindow.ui" line="1351"/>
         <source>Maxmum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1342"/>
+        <location filename="mainwindow.ui" line="1356"/>
         <source>Preferred</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1347"/>
+        <location filename="mainwindow.ui" line="1361"/>
         <source>Expand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1352"/>
+        <location filename="mainwindow.ui" line="1366"/>
         <source>tans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1357"/>
+        <location filename="mainwindow.ui" line="1371"/>
         <source>Ignored</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1362"/>
+        <location filename="mainwindow.ui" line="1376"/>
         <source>trans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1365"/>
+        <location filename="mainwindow.ui" line="1379"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1370"/>
+        <location filename="mainwindow.ui" line="1384"/>
         <source>About me</source>
         <translation>关于 我</translation>
     </message>
@@ -554,18 +574,38 @@
         <translation>硬件通道映射图</translation>
     </message>
     <message>
-        <location filename="profiledialog.ui" line="176"/>
+        <location filename="profiledialog.ui" line="188"/>
         <source>View</source>
         <translation>查看</translation>
     </message>
     <message>
+        <location filename="profiledialog.ui" line="210"/>
+        <source>Arduino Board</source>
+        <translation type="unfinished">Arduino 板型号</translation>
+    </message>
+    <message>
+        <location filename="profiledialog.ui" line="218"/>
+        <source>Uno (INPUT=6, OUTPUT=8)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="profiledialog.ui" line="223"/>
+        <source>Mega 2560 (INPUT=6, OUTPUT=8)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="profiledialog.ui" line="228"/>
+        <source>Nano 328 (INPUT=6, OUTPUT=8)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="profiledialog.cpp" line="55"/>
-        <location filename="profiledialog.cpp" line="125"/>
+        <location filename="profiledialog.cpp" line="126"/>
         <source>Choose Arduino IDE</source>
         <translation>选择Arduino IDE</translation>
     </message>
     <message>
-        <location filename="profiledialog.cpp" line="170"/>
+        <location filename="profiledialog.cpp" line="171"/>
         <source>File-Element %1 context %2 error!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -579,37 +619,37 @@
     </message>
     <message>
         <location filename="globalparas.cpp" line="30"/>
-        <location filename="statecontent.cpp" line="255"/>
+        <location filename="statecontent.cpp" line="257"/>
         <source>doVar</source>
         <translation>改变量</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="31"/>
-        <location filename="statecontent.cpp" line="265"/>
+        <location filename="statecontent.cpp" line="267"/>
         <source>doPin</source>
         <translation>激活Pin</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="32"/>
-        <location filename="statecontent.cpp" line="283"/>
+        <location filename="statecontent.cpp" line="285"/>
         <source>whenVar</source>
         <translation>当变量</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="33"/>
-        <location filename="statecontent.cpp" line="291"/>
+        <location filename="statecontent.cpp" line="293"/>
         <source>whenCount</source>
         <translation>当计数</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="34"/>
-        <location filename="statecontent.cpp" line="297"/>
+        <location filename="statecontent.cpp" line="299"/>
         <source>whenTime</source>
         <translation>当超时</translation>
     </message>
     <message>
         <location filename="globalparas.cpp" line="35"/>
-        <location filename="statecontent.cpp" line="303"/>
+        <location filename="statecontent.cpp" line="305"/>
         <source>whenPin</source>
         <translation>当Pin</translation>
     </message>

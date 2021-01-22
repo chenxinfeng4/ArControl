@@ -110,7 +110,7 @@
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <property name="windowTitle">
-    <string notr="true">State Para</string>
+    <string>State Para</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -176,7 +176,7 @@
         <number>1</number>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>2</number>
        </property>
        <widget class="QWidget" name="page_VarWhenorDo">
         <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -432,6 +432,37 @@
          <property name="rightMargin">
           <number>0</number>
          </property>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="comboBox_inMode">
+           <item>
+            <property name="text">
+             <string>Is High</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Is Low</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Rising Edge</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Downing Edge</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Signal</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="label_20">
            <property name="text">
@@ -471,23 +502,6 @@
              <string>IN6</string>
             </property>
            </item>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Signal</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QCheckBox" name="checkBox_inChan">
-           <property name="text">
-            <string>Is High</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
           </widget>
          </item>
         </layout>
@@ -792,7 +806,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_timeFixed">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -1081,7 +1095,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="page_stateFixed">
            <layout class="QHBoxLayout" name="horizontalLayout">

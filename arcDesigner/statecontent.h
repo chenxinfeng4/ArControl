@@ -38,6 +38,7 @@ public slots:
 private slots:
     void on_comboBox_outMode_currentIndexChanged(int index);
     void on_comboBox_var_activated(const QString &arg1);
+
 private:
     Ui::MainWindow * ui;
     QDomElement  dom_state_strip;

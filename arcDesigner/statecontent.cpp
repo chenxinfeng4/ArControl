@@ -67,7 +67,6 @@ void StateContent::createUi(Ui::MainWindow *ui_)
     ui->lineEdit_stateGo->setToolTip(TR(STATE_HINT));
     ui->lineEdit_stateElse->setToolTip(TR(STATE_HINT));
     ui->lineEdit_stateFixed->setToolTip(TR(STATE_HINT));
-    ui->checkBox_inChan->setToolTip(TR(WHEN_ISHIGH_HINT));
 }
 
 StateContent *StateContent::getInstance()
@@ -172,9 +171,9 @@ void StateContent::gui_to_dom()
     }
     case whenPin:{
         int chan_num = ui->comboBox_inChan->currentIndex()+1;
-        bool is_high = ui->checkBox_inChan->isChecked();
+        int modeIndex = ui->comboBox_inMode->currentIndex();
         setAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER, QString::number(chan_num));
-        setAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, (is_high? "true":"false"));
+        setAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, STR_L_INMODE.at(modeIndex));
         setHas_count_time_state(false, true, true);
         break;
     }
@@ -304,10 +303,14 @@ void StateContent::dom_to_gui()
     case StripType::whenPin: {
         ui->stackedMain->setCurrentIndex(STACK_IND_WHENPIN);
         ui->dockWidget->setWindowTitle(QObject::tr("whenPin"));
-        int chan_num = QString(getAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER)).toInt(); //PIN 1-8
-        bool is_high = getAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, "true") == "true"; //HIGH or LOW
+        int chan_num = QString(getAtt(dom_state_strip, DOM_WHENPIN, ATT_NUMBER)).toInt(); //PIN 1-6
+        int modeIndex = indexOf(QStringList(STR_L_INMODE)<<"true"<<"false", //[HIGH,LOW,RISING,DOWN,HIGH,LOW]
+                                getAtt(dom_state_strip, DOM_WHENPIN, ATT_ISHIGH, STR_L_INMODE[0]));
+        if (modeIndex>=4) {
+            modeIndex-=4;
+        }
         ui->comboBox_inChan->setCurrentIndex(chan_num - 1);
-        ui->checkBox_inChan->setChecked(is_high);
+        ui->comboBox_inMode->setCurrentIndex(modeIndex);
         setHas_main_count_time_state(true, false, 0, true);
         setSpacer_stateHigh(true);
         break;
@@ -422,3 +425,4 @@ void StateContent::on_pinAssign_changed(QList<bool> isIns, QList<int> Nums, QLis
     ui->comboBox_outChan->setCurrentIndex(outChan_pre);
 }
 // [1] end
+

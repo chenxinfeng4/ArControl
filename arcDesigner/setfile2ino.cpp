@@ -472,9 +472,17 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                 QString format = "\t%1->evtListener = []()-> bool {%2}; //%3";
                 name_switch = "evtListenerSTATE";
                 QString numPin = dom_s_s.firstChildElement(DOM_WHENPIN).attribute(ATT_NUMBER);
-                bool is_high = dom_s_s.firstChildElement(DOM_WHENPIN).attribute(ATT_ISHIGH, "true")=="true";
-                QString pinValue = is_high?"HIGH":"LOW";
-                QString inner = QString("return cpp_ListenAI(IN%1, %2);").arg(numPin).arg(pinValue);
+                int modeIndex = indexOf(STR_L_INMODE, dom_s_s.firstChildElement(DOM_WHENPIN).attribute(ATT_ISHIGH, STR_L_INMODE[0]));
+                QString inner;
+                if (modeIndex==0){ //is High
+                    inner = QString("return cpp_ListenAI(IN%1, HIGH);").arg(numPin);
+                }else if (modeIndex==1){ //is Low
+                    inner = QString("return cpp_ListenAI(IN%1, LOW);").arg(numPin);
+                }else if (modeIndex==2){ //rising edge
+                    inner = QString("return cpp_ListenAI_edge(IN%1, HIGH);").arg(numPin);
+                }else { //downing edge
+                    inner = QString("return cpp_ListenAI_edge(IN%1, LOW);").arg(numPin);
+                }
                 record_cond = format.arg(CxSx).arg(inner).arg(Strip_comm);
                 has_state = true;
                 break;

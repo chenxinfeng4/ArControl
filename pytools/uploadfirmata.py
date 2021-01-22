@@ -6,7 +6,7 @@ import click
 
 """
 Fast upload arcontrol task to the arduino board, comparing to the original arduino ide. 
-Xinfeng Chen, 2020-2-14
+Xinfeng Chen, 2021-1-21
 
 $ pyinstaller uploadfirmata.py
 """
@@ -16,8 +16,8 @@ _board = None
 _hex_mtime = None
 _arc_board = None
 _arduino_debug_p = None
-BOARD_MAP = {'Uno': 'arduino:avr:uno', 'Mega': 'arduino:avr:mega:cpu=atmega2560'}
-BOARD_FILE = {'Uno': 'StandardFirmata.ino.standard.hex', 'Mega': 'StandardFirmata.ino.mega.hex'}
+BOARD_MAP = {'Uno': 'arduino:avr:uno', 'Mega': 'arduino:avr:mega:cpu=atmega2560', 'Nano': 'arduino:avr:nano:cpu=atmega328'}
+BOARD_FILE = {'Uno': 'StandardFirmata.ino.standard.hex', 'Mega': 'StandardFirmata.ino.mega.hex', 'Nano':'StandardFirmata.ino.nano328.hex'}
 BOARD_MAP_t = dict([(v,k) for (k,v) in BOARD_MAP.items()])
 
 
@@ -52,6 +52,8 @@ def do_upload(filename, board, port):
         cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -P{port} -b115200 -D -Uflash:w:"{file_hex}":i'
     elif board == BOARD_MAP['Mega']:
         cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega2560 -cwiring -P{port} -b115200 -D -Uflash:w:"{file_hex}":i'
+    elif board == BOARD_MAP['Nano']:
+        cmd = f'"{arduino_dir}/hardware/tools/avr/bin/avrdude" -q -q -C "{arduino_dir}/hardware/tools/avr/etc/avrdude.conf" -V -patmega328p -carduino -P{port} -b57600 -D -Uflash:w:"{file_hex}":i'
     else:
         print("Error: ArControl did NOT support for {board}", file=sys.stderr)
         yes = False

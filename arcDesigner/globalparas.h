@@ -14,7 +14,8 @@ namespace  GLOBAL_PARA {
     const QString DOM_SESSION("SESSION"), DOM_COMPONENT("COMPONENT"), DOM_STATE("STATE"),
                   DOM_SSTRIP("STATE_STRIP"), DOM_CODE("CODE"), DOM_DOPIN("doPin"),
                   DOM_KEEPON("keepon"), DOM_BLINK("blink"), DOM_TURN("turnon"),
-                   ATT_FREQ("freq"), ATT_DUTY("duty"), DOM_WHENPIN("whenPin"),
+                  ATT_FREQ("freq"), ATT_DUTY("duty"), DOM_WHENPIN("whenPin"), DOM_ISHIGH("isHigh"),
+                  DOM_ISLOW("isLow"), DOM_RISINGEDGE("risingEdge"), DOM_DOWNINGEDGE("downingEdge"),
                   DOM_TIME("time"), DOM_COUNT("count"), DOM_NEXTSTATE("nextstate"),
                   DOM_FIXED("fixed"), DOM_RANGE("range"), DOM_GOELSE("goelse"), DOM_ENDUP("endup"),
                   ATT_FIXED("fixed"), ATT_FROM("from"), ATT_TO("to"), ATT_PROB("probability"),
@@ -33,6 +34,8 @@ namespace  GLOBAL_PARA {
             <<"When meet the condition of [IN-Pin triggered], goto designed STATE.";
     const QStringList STR_L_OUTMODE = QStringList()
             << DOM_TURN << DOM_KEEPON << DOM_BLINK;
+    const QStringList STR_L_INMODE = QStringList()
+            << DOM_ISHIGH << DOM_ISLOW << DOM_RISINGEDGE << DOM_DOWNINGEDGE;
     const QStringList STR_L_RANDMODE = QStringList()
             << DOM_FIXED << DOM_RANGE << DOM_GOELSE;
     const QStringList STR_L_STATEMODE = QStringList()
@@ -59,8 +62,6 @@ namespace  GLOBAL_PARA {
                                "but it's a good way to write notes.");
     const QString STATE_HINT("- etc: \"3\"  =>  \"C3S1\" or \"S3\"\n "\
                              "- WARN: \"0\"  =>  treat as SESION END");
-    const QString WHEN_ISHIGH_HINT("- CHECKED: It's trigged when signal is HIGH. \n"\
-                                   "- UNCHECKED:            wehn signal is LOW!");
     const QString COUNT_HINT("- etc: \"3\"  => the counter(c) increase at this STATE-entry, \n" \
                              "              when (c) equal to \"3\" , goto NextState & reset (c) \n"
                              "- WARN: \"0\"  =>  treat as \"+∞\", will never be satisfied");
@@ -73,8 +74,8 @@ namespace  GLOBAL_PARA {
 }
 
 namespace VERSION_INFO {
-    const QString VERSION_NUM("V0.2");
-    const QString VERSION_TIME("2019-05-24");
+    const QString VERSION_NUM("V0.3");
+    const QString VERSION_TIME("2021-01-21");
 }
 
 QDomElement createTempElement(QString nodeName);
