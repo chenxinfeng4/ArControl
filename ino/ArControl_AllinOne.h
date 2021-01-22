@@ -1,10 +1,11 @@
 #ifndef ARCONTROL_ALLINONE
 #define ARCONTROL_ALLINONE
 
-void pinScaning();
+void pinScanning();
+void edgeScanning();
 void pinWriting(int, boolean);
 void sendmsg(char [], int, unsigned long, unsigned long);
-#define delay(t) {unsigned long i = millis() + t; while(millis()<i) pinScaning();}
+#define delay(t) {unsigned long i = millis() + t; while(millis()<i) pinScanning();}
 #define digitalWrite(pin,level) {digitalWrite(pin,level);pinWriting(pin,level);}
 #define analogWrite(pin,level) {analogWrite(pin,level);pinWriting(pin,(boolean)level);}
 #include "ArControl.h" //important!
@@ -16,18 +17,49 @@ void sendmsg(char [], int, unsigned long, unsigned long);
 #define AI2IN 1      //AI0 -> IN1
 #endif
 #ifndef MY_AIPIN
-const int AIpin[] = {0,1,2,3,4,5}; //AI_PIN to pinScaning();
+const int AIpin[] = {0,1,2,3,4,5}; //AI_PIN to pinScanning();
 #else
 extern const int AIpin[];
 #endif
 
-#if defined UNO_SPEEDUP || defined NANO_SPEEDUP  //Promote speed of AI-pinScaning for UNO board. Recommend.
+
+#if defined UNO_SPEEDUP || defined NANO_SPEEDUP
+#define PIN_IN_6_1 PINC    //PINC = [NULL NULL A5<-A0] for repid read all input channel
+#elif defined MEGA_SPEEDUP
+#define PIN_IN_6_1 PINF    //PINF = [? ? A5<-A0]
+#else
+#define PIN_IN_6_1 0x00    //NULL
+#endif
+
+////////////////////////////////// edge Scan ////////////////////////////////////////////////
+////////////////////////////////// 上升沿下降沿扫描 /////////////////////////////////////////
+//Promote speed of AI-pinScanning for [UNO | NANO | MEGA] boards only. Recommend.
 ///AIpin choosed  counts        [NONE 1    2    3    4    5    6]
-//UNO_SPEEDUP  pinScaning():    [1.2  7    7    7    7    7    7]  us while work-pinScaning()-leisure.
-//                              [0.8  16   16   16   16   16  16]  us while work-pinScaning()-engaged (at least).
-//NONE UNO_SPEEDUP pinScaning():[1.2  9    18   24   29   34  40]  us while work-pinScaning()-leisure.
-//                              [1.2  9    18   24   29   34  40]  us while work-pinScaning()-engaged (at least).
-void pinScaning()
+//SPEEDUP  edgeScanning():       [1.2  2    -    3    -    -    4]  us while work-pinScanning()-leisure.
+byte risingEdge=0, downingEdge=0;
+void edgeScanning()
+{
+  static byte pre_status = 0;
+  byte now_status = PINC;
+  byte changed_status = pre_status ^ now_status;
+  risingEdge = changed_status & now_status;
+  downingEdge = changed_status & pre_status;
+  pre_status = now_status;
+}
+boolean cpp_ListenAI_edge(int PinNum, boolean PinEdge = HIGH)
+{
+  return bitRead(PinEdge?risingEdge:downingEdge, PinNum); //read the Edge from variable
+}
+
+
+#if defined UNO_SPEEDUP || defined NANO_SPEEDUP || defined MEGA_SPEEDUP
+//Promote speed of AI-pinScanning for [UNO | NANO | MEGA] board. Recommend.
+///AIpin choosed  counts        [NONE 1    2    3    4    5    6]
+//UNO_SPEEDUP  pinScanning():    [1.2  7    7    7    7    7    7]  us while work-pinScanning()-leisure.
+//                              [0.8  16   16   16   16   16  16]  us while work-pinScanning()-engaged (at least).
+//NONE UNO_SPEEDUP pinScanning():[1.2  9    18   24   29   34  40]  us while work-pinScanning()-leisure.
+//                              [1.2  9    18   24   29   34  40]  us while work-pinScanning()-engaged (at least).
+void pinScanning()
 {
     static boolean doinit = 1;
     static unsigned long t_raise[6];
@@ -44,10 +76,7 @@ void pinScaning()
             bitWrite(AI_enable, AIpin[i], 1);
         }
     }
-    byte now_status = PINC,changed_status;
-#ifdef AI_REVERSE
-    now_status = ~now_status;
-#endif
+    byte now_status = PIN_IN_6_1,changed_status;
     changed_status = (pre_status ^ now_status) & AI_enable;
     if(changed_status !=  0) {   //reduce time consume
         unsigned long now_time = millis();
@@ -65,47 +94,7 @@ void pinScaning()
     }
 }
 #else
-#if defined MEGA_SPEEDUP//Promote speed of AI-pinScaning for MEGA 2560 board. Recommend.
-// Haven't tested the speed yet
-void pinScaning()
-{
-    static boolean doinit = 1;
-    static unsigned long t_raise[6];
-    static byte pre_status = 0; //[NULL NULL A5<-A0]
-    static byte AI_enable = 0; //[NULL NULL A5<-A0]
-    char prefix[] = "IN";
-    if(doinit) {                       // do init, the first time
-        doinit = 0;
-        unsigned long AppBeginTime = mySaver.getAppBeginTime();
-        for(int i = 0; i < 6; ++i) {
-            t_raise[i] = AppBeginTime;   //when pin start with HIGH
-        }
-        for(int i = 0; i < sizeof(AIpin) / sizeof(int); ++i) {
-            bitWrite(AI_enable, AIpin[i], 1);
-        }
-    }
-    byte now_status = PINF,changed_status;
-#ifdef AI_REVERSE
-    now_status = ~now_status;
-#endif
-    changed_status = (pre_status ^ now_status) & AI_enable;
-    if(changed_status !=  0) {   //reduce time consume
-        unsigned long now_time = millis();
-        for(int i = 0; i < 6; ++i) {
-            if(bitRead(changed_status, i)) {
-                if(bitRead(now_status, i)) { //up slope
-                    t_raise[i] = now_time;
-                }
-                else {              //down slope
-                    sendmsg(prefix, i + AI2IN, t_raise[i], now_time);
-                }
-            }
-        }
-        pre_status = now_status;
-    }
-}
-#else
-void pinScaning()
+void pinScanning()
 {
     static boolean doinit = 1;
     static int count = sizeof(AIpin) / sizeof(int);
@@ -130,9 +119,6 @@ void pinScaning()
     for(int i = 0; i < count; ++i)
     {
         now_status = digitalRead(AI2DIpin[i]); //HIGH-V is signal
-#ifdef AI_REVERSE
-        now_status = !now_status;              //LOW-V is signal
-#endif
         unsigned long now_time = millis();
         if(pre_status[i] == LOW && now_status == HIGH) {
             t_raise[i] = now_time;
@@ -144,7 +130,6 @@ void pinScaning()
         }
     }
 }
-#endif
 #endif
 
 
@@ -186,7 +171,7 @@ void pinWriting(int pin, boolean level)
     }
 }
 
-// Serial.print for 'pinScaning()', 'pinWriting()'
+// Serial.print for 'pinScanning()', 'pinWriting()'
 // "OUT3:100 300": D3, turn on at 100ms, off at 300ms, duration as 200ms
 // "IN3:100 300" : AI3, turn on at 100ms, off at 300ms, duration as 200ms
 void sendmsg(char prefix[], int pin, unsigned long t_raise, unsigned long t_decline)

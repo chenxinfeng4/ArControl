@@ -2,7 +2,8 @@
 #define ARCONTROL
 
 #ifndef ARCONTROL_ALLINONE
-inline void pinScaning(){;}
+inline void pinScanning(){;}
+void edgeScanning(){;}
 #endif
 
 /* whether echo taskName in very begining */
@@ -275,7 +276,6 @@ public:
   void RUN()
   {
     //Start STATE timer
-    myTimer.SetTimer(this->TimerSet());
     myTimer.BgTimer();
 
     //run the <DO-Functions>
@@ -288,7 +288,7 @@ public:
     //  1250 = STATE begin millis()
 #ifndef NULL_RECORD  //NULL_RECORD : don't send massage
     mySaver.attach(this->Ci, this->Si, this->myTimer.RdBgMillis());
-    pinScaning();
+    pinScanning();
 #endif
     //whether <varListener> fit
     if(this->varListener()) {
@@ -309,8 +309,10 @@ public:
     }
 
     //whether <TimerSet> fit
+    myTimer.SetTimer(this->TimerSet());
     while(!myTimer.isTimeOut()){
-
+    //detect rising or downing edge
+      edgeScanning();
     //whether <evtListener> fit
       while(this->myNode.Next()) {
         if(this->myNode.getSub1()()) {
@@ -318,8 +320,10 @@ public:
           return;
         }
       }
+	
+ 
 #ifndef NULL_RECORD  //NULL_RECORD : don't send massage
-      pinScaning();
+      pinScanning();
 #endif
     }
 
@@ -398,7 +402,14 @@ void cpp_HzDuty(int PinNum, float duration, float Hz_A, float Duty_A, float Hz_B
   const unsigned long uT_div_slow = uT_slow * Duty_slow;
   unsigned long temput, ut;                                //ut: time now, unit = us.
   boolean pot;                                             //(pot)ential, which will write to PinNum.
+  int i=0;
   while ((ut = micros() - ubgtime) < utime){
+#ifndef NULL_RECORD  //NULL_RECORD : don't send massage
+    if (i++ > 100) {
+      pinScanning();
+      i=0;
+    }
+#endif
     temput = ut%uT_slow;
     if (temput<uT_div_slow) {                              //slow cycle - > fast cycle
       pot = (temput % uT_fast) < uT_div_fast;
