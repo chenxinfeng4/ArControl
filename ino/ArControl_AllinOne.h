@@ -5,6 +5,7 @@ void pinScanning();
 void edgeScanning();
 void pinWriting(int, boolean);
 void sendmsg(char [], int, unsigned long, unsigned long);
+void sendmsg(char [], int);
 #define delay(t) {unsigned long i = millis() + t; while(millis()<i) pinScanning();}
 #define digitalWrite(pin,level) {digitalWrite(pin,level);pinWriting(pin,level);}
 #define analogWrite(pin,level) {analogWrite(pin,level);pinWriting(pin,(boolean)level);}
@@ -84,6 +85,7 @@ void pinScanning()
             if(bitRead(changed_status, i)) {
                 if(bitRead(now_status, i)) { //up slope
                     t_raise[i] = now_time;
+                    sendmsg("$", AIpin[i] + AI2IN);
                 }
                 else {              //down slope
                     sendmsg(prefix, i + AI2IN, t_raise[i], now_time);
@@ -123,6 +125,7 @@ void pinScanning()
         if(pre_status[i] == LOW && now_status == HIGH) {
             t_raise[i] = now_time;
             pre_status[i] = now_status;
+            sendmsg("$", AIpin[i] + AI2IN);
         }
         else if(pre_status[i] == HIGH && now_status == LOW) {
             pre_status[i] = now_status;
@@ -163,6 +166,7 @@ void pinWriting(int pin, boolean level)
     if(pre_status[i] == LOW && now_status == HIGH) {
         t_raise[i] = millis();
         pre_status[i] = now_status;
+        sendmsg("%", DOpin[i] + DO2OUT);
     }
     else if( pre_status[i] == HIGH && now_status == LOW ) {
         t_decline[i] = millis();
@@ -185,6 +189,15 @@ void sendmsg(char prefix[], int pin, unsigned long t_raise, unsigned long t_decl
     strcat(buf, ultoa(t_raise - AppBeginTime, temp, 10));
     strcat(buf, " ");
     strcat(buf, ultoa(t_decline - t_raise, temp, 10));
+    strcat(buf, "\n");
+    Serial.print(buf);
+}
+void sendmsg(char prefix[], int pin)
+{
+    char buf[7], temp[3];
+    buf[0] = '\0';
+    strcat(buf, prefix);
+    strcat(buf, itoa(pin, temp, 10));
     strcat(buf, "\n");
     Serial.print(buf);
 }
