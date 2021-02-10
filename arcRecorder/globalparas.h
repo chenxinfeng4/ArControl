@@ -15,8 +15,8 @@ namespace  GLOBAL_PARA {
                   DOM_ARDUINOBOARD("ARDUINO_BOARD"), DOM_ARDUINO("ARDUINO_DEBUG");
 }
 namespace VERSION_INFO {
-    const QString VERSION_NUM("V0.2");
-    const QString VERSION_TIME("2019-05-24");
+    const QString VERSION_NUM("V0.3");
+    const QString VERSION_TIME("2021-02-11");
 }
 int indexOf(const QStringList strlist, const QString str);
 #endif // GLOBALPARAS_H

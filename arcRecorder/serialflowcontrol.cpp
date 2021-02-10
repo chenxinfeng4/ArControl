@@ -53,7 +53,7 @@ SerialFlowControl::SerialFlowControl(QObject     *parent,
 {
 
     /* 定时创建任务 */
-    if(!this->startTimer(200)) { //200ms
+    if(!this->startTimer(100)) { //100ms
         qDebug()<<"创建失败";
     }
     /* 连接信号与槽 worker */
@@ -111,6 +111,15 @@ const QHash<QString, StreamItem> *SerialFlowControl::get_datahash()
 {
     return this->datahash;
 }
+void SerialFlowControl::init_datahash()
+{
+    this->datahash->clear();
+    for(int i=1; i<=20; i++){
+        (*datahash)[QString("IN%1").arg(i)] = {0, 0, 0 ,0};
+        (*datahash)[QString("OUT%1").arg(i)] = {0, 0, 0 ,0};
+    }
+}
+
 void SerialFlowControl::on_PTE_data_count(int lines)
 {
     if(this->CKB_autoc->isChecked() && lines>=MAX_LINES){
@@ -122,16 +131,20 @@ void SerialFlowControl::timerEvent(QTimerEvent * event)
 {
     Q_UNUSED(event);
     emit wantto_readLine(this->serial, this->isConnect);
+    if(this->isConnect && this->isStarted){emit raise_everyTimeCycle();}
     this->calDataHot();
 }
 
 void SerialFlowControl::receive_readLine(const QString & str)
 {
-    /* Show in Text-Flow-Window */
-    this->PTE_data_buff.append(str);
-    if(!this->CKB_freeze->isChecked()){ /* free to show flowing data */
-        this->PTE_data->appendPlainText(this->PTE_data_buff.trimmed());//默认处理尾巴换行样式
-        this->PTE_data_buff.clear();
+    /* Show in Text-Flow-Window
+     filter some format string, not shown to the screen */
+    if(!str.startsWith(DATA_OUT_HIGH_CHAR) && !str.startsWith(DATA_IN_HIGH_CHAR)){
+        this->PTE_data_buff.append(str);
+        if(!this->CKB_freeze->isChecked()){ /* free to show flowing data */
+            this->PTE_data->appendPlainText(this->PTE_data_buff.trimmed());//默认处理尾巴换行样式
+            this->PTE_data_buff.clear();
+        }
     }
 
     /* File: header parts */
@@ -156,6 +169,26 @@ void SerialFlowControl::receive_readLine(const QString & str)
             QString itemName = str.left(ind);
             ++(*datahash)[itemName].count;
             qDebug()<<itemName<<(*datahash)[itemName].count;
+        }
+        if(str.startsWith(DATA_IN_HIGH_CHAR)){
+            /* IN 通道处于 HIGH */
+            QString itemName = QString("IN%1").arg(str.right(2).trimmed()); //"IN1"
+            (*datahash)[itemName].ishigh = true;
+        }
+        else if(str.startsWith(DATA_OUT_HIGH_CHAR)){
+            /* OUT 通道处于 HIGH */
+            QString itemName = QString("OUT%1").arg(str.right(2).trimmed());//"OUT1"
+            (*datahash)[itemName].ishigh = true;
+        }
+        else if(ind>=1 && str.startsWith("IN")){
+            /* IN 通道处于 LOW */
+            QString itemName = QString("IN%1").arg(str.mid(2, ind-2)); //"IN1"
+            (*datahash)[itemName].ishigh = false;
+        }
+        else if(ind>=1 && str.startsWith("OUT")){
+            /* OUT 通道处于 LOW */
+            QString itemName = QString("OUT%1").arg(str.mid(3, ind-3)); //"OUT1"
+            (*datahash)[itemName].ishigh = false;
         }
         /* 已经开始，等待硬件自动结束的信号 "ArC-end"*/
         if(str.contains(END_FLOW_STRING)){
@@ -219,6 +252,7 @@ void SerialFlowControl::on_isconnect(const bool & isconnect)
         this->PTE_data->clear();
         this->PTE_data_buff.clear();
         this->DW_container->setEnabled(true);
+        this->init_datahash();
     }
     else{
         this->DW_container->setEnabled(false);
@@ -287,7 +321,7 @@ void SerialFlowControl::when_real_start()
     this->isStarted = true;
 
     /* 清除datahash */
-    this->datahash->clear();
+    this->init_datahash();
 }
 void SerialFlowControl::when_real_stop()
 {
@@ -295,6 +329,7 @@ void SerialFlowControl::when_real_stop()
     if (this->datafile->isOpen()) {
         this->datafile->close();
     }
+
 
     /* txt 转化为 mat 文件*/
     QString CONVERTER = QDir::currentPath()+"/pytools/BF_arc2mat";

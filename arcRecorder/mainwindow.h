@@ -11,6 +11,7 @@ class SerialFlowControl;
 class TasktoArduino;
 class OnlineChart;
 class OnlineTable;
+class OnlineLED;
 class OnlineSetFile;
 class ProfileReader;
 class ArcFirmata;
@@ -33,6 +34,7 @@ public:
     TasktoArduino  * tasktoArduino;
     OnlineChart * onlineChart;
     OnlineTable * onlineTable;
+    OnlineLED   * onlineLED;
     OnlineSetFile * onlineSetFile;
     ProfileReader * profileReader;
     ArcFirmata * arcFirmata;

@@ -178,100 +178,120 @@
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,1">
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <property name="spacing">
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
          <number>0</number>
         </property>
-        <property name="leftMargin">
-         <number>10</number>
-        </property>
-        <property name="bottomMargin">
-         <number>10</number>
-        </property>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0,0,0,0">
+        <widget class="QWidget" name="tab_led">
+         <attribute name="title">
+          <string>Pin Status</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_LED">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_led" columnstretch="0"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tab_event">
+         <attribute name="title">
+          <string>Event Counts</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
           <property name="spacing">
            <number>0</number>
           </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
           <property name="bottomMargin">
-           <number>0</number>
+           <number>10</number>
           </property>
           <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Key:</string>
+           <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0,0,0,0">
+            <property name="spacing">
+             <number>0</number>
             </property>
-           </widget>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Key:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="LE_CxSx">
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>16777215</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BTN_additem">
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>+</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BTN_rmitem">
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BTN_downitem">
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>▽</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="BTN_upitem">
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>△</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QLineEdit" name="LE_CxSx">
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>16777215</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="BTN_additem">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>+</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="BTN_rmitem">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>-</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="BTN_downitem">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>▽</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="BTN_upitem">
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>△</string>
-            </property>
-           </widget>
+           <widget class="QTableWidget" name="tableWidget"/>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QTableWidget" name="tableWidget"/>
-        </item>
-       </layout>
+        </widget>
+       </widget>
       </item>
       <item>
        <widget class="QWidget" name="widget" native="true">

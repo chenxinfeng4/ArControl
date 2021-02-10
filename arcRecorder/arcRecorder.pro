@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     arcfirmata/arcfirmata.cpp \
     arcfirmata/pin_ai.cpp \
     arcfirmata/pin_do.cpp \
-    arcfirmata/src/qfirmata.cpp
+    arcfirmata/src/qfirmata.cpp \
+    onlineled.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     arcfirmata/pin_ai.h \
     arcfirmata/pin_do.h \
     arcfirmata/src/qfirmata.h \
-    arcfirmata/src/qfirmatadefines.h
+    arcfirmata/src/qfirmatadefines.h \
+    onlineled.h
 
 
 FORMS    += mainwindow.ui

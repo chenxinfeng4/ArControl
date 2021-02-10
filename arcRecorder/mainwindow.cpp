@@ -11,6 +11,7 @@
 #include "tasktoarduino.h"
 #include "onlinechart.h"
 #include "onlinetable.h"
+#include "onlineled.h"
 #include "onlinesetfile.h"
 #include "profilereader.h"
 #include "arcfirmata/arcfirmata.h"
@@ -43,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     onlineChart      = new OnlineChart(this, ui->widget_chart, serialFlowControl->get_datahash());
     onlineTable      = new OnlineTable(this, serialFlowControl->get_datahash(), ui->tableWidget,
                           ui->LE_CxSx, ui->BTN_additem, ui->BTN_rmitem, ui->BTN_upitem, ui->BTN_downitem);
+    onlineLED        = new OnlineLED(this, serialFlowControl->get_datahash(), ui->gridLayout_led);
     onlineSetFile    = new OnlineSetFile(this);
     profileReader    = ProfileReader::getInstance();
     arcFirmata       = new ArcFirmata(this);
@@ -54,12 +56,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(serialFlowControl, SIGNAL(raise_isconnect(bool)),onlineManagerBar,SLOT(when_serial_isconnected(bool)));
     connect(serialFlowControl, SIGNAL(raise_spont_start()), onlineManagerBar, SLOT(when_spont_start()));
     connect(serialFlowControl, SIGNAL(raise_spont_stop()),  onlineManagerBar, SLOT(when_spont_stop()));
+    connect(serialFlowControl, SIGNAL(raise_everyTimeCycle()),onlineLED,SLOT(receive_everyTimeCycle()));
     connect(tasktoArduino   ,  SIGNAL(raise_eject()),      serialCheck, SLOT(on_AC_eject()));
     connect(tasktoArduino   ,  SIGNAL(raise_reload()),     serialCheck, SLOT(on_AC_reload()));
     connect(onlineManagerBar,  SIGNAL(start()),            onlineChart, SLOT(when_start()));
     connect(onlineManagerBar,  SIGNAL(stop()),             onlineChart, SLOT(when_stop()));
     connect(onlineManagerBar,  SIGNAL(start()),            onlineTable, SLOT(when_start()));
     connect(onlineManagerBar,  SIGNAL(stop()),             onlineTable, SLOT(when_stop()));
+    connect(onlineManagerBar,  SIGNAL(stop()),             onlineLED,   SLOT(clean_led()));
     connect(onlineTable, SIGNAL(add_line(QString,bool)),   onlineChart, SLOT(add_line(QString,bool)));
     connect(onlineTable, SIGNAL(set_line_visible(QString,bool)),onlineChart, SLOT(set_line_visible(QString,bool)));
     connect(onlineTable, SIGNAL(rm_line(QString)),         onlineChart, SLOT(rm_line(QString)));

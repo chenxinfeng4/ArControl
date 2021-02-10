@@ -25,6 +25,8 @@ namespace SERIALFLOWCONTROL_PARA
     const char MY_STRBEGIN[] = "b";
     const int  MAX_LINES = 100;
     const char DATA_HINT_CHAR = ':';
+    const char DATA_IN_HIGH_CHAR = '$';
+    const char DATA_OUT_HIGH_CHAR = '%';
 }
 namespace SERIALFLOWCONTROL_PRIVATE
 {
@@ -42,6 +44,7 @@ struct StreamItem
     qint32 count;   //总共发生的数量
     qint32 count_pre;
     qint32 hot;
+    qint8  ishigh;   //for INPUT and OUTPUT
 };
 class SerialFlowControl : public QObject
 {
@@ -81,10 +84,12 @@ private:
     QString       PTE_data_buff; //暂时没有传到PTE中的数据
     QHash<QString, StreamItem>  *datahash; //存放运行时的所有item计数
     QString       file_header;   //文件的 header 从 "ArControl"到"-----TASKNAME-----";
+    void init_datahash();
 signals:
     void raise_spont_start();   //自发开始
     void raise_spont_stop();    //自发结束
     void wantto_readLine(QSerialPort*,const bool);
+    void raise_everyTimeCycle();//每固定时间轮询，向外发出同步信号
     void raise_isconnect(const bool &); //自在连接和断开时发出，不重复发出
 public slots:
     void timerEvent(QTimerEvent * event);
