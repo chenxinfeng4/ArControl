@@ -173,7 +173,15 @@ void ProfileDialog::file_to_this()
     };
 
     // arduino_debug.exe
-    this->arduinoIDE = readItem(DOM_ARDUINO);
+    this->arduinoIDE = readItem(DOM_ARDUINO).trimmed();
+    if (this->arduinoIDE.isEmpty()){
+#ifdef Q_OS_WIN
+        QString defaultIDE = searchArduinoIDEinWin();
+        if(QFile(defaultIDE).exists()){
+            this->arduinoIDE = defaultIDE;
+        }
+#endif
+    }
     // arduino_board
     this->arduinoBoard = readItem(DOM_ARDUINOBOARD, "Uno", STR_L_ARDUINOBOARD);
     // language

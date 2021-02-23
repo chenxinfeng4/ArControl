@@ -128,6 +128,7 @@ void MainWindow::on_action_aboutme_triggered()
     msgBox.setText(QString("").append(VERSION_INFO::VERSION_NUM)
                    .append("    (").append(VERSION_INFO::VERSION_TIME).append(")").append("<br><br>")
                    .append("Further: <a href = https://github.com/chenxinfeng4/ArControl>tutorials</a>").append("<br>")
+                   .append("Video Tutorials: <a href = https://www.bilibili.com/video/BV1zz4y1U7AY>中文 (Chinese only)</a> <br>")
                    .append("Cite: <a href = https://www.frontiersin.org/articles/10.3389/fnbeh.2017.00244/full>this work</a> <br>")
                    .append("Authour: Xinfeng Chen (陈昕枫) <br>")
                    .append("Open source: <u>GNU LGPL v2.1</u>"));

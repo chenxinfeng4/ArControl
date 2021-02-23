@@ -75,7 +75,7 @@ namespace  GLOBAL_PARA {
 
 namespace VERSION_INFO {
     const QString VERSION_NUM("V0.3");
-    const QString VERSION_TIME("2021-01-21");
+    const QString VERSION_TIME("2021-02-23");
 }
 
 QDomElement createTempElement(QString nodeName);

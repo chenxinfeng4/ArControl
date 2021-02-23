@@ -15,7 +15,7 @@ class ProfileDialog;
 }
 
 namespace PROFILEDIALOG_PARA {
-    const QString ARDUINO_REG = "HKEY_CLASSES_ROOT\\Applications\\arduino.exe\\shell\\open\\command";
+    const QString ARDUINO_REG = "HKEY_CLASSES_ROOT\\Arduino file\\shell\\open\\command";
     const QString DOM_ROOT("PROFILE");
     const QStringList STR_L_INPUT = QStringList() << "LOW" << "HIGH",
                       STR_L_LEVEL = QStringList() << "1" << "2" << "3";
@@ -43,7 +43,7 @@ private:
 
 //}
 namespace PROFILEDIALOG_PARA {
-    const QStringList PINMAP_IMAGE = QStringList()<<":/images/Arduino_UNO_Pin.png"<<":/images/Arduino_Mega_Pin.png"<<":/images/Arduino_Nano_Pin.png";
+    const QStringList PINMAP_IMAGE = QStringList()<<"Readme/Arduino_UNO_Pin.png"<<"Readme/Arduino_Mega_Pin.png"<<"Readme/Arduino_Nano_Pin.png";
 }
 class ProfileDialog : public QDialog
 {

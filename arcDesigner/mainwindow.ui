@@ -806,7 +806,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_timeFixed">
            <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -1095,7 +1095,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_stateFixed">
            <layout class="QHBoxLayout" name="horizontalLayout">

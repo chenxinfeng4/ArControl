@@ -59,3 +59,9 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     resource.qrc
+
+DISTFILES += \
+    deployment/Readme/Arduino_Mega_Future_Pin.png \
+    deployment/Readme/Arduino_Mega_Pin.png \
+    deployment/Readme/Arduino_Nano_Pin.png \
+    deployment/Readme/Arduino_UNO_Pin.png
