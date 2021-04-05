@@ -37,7 +37,10 @@ I prepared a [wiki page](https://github.com/chenxinfeng4/ArControl/wiki). You ca
 
 + [PCB Assemble](https://github.com/chenxinfeng4/ArControl/wiki/PCB_assemble) - Assembling a simple PCB is very useful for a hardware platform.
 
-
+Or you can watch the video tutorial here (Chinese language only/ 中文):
++ [How to install] https://www.bilibili.com/video/BV1zz4y1U7AY
++ [An example]. https://www.bilibili.com/video/BV13v411v7TN
++ [Another example for optogenetics]. https://www.bilibili.com/video/BV1yX4y1G7Zs
 
 ## Contact
 
