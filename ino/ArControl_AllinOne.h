@@ -11,6 +11,8 @@ void sendmsg(char [], int);
 #define analogWrite(pin,level) {analogWrite(pin,level);pinWriting(pin,(boolean)level);}
 #include "ArControl.h" //important!
 
+#define SERIAL_PIN_CONTROL
+
 #ifndef DO2OUT
 #define DO2OUT -1    //DO2 -> OUT1
 #endif
@@ -41,7 +43,7 @@ byte risingEdge=0, downingEdge=0;
 void edgeScanning()
 {
   static byte pre_status = 0;
-  byte now_status = PINC;
+  byte now_status = PIN_IN_6_1;
   byte changed_status = pre_status ^ now_status;
   risingEdge = changed_status & now_status;
   downingEdge = changed_status & pre_status;
@@ -52,6 +54,41 @@ boolean cpp_ListenAI_edge(int PinNum, boolean PinEdge = HIGH)
   return bitRead(PinEdge?risingEdge:downingEdge, PinNum); //read the Edge from variable
 }
 
+boolean const * out_pre_status;
+#if defined SERIAL_PIN_CONTROL
+void switchPin(char buff[], int len){
+    int out = buff[1]-'0';
+    if(len==2 && buff[0]=='^' && out>=1 && out<=8){
+		int pin = out - DO2OUT;
+		boolean nextLevel = !out_pre_status[pin];
+        digitalWrite(pin,nextLevel);
+    }
+}
+void serialCommandScanning(){
+    static int i=0;
+    static char buff[10]="";
+    static int len = 0;
+    if(++i<50){return;}  //run once every 50 loop
+    i = 0;
+    int nchar = Serial.available();
+    for(int j=0; j<nchar; j++){
+        char c = Serial.read();
+        if(c=='\n' || c==';'){  //process a record
+            buff[len+1] = '\0';
+            switchPin(buff, len);
+            len = 0;
+        }
+        else{  //add into the record
+            buff[len] = c;
+			Serial.print(c);
+            len++;
+        }
+    }
+    
+}
+#else
+void serialCommandScanning(){;}
+#endif
 
 #if defined UNO_SPEEDUP || defined NANO_SPEEDUP || defined MEGA_SPEEDUP
 //Promote speed of AI-pinScanning for [UNO | NANO | MEGA] board. Recommend.
@@ -94,6 +131,7 @@ void pinScanning()
         }
         pre_status = now_status;
     }
+    serialCommandScanning();
 }
 #else
 void pinScanning()
@@ -132,6 +170,7 @@ void pinScanning()
             sendmsg(prefix, AIpin[i] + AI2IN, t_raise[i], now_time);
         }
     }
+    serialCommandScanning();
 }
 #endif
 
@@ -153,6 +192,7 @@ void pinWriting(int pin, boolean level)
         doinit = 0;
         DOpin = new int [count];
         pre_status = new boolean [count];
+        out_pre_status = pre_status;
         t_raise = new unsigned long [count];
         t_decline = new unsigned long [count];
         for(int i = 0; i < count; ++i) {
