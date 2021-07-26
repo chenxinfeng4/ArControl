@@ -5,6 +5,15 @@
 using namespace ONLINELED_PARA;
 using namespace ONLINELED_PRIVATE;
 
+QLineEditExt::QLineEditExt(QString s): QLineEdit(s)
+{
+
+}
+
+void QLineEditExt::mouseDoubleClickEvent(QMouseEvent * event){
+    emit doubleClicked();
+}
+
 OnlineLED::OnlineLED(QObject *parent,
                        const QHash<QString, StreamItem> * mdatahash,
                        QGridLayout * gLayout)
@@ -23,9 +32,10 @@ OnlineLED::OnlineLED(QObject *parent,
     }
 
     for(int i=0; i<8; i++){
-        LE_outleds[i] = new QLineEdit(QString("[ %1 ]").arg(i+1));
+        LE_outleds[i] = new QLineEditExt(QString("[ %1 ]").arg(i+1));
         GLayout->addWidget(LE_outleds[i], i+1, 1);
         LE_allleds[i+6] = LE_outleds[i];
+        connect(LE_outleds[i], &QLineEditExt::doubleClicked, [=](){emit this->swithlevel_outpin(i+1);});
     }
     GLayout->setRowStretch(0, 0);
 

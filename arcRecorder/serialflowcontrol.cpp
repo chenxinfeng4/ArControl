@@ -344,3 +344,10 @@ void SerialFlowControl::when_real_stop()
     /* 断开& 重连 串口 */
     // 交给 onlinemanagerbar(信号 whenstop) => serialcheck(槽 reload)
 }
+void SerialFlowControl::swithlevel_outpin(int outpin)
+{
+    if(this->isStarted && serial->isOpen()){
+        QString buffer = QString("^%1\n").arg(QString::number(outpin));
+        serial->write(buffer.toStdString().c_str(), buffer.size());
+    }
+}

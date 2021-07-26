@@ -105,7 +105,7 @@ public slots:
     void when_dataDir_change(QString &arq1);    //datafile的保存目录
     void on_isconnect(const bool &);
     void receive_readLine(const QString &);
-
+    void swithlevel_outpin(int);
 signals:
     void takefrom_this(bool isVisible, bool isDock, bool isAutoS, bool isFreeze);//this -> file
 public slots:

@@ -10,6 +10,7 @@
 #include "serialflowcontrol.h"
 #include "main.h"
 
+
 class QTime;
 
 namespace ONLINELED_PARA
@@ -23,6 +24,17 @@ namespace ONLINELED_PRIVATE
 {
 }
 
+class QLineEditExt : public QLineEdit
+{
+    Q_OBJECT
+public:
+    QLineEditExt(QString s);
+protected:
+    void mouseDoubleClickEvent(QMouseEvent *);
+signals:
+    void doubleClicked();
+};
+
 class OnlineLED : public QObject
 {
     Q_OBJECT
@@ -34,13 +46,13 @@ private:
     const QHash<QString, StreamItem> * datahash; //SerialFlowControl::datahash
     QGridLayout * GLayout;
     QLineEdit *LE_inleds[6];
-    QLineEdit *LE_outleds[8];
+    QLineEditExt *LE_outleds[8];
     QLineEdit *LE_allleds[14];
     bool v_allleds[6+8];
     bool islastblink_allleds[6+8];
     qint32 counts_allleds[6+8];
 signals:
-
+    void swithlevel_outpin(int outpin);
 public slots:
     void clean_led();
     void receive_everyTimeCycle();

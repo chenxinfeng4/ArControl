@@ -57,6 +57,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(serialFlowControl, SIGNAL(raise_spont_start()), onlineManagerBar, SLOT(when_spont_start()));
     connect(serialFlowControl, SIGNAL(raise_spont_stop()),  onlineManagerBar, SLOT(when_spont_stop()));
     connect(serialFlowControl, SIGNAL(raise_everyTimeCycle()),onlineLED,SLOT(receive_everyTimeCycle()));
+	connect(onlineLED, SIGNAL(swithlevel_outpin(int)),     serialFlowControl, SLOT(swithlevel_outpin(int)));
     connect(tasktoArduino   ,  SIGNAL(raise_eject()),      serialCheck, SLOT(on_AC_eject()));
     connect(tasktoArduino   ,  SIGNAL(raise_reload()),     serialCheck, SLOT(on_AC_reload()));
     connect(onlineManagerBar,  SIGNAL(start()),            onlineChart, SLOT(when_start()));
