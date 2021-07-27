@@ -50,7 +50,8 @@ HEADERS  += mainwindow.h \
     uistateframe/component.h \
     uistateframe/session.h \
     setfile2ino.h \
-    deployment.hpp
+    deployment.hpp \
+    version.h
 
 FORMS    += mainwindow.ui \
     pinassigndialog.ui \

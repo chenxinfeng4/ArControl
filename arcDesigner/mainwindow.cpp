@@ -11,6 +11,7 @@
 #include "pinassigndialog.h"
 #include "designersetfile.h"
 #include "profiledialog.h"
+#include "version.h"
 
 #include "uistateframe/statebox.h"
 #include "uistateframe/session.h"

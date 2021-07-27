@@ -73,11 +73,6 @@ namespace  GLOBAL_PARA {
     const QString PROB_HINT("- etc: \"3\"  =>  P(GO)=3%, P(ELSE)=97%");
 }
 
-namespace VERSION_INFO {
-    const QString VERSION_NUM("V0.3");
-    const QString VERSION_TIME("2021-02-23");
-}
-
 QDomElement createTempElement(QString nodeName);
 void printDomElement(QDomElement dom);
 int indexOf(const QStringList, const QString);

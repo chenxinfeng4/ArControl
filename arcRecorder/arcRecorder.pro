@@ -52,7 +52,8 @@ HEADERS  += mainwindow.h \
     arcfirmata/pin_do.h \
     arcfirmata/src/qfirmata.h \
     arcfirmata/src/qfirmatadefines.h \
-    onlineled.h
+    onlineled.h \
+    version.h
 
 
 FORMS    += mainwindow.ui

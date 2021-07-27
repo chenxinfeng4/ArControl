@@ -16,6 +16,7 @@
 #include "profilereader.h"
 #include "arcfirmata/arcfirmata.h"
 #include "globalparas.h"
+#include "version.h"
 #include <QtSerialPort/QSerialPort>
 #include <QThread>
 #include <QFileDialog>
