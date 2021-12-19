@@ -4,6 +4,10 @@ ArControl is a **Arduino** based digital signals control system. A special appli
 
 ![Figure1](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1.jpg)
 
+The new board -- Board V3
+
+<img src="https://github.com/chenxinfeng4/ArControl/raw/PCB/BoardV3/images/boardv3.jpeg" width="400"/>
+
 ![Figure2](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1_2.jpg)
 
 ## Features
