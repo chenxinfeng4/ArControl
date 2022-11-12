@@ -80,7 +80,6 @@ void serialCommandScanning(){
         }
         else{  //add into the record
             buff[len] = c;
-			Serial.print(c);
             len++;
         }
     }
