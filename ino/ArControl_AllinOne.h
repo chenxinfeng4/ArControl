@@ -34,6 +34,8 @@ extern const int AIpin[];
 #define PIN_IN_6_1 0x00    //NULL
 #endif
 
+
+
 ////////////////////////////////// edge Scan ////////////////////////////////////////////////
 ////////////////////////////////// 上升沿下降沿扫描 /////////////////////////////////////////
 //Promote speed of AI-pinScanning for [UNO | NANO | MEGA] boards only. Recommend.
@@ -43,7 +45,7 @@ byte risingEdge=0, downingEdge=0;
 void edgeScanning()
 {
   static byte pre_status = 0;
-  byte now_status = PIN_IN_6_1;
+  byte now_status = PIN_IN_6_1 ^ AI_reverse;
   byte changed_status = pre_status ^ now_status;
   risingEdge = changed_status & now_status;
   downingEdge = changed_status & pre_status;
@@ -56,12 +58,19 @@ boolean cpp_ListenAI_edge(int PinNum, boolean PinEdge = HIGH)
 
 boolean const * out_pre_status;
 #if defined SERIAL_PIN_CONTROL
-void switchPin(char buff[], int len){
-    int out = buff[1]-'0';
-    if(len==2 && buff[0]=='^' && out>=1 && out<=8){
-		int pin = out - DO2OUT;
+void switchOutPin(char buff[], int len){
+    int pin1base = buff[1]-'0';
+    if(len==2 && buff[0]=='^' && pin1base>=1 && pin1base<=8){
+		int pin = pin1base - DO2OUT;
 		boolean nextLevel = !out_pre_status[pin];
         digitalWrite(pin,nextLevel);
+    }
+}
+void reverseInPin(char buff[], int len){
+	int pin1base = buff[1]-'0';
+	if(len==2 && buff[0]=='&' && pin1base>=1 && pin1base<=8){
+		int pin = pin1base - AI2IN;
+		bitWrite(AI_reverse, pin, bitRead(AI_reverse, pin)==0);
     }
 }
 void serialCommandScanning(){
@@ -75,12 +84,17 @@ void serialCommandScanning(){
         char c = Serial.read();
         if(c=='\n' || c==';'){  //process a record
             buff[len+1] = '\0';
-            switchPin(buff, len);
+            if(buff[0]=='^'){
+                switchOutPin(buff, len);
+			}
+			else if(buff[0]=='&'){
+                reverseInPin(buff, len);
+			}
+			else{;}
             len = 0;
         }
         else{  //add into the record
             buff[len] = c;
-			Serial.print(c);
             len++;
         }
     }
@@ -102,7 +116,6 @@ void pinScanning()
     static boolean doinit = 1;
     static unsigned long t_raise[6];
     static byte pre_status = 0; //[NULL NULL A5<-A0]
-    static byte AI_enable = 0; //[NULL NULL A5<-A0]
     char prefix[] = "IN";
     if(doinit) {                       // do init, the first time
         doinit = 0;
@@ -111,11 +124,11 @@ void pinScanning()
             t_raise[i] = AppBeginTime;   //when pin start with HIGH
         }
         for(int i = 0; i < sizeof(AIpin) / sizeof(int); ++i) {
-            bitWrite(AI_enable, AIpin[i], 1);
+            bitWrite(AI_reverse, AIpin[i], 0);
         }
     }
-    byte now_status = PIN_IN_6_1,changed_status;
-    changed_status = (pre_status ^ now_status) & AI_enable;
+    byte now_status = PIN_IN_6_1 ^ AI_reverse;
+    byte changed_status = pre_status ^ now_status;
     if(changed_status !=  0) {   //reduce time consume
         unsigned long now_time = millis();
         for(int i = 0; i < 6; ++i) {

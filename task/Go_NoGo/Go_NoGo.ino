@@ -6,10 +6,10 @@ const char taskName[] = __FILE__;
 // how to start ArControl
 #define START_SOFT
 // recording level
-#define NANO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
+#define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
+#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////

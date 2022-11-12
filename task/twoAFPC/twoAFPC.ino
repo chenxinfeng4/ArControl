@@ -9,7 +9,7 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
+#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -125,7 +125,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_P_right=75;
+		
 		
 		
 		
@@ -143,7 +145,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_pumpL=0.085;
+		
 		
 		
 		
@@ -161,6 +165,7 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_BLen=cpp_Range_int(7, 14);
 		
 		
@@ -170,7 +175,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_rewardNN=0;
+		
 		
 		
 		
@@ -191,7 +198,10 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_reward = 0;
+		
+		
 		
 		
 		
@@ -203,7 +213,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_missC = 3;
+		
 		
 		
 		
@@ -211,11 +223,14 @@ void State_SETUP()
 		
 		
 		
+		
 		else {
 		
 		
 		
+		
 			Var_missC = 7;
+		
 		
 		
 		
@@ -226,7 +241,9 @@ void State_SETUP()
 		
 		
 		
+		
 		boolean ShouldgotoState=false;
+		
 		
 		
 		
@@ -252,7 +269,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_reward = 1;
+		
 		
 		
 		
@@ -260,7 +279,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_rewardN++;
+		
 		
 		
 		
@@ -272,7 +293,10 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		if(Var_Block!='L'){ //Block first trial
+		
 		
 		
 		
@@ -280,7 +304,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_Block = 'L';
+		
 		
 		
 		
@@ -295,7 +321,10 @@ void State_SETUP()
 		
 		
 		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		
 		
@@ -307,7 +336,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_rewardN=0;
+		
 		
 		
 		
@@ -315,7 +346,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_BLen=cpp_Range_int(7, 14);
+		
 		
 		
 		
@@ -323,7 +356,13 @@ void State_SETUP()
 		
 		
 		
+		
 		}
+		
+		
+		
+		
+		
 		
 		
 		
@@ -366,6 +405,7 @@ void State_SETUP()
 		
 		
 		
+		
 		++Var_missN;
 	};
 	C2S[7]->CountSet = []()-> int {return 1;}; //-> S5
@@ -378,7 +418,10 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_reward = 0;
+		
+		
 		
 		
 		
@@ -390,7 +433,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_missC = 3;
+		
 		
 		
 		
@@ -398,11 +443,14 @@ void State_SETUP()
 		
 		
 		
+		
 		else {
 		
 		
 		
+		
 			Var_missC = 7;
+		
 		
 		
 		
@@ -413,7 +461,9 @@ void State_SETUP()
 		
 		
 		
+		
 		boolean ShouldgotoState=false;
+		
 		
 		
 		
@@ -422,15 +472,15 @@ void State_SETUP()
 	C3S[1]->varListenerSTATE = []()-> State* {return C[0];};
 	C3S[1]->TimerSet = []()-> float {return 25;}; //t=25 -> S2
 	C3S[1]->TimerSetSTATE = []()-> State* {int n=2; return C3S[n];};
-	C3S[1]->evtListener = []()-> bool {return cpp_ListenAI(IN2, HIGH);}; //M_lick -> S2
+	C3S[1]->evtListener = []()-> bool {return cpp_ListenAI_edge(IN2, LOW);}; //M_lick -> S2
 	C3S[1]->evtListenerSTATE = []()-> State* {int n=2; return C3S[n];};
 	C3S[1]->addlisten();
 	///C3S[2]: Choose Side
 	C3S[2]->dofun = []()-> void {cpp_keepon(OUT2, 0.5);}; //GoCue 0.5s
-	C3S[2]->evtListener = []()-> bool {return cpp_ListenAI(IN1, HIGH);}; //L_lick -> S6
+	C3S[2]->evtListener = []()-> bool {return cpp_ListenAI_edge(IN1, LOW);}; //L_lick -> S6
 	C3S[2]->evtListenerSTATE = []()-> State* {int n=6; return C3S[n];};
 	C3S[2]->addlisten();
-	C3S[2]->evtListener = []()-> bool {return cpp_ListenAI(IN3, HIGH);}; //R_Lick -> S3/S7
+	C3S[2]->evtListener = []()-> bool {return cpp_ListenAI_edge(IN3, LOW);}; //R_Lick -> S3/S7
 	C3S[2]->evtListenerSTATE = []()-> State* {int n=cpp_GoElse(Var_P_right,3,Var_missC); return C3S[n];};
 	C3S[2]->addlisten();
 	///C3S[3]: RWD
@@ -439,7 +489,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_reward = 1;
+		
 		
 		
 		
@@ -447,7 +499,9 @@ void State_SETUP()
 		
 		
 		
+		
 		Var_rewardN++;
+		
 		
 		
 		
@@ -459,7 +513,10 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		if(Var_Block!='R'){ //Block first trial
+		
 		
 		
 		
@@ -467,7 +524,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_Block = 'R';
+		
 		
 		
 		
@@ -482,7 +541,9 @@ void State_SETUP()
 		
 		
 		
+		
 		boolean ShouldgotoState=false;
+		
 		
 		
 		
@@ -490,7 +551,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_rewardN=0;
+		
 		
 		
 		
@@ -498,7 +561,9 @@ void State_SETUP()
 		
 		
 		
+		
 			Var_missN=1;
+		
 		
 		
 		
@@ -506,7 +571,9 @@ void State_SETUP()
 		
 		
 		
+		
 		}
+		
 		
 		
 		
@@ -525,6 +592,11 @@ void State_SETUP()
 	///C3S[7]: MISS
 	C3S[7]->dovar = []()-> void{
 		//Write your Arduino C++ code below
+		
+		
+		
+		
+		
 		
 		
 		
