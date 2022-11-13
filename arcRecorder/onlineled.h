@@ -45,7 +45,7 @@ public:
 private:
     const QHash<QString, StreamItem> * datahash; //SerialFlowControl::datahash
     QGridLayout * GLayout;
-    QLineEdit *LE_inleds[6];
+    QLineEditExt *LE_inleds[6];
     QLineEditExt *LE_outleds[8];
     QLineEdit *LE_allleds[14];
     bool v_allleds[6+8];
@@ -53,6 +53,7 @@ private:
     qint32 counts_allleds[6+8];
 signals:
     void swithlevel_outpin(int outpin);
+    void swithlevel_inpin(int input);
 public slots:
     void clean_led();
     void receive_everyTimeCycle();

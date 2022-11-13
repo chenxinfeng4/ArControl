@@ -12,7 +12,7 @@ class QSerialPort;
 
 namespace SERIALCHECK_PARA
 {
-    const int EVERYTIMER = 1000; //1000ms
+    const int EVERYTIMER = 2000; //1000ms
     const int BAUDRATE   = 250000; //9600
     const int BAUNDRATE_TIMEOUT = 2; //2sec
     const char ARC_FLAG[]  = "ArControl";

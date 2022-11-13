@@ -351,3 +351,10 @@ void SerialFlowControl::swithlevel_outpin(int outpin)
         serial->write(buffer.toStdString().c_str(), buffer.size());
     }
 }
+void SerialFlowControl::swithlevel_inpin(int inpin)
+{
+    if(this->isStarted && serial->isOpen()){
+        QString buffer = QString("&%1\n").arg(QString::number(inpin));
+        serial->write(buffer.toStdString().c_str(), buffer.size());
+    }
+}

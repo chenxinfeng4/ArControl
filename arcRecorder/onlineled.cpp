@@ -22,13 +22,15 @@ OnlineLED::OnlineLED(QObject *parent,
     QLabel * LB_in = new QLabel("IN",GLayout->parentWidget());
     QLabel * LB_out = new QLabel("OUT",GLayout->parentWidget());
     GLayout->addWidget(LB_in,  0, 0);
-    GLayout->addWidget(LB_out, 0, 1);;
+    GLayout->addWidget(LB_out, 0, 1);
+    GLayout->setContentsMargins(0,0,0,0);
     LB_in->setAlignment(Qt::AlignHCenter);
     LB_out->setAlignment(Qt::AlignHCenter);
     for(int i=0; i<6; i++){
-        LE_inleds[i] = new QLineEdit(QString("[ %1 ]").arg(i+1));
+        LE_inleds[i] = new QLineEditExt(QString("[ %1 ]").arg(i+1));
         GLayout->addWidget(LE_inleds[i], i+1, 0);
         LE_allleds[i] = LE_inleds[i];
+        connect(LE_inleds[i], &QLineEditExt::doubleClicked, [=](){emit this->swithlevel_inpin(i+1);});
     }
 
     for(int i=0; i<8; i++){

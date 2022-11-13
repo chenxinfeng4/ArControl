@@ -133,6 +133,7 @@ SerialCheck::SerialCheck(QObject *parent,
     connect(this->AC_reload,   SIGNAL(triggered()), this, SLOT(on_AC_reload()));
     connect(this->AC_info,     SIGNAL(triggered()), this, SLOT(on_AC_info()));
     connect(this->AC_eject,    SIGNAL(triggered()), this, SLOT(on_AC_eject()));
+    this->timerEvent(nullptr);
 }
 void SerialCheck::timerEvent(QTimerEvent * event)
 {

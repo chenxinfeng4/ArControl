@@ -106,6 +106,7 @@ public slots:
     void on_isconnect(const bool &);
     void receive_readLine(const QString &);
     void swithlevel_outpin(int);
+    void swithlevel_inpin(int);
 signals:
     void takefrom_this(bool isVisible, bool isDock, bool isAutoS, bool isFreeze);//this -> file
 public slots:

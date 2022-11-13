@@ -61,6 +61,17 @@ void ProfileReader::checkProfile(bool newapath)
         doc.setContent(&f);
         QDomProcessingInstruction  instruction =  doc.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
         doc.appendChild(instruction);
+        QDomElement root = doc.createElement(DOM_PROFILE);
+
+        QDomElement dom_lang = doc.createElement(DOM_LANG);
+        dom_lang.appendChild(doc.createTextNode(STR_L_LANG[0]));
+        root.appendChild(dom_lang);
+
+        QDomElement dom_arduinoboard = doc.createElement(DOM_ARDUINOBOARD);
+        dom_arduinoboard.appendChild(doc.createTextNode(STR_L_ARDUINOBOARD[0]));
+        root.appendChild(dom_arduinoboard);
+
+        doc.appendChild(root);
         QTextStream out(&f);
         doc.save(out, QDomNode::EncodingFromDocument);
         f.close();

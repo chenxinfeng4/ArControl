@@ -189,7 +189,11 @@
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_LED">
           <item>
-           <layout class="QGridLayout" name="gridLayout_led" columnstretch="0"/>
+           <layout class="QGridLayout" name="gridLayout_led" columnstretch="0">
+            <property name="horizontalSpacing">
+             <number>0</number>
+            </property>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -318,7 +322,7 @@
      <x>0</x>
      <y>0</y>
      <width>862</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

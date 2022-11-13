@@ -31,6 +31,8 @@ QTranslator* langRead()
     QString lang;
     try{
         QFile f(profilePf);
+        QFileInfo finfo(profilePf);
+        qDebug()<<"Read profile from "<<finfo.absoluteFilePath();
         QDomDocument doc("doc");
         SCPP_ASSERT_THROW(f.open(QFile::ReadOnly | QFile::Text),
                           "Cannot open file!");
