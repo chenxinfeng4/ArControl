@@ -23,6 +23,7 @@ public:
                               QLineEdit * le_time,
                               QPushButton * btn_start);
     bool isStarted();
+    bool isConnected();
     static QString datarootPath();
     void timerEvent(QTimerEvent *);
     void refreshdir();
@@ -32,6 +33,7 @@ private:
     QLineEdit * LE_time;           //lineedit-time flow
     QPushButton * BTN_start;       //pushbutton-start
     bool        startstuts;        //is system started
+    bool        connectstuts;      //is COM connected, "start" btn avaliable
     QTime     * myTime;            //time flow afer "start" click
     qint32      timestop;          //time to stop after "start" click
     int         timerEventId;      //QObject->timer identifier,

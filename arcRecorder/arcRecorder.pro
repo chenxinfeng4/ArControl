@@ -6,7 +6,7 @@
 
 QT       += core gui  serialport charts xml
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network
 
 RC_FILE = res.rc
 TRANSLATIONS+=cn.ts
@@ -25,6 +25,7 @@ SOURCES += main.cpp\
     onlinetable.cpp \
     onlinesetfile.cpp \
     profilereader.cpp \
+    tcpserver.cpp \
     vendor_modify/scpp_assert.cpp \
     globalparas.cpp \
     arcfirmata/arcfirmata.cpp \
@@ -44,6 +45,7 @@ HEADERS  += mainwindow.h \
     onlinesetfile.h \
     main.h \
     profilereader.h \
+    tcpserver.h \
     vendor_modify/scpp_assert.h \
     deployment.hpp \
     globalparas.h \

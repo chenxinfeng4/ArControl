@@ -18,8 +18,8 @@ OnlineManagerBar::OnlineManagerBar(QObject *parent,
                                    QPushButton * btn_start)
     : QObject(parent),  COB_proj(cob_proj), COB_subj(cob_subj),
       LE_time(le_time), BTN_start(btn_start),
-      startstuts(false), myTime(new QTime()),
-      timestop(0)
+      startstuts(false), connectstuts(false),
+      myTime(new QTime()), timestop(0)
 {
     /* make up */
     checkDatarootPath();
@@ -124,6 +124,7 @@ void OnlineManagerBar::on_BTN_start_clicked()
 }
 void OnlineManagerBar::when_serial_isconnected(bool isconnected)
 {
+    this->connectstuts = isconnected;
     if(isconnected){           /*connected to serial */
         this->BTN_start->setEnabled(true);
     }
@@ -185,6 +186,11 @@ void OnlineManagerBar::stopme()
 bool OnlineManagerBar::isStarted()
 {
     return this->startstuts;
+}
+
+bool OnlineManagerBar::isConnected()
+{
+    return this->connectstuts;
 }
 
 QString OnlineManagerBar::datarootPath()

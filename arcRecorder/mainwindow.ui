@@ -322,7 +322,7 @@
      <x>0</x>
      <y>0</y>
      <width>862</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -352,8 +352,6 @@
      <string>View</string>
     </property>
     <addaction name="actionStream_Window"/>
-    <addaction name="separator"/>
-    <addaction name="actionFirmata_Test"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -361,8 +359,18 @@
     </property>
     <addaction name="actionAbout_me"/>
    </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>Tool</string>
+    </property>
+    <addaction name="actionSocket"/>
+    <addaction name="actionPort"/>
+    <addaction name="separator"/>
+    <addaction name="actionFirmata_Test"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSeiral"/>
+   <addaction name="menuTool"/>
    <addaction name="menuView_2"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -640,6 +648,31 @@
     <string>Firmata Test</string>
    </property>
   </action>
+  <action name="actionSocket">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Socket</string>
+   </property>
+   <property name="toolTip">
+    <string>Use python to start/stop recording</string>
+   </property>
+  </action>
+  <action name="actionPort">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>PORT[ ]</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
@@ -658,7 +691,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>184</x>
-     <y>501</y>
+     <y>495</y>
     </hint>
    </hints>
   </connection>

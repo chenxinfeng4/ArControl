@@ -15,6 +15,7 @@ class OnlineLED;
 class OnlineSetFile;
 class ProfileReader;
 class ArcFirmata;
+class TcpServer;
 namespace Ui {
 class MainWindow;
 }
@@ -38,6 +39,7 @@ public:
     OnlineSetFile * onlineSetFile;
     ProfileReader * profileReader;
     ArcFirmata * arcFirmata;
+    TcpServer * tcpServer;
     void closeEvent(QCloseEvent *event);
 private slots:
 

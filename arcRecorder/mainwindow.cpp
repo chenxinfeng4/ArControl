@@ -17,6 +17,7 @@
 #include "arcfirmata/arcfirmata.h"
 #include "globalparas.h"
 #include "version.h"
+#include "tcpserver.h"
 #include <QtSerialPort/QSerialPort>
 #include <QThread>
 #include <QFileDialog>
@@ -49,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     onlineSetFile    = new OnlineSetFile(this);
     profileReader    = ProfileReader::getInstance();
     arcFirmata       = new ArcFirmata(this);
+    tcpServer        = new TcpServer(onlineManagerBar, this);    //tcpserver
 
     connect(onlineManagerBar, SIGNAL(raise_press_start()), serialFlowControl, SLOT(when_press_start()));
     connect(onlineManagerBar, SIGNAL(raise_press_stop()), serialFlowControl, SLOT(when_press_stop()));
@@ -77,6 +79,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNew,  SIGNAL(triggered(bool)),       onlineSetFile, SLOT(want_task_new()));
     connect(ui->actionSave_as_default, SIGNAL(triggered(bool)), onlineSetFile, SLOT(want_task_savedefault()));
     connect(ui->actionExit, SIGNAL(triggered(bool)),       this,          SLOT(close()));
+    connect(ui->actionSocket, SIGNAL(triggered(bool)),     tcpServer,     SLOT(on_socket_activate(bool)));
+    connect(tcpServer,     &TcpServer::tell_socket_port, [=](QString a){ui->actionPort->setText(a);});
+    connect(ui->actionSocket, SIGNAL(triggered(bool)),     ui->actionPort,SLOT(setVisible(bool)));
     connect(ui->actionAbout_me, SIGNAL(triggered(bool)),   this, SLOT(on_action_aboutme_triggered()));
 
     connect(onlineSetFile, SIGNAL(give_table(bool,QString,QString,bool)), onlineTable, SLOT(giveto_this(bool,QString,QString,bool)));
@@ -92,6 +97,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(onlineSetFile, SIGNAL(give_dir(QString,QString)), onlineManagerBar, SLOT(giveto_this(QString,QString)));
     connect(onlineSetFile, SIGNAL(want_settings_take()),   onlineManagerBar, SLOT(commit_settings()));
     connect(onlineManagerBar, SIGNAL(takefrom_this(QString,QString)), onlineSetFile, SLOT(take_dir(QString,QString)));
+
 
 #ifdef GLOBALLY_INIT_ON
     this->onlineSetFile->want_task_loaddefault();
