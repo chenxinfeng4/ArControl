@@ -4,64 +4,64 @@
 <context>
     <name>ArcFirmata</name>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="22"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="23"/>
         <source>ArControl Firmata</source>
         <translation>ArControl Firmata</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="139"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="140"/>
         <source>Connectting to %1!</source>
         <translation>连接到 %1!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="145"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="146"/>
         <source>ERROR: %1 may be USING by other program!</source>
         <translation>错误: %1 可能正在被其它程序使用!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="156"/>
         <location filename="arcfirmata/arcfirmata.cpp" line="157"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="158"/>
         <source>Successed to disconnect!</source>
         <translation>成功关闭连接!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="175"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="176"/>
         <source>Successed to connect!</source>
         <translation>成功建立连接!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="211"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="209"/>
         <source>Waiting for loading!</source>
         <translation>等待加载!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="215"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="213"/>
         <source>Successed to load!</source>
         <translation>成功加载!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="220"/>
-        <location filename="arcfirmata/arcfirmata.cpp" line="224"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="218"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="222"/>
         <source>ERROR: fail to load!</source>
         <translation>错误: 加载失败!</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="243"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="241"/>
         <source>initialize</source>
         <translation>初始化</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="244"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="242"/>
         <source>connect</source>
         <translation>建立连接</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="245"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="243"/>
         <source>disconnect</source>
         <translation>关闭连接</translation>
     </message>
     <message>
-        <location filename="arcfirmata/arcfirmata.cpp" line="247"/>
+        <location filename="arcfirmata/arcfirmata.cpp" line="245"/>
         <source>Serial:</source>
         <translation>串口:</translation>
     </message>
@@ -104,203 +104,238 @@
         <translation>开始</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="203"/>
+        <location filename="mainwindow.ui" line="188"/>
+        <source>Pin Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="202"/>
+        <source>Event Counts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="225"/>
         <source>Key:</source>
         <translation>观测项:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="226"/>
+        <location filename="mainwindow.ui" line="248"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="239"/>
+        <location filename="mainwindow.ui" line="261"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="252"/>
+        <location filename="mainwindow.ui" line="274"/>
         <source>▽</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="265"/>
+        <location filename="mainwindow.ui" line="287"/>
         <source>△</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="306"/>
+        <location filename="mainwindow.ui" line="330"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="318"/>
+        <location filename="mainwindow.ui" line="342"/>
         <source>Serial</source>
         <translation>串口</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="328"/>
+        <location filename="mainwindow.ui" line="352"/>
         <source>View</source>
         <translation>视图</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="336"/>
+        <location filename="mainwindow.ui" line="358"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="385"/>
+        <location filename="mainwindow.ui" line="364"/>
+        <source>Tool</source>
+        <translation>工具</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="417"/>
         <source>Arduino</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="412"/>
+        <location filename="mainwindow.ui" line="444"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="421"/>
+        <location filename="mainwindow.ui" line="453"/>
         <source>HelloWorld</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="442"/>
+        <location filename="mainwindow.ui" line="474"/>
         <source>Freeze</source>
         <translation>界面冻结</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="455"/>
+        <location filename="mainwindow.ui" line="487"/>
         <source>AutoC</source>
         <translation>自动清除</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="484"/>
+        <location filename="mainwindow.ui" line="516"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="497"/>
+        <location filename="mainwindow.ui" line="529"/>
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="512"/>
+        <location filename="mainwindow.ui" line="544"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="515"/>
+        <location filename="mainwindow.ui" line="547"/>
         <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="529"/>
+        <location filename="mainwindow.ui" line="561"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="532"/>
+        <location filename="mainwindow.ui" line="564"/>
         <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="537"/>
+        <location filename="mainwindow.ui" line="569"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="540"/>
+        <location filename="mainwindow.ui" line="572"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="545"/>
+        <location filename="mainwindow.ui" line="577"/>
         <source>Save as</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="548"/>
+        <location filename="mainwindow.ui" line="580"/>
         <source>Ctrl+Shift+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="553"/>
+        <location filename="mainwindow.ui" line="585"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="556"/>
+        <location filename="mainwindow.ui" line="588"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="564"/>
+        <location filename="mainwindow.ui" line="596"/>
         <source>Stream Window</source>
         <translation>数据流窗口</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="569"/>
+        <location filename="mainwindow.ui" line="601"/>
         <source>About me</source>
         <oldsource>about me</oldsource>
         <translation>关于 我</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="579"/>
-        <source>Eject</source>
-        <translation>弹出</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="582"/>
-        <source>hello world</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="585"/>
-        <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="590"/>
-        <source>Reload</source>
-        <translation>重新连接</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="593"/>
-        <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="598"/>
-        <source>Eject All</source>
-        <translation>弹出所有</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="603"/>
-        <source>Info</source>
-        <translation>信息</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="606"/>
-        <source>Ctrl+I</source>
+        <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="611"/>
+        <source>Eject</source>
+        <translation>弹出</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="614"/>
+        <source>hello world</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="617"/>
+        <source>Ctrl+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="622"/>
+        <source>Reload</source>
+        <translation>重新连接</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="625"/>
+        <source>Ctrl+R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="630"/>
+        <source>Eject All</source>
+        <translation>弹出所有</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="635"/>
+        <source>Info</source>
+        <translation>信息</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="638"/>
+        <source>Ctrl+I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="643"/>
         <source>Save as default</source>
         <translation>保存为默认</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="616"/>
+        <location filename="mainwindow.ui" line="648"/>
         <source>Firmata Test</source>
         <translation>Firmata 测试</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="129"/>
+        <location filename="mainwindow.ui" line="659"/>
+        <source>Socket</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="662"/>
+        <source>Use python to start/stop recording</source>
+        <translation>使用 python 开始/结束记录</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="670"/>
+        <source>PORT[ ]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="142"/>
         <source>Exit Application</source>
         <translation>退出程序</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="130"/>
+        <location filename="mainwindow.cpp" line="143"/>
         <source>A task is being RUNNING, sure to exit now?</source>
         <translation>有任务正在运行, 确定立即退出?</translation>
     </message>
@@ -337,12 +372,12 @@
         <translation>子项</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="163"/>
+        <location filename="onlinemanagerbar.cpp" line="164"/>
         <source>STOP</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="onlinemanagerbar.cpp" line="179"/>
+        <location filename="onlinemanagerbar.cpp" line="180"/>
         <source>START</source>
         <translation>开始</translation>
     </message>
@@ -428,12 +463,12 @@
 <context>
     <name>ProfileReader</name>
     <message>
-        <location filename="profilereader.cpp" line="95"/>
+        <location filename="profilereader.cpp" line="114"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="profilereader.cpp" line="96"/>
+        <location filename="profilereader.cpp" line="115"/>
         <source>Choose Arduino IDE according to OS:
 -- WINDOWS: arduino_path/arduino_debug.exe
 -- LINUX  : arduino_path/arduino
@@ -452,7 +487,7 @@
 &lt;  提示  &gt;: 最好是通过在 ARCDESIGNER&gt;选项 中进行配置!</translation>
     </message>
     <message>
-        <location filename="profilereader.cpp" line="103"/>
+        <location filename="profilereader.cpp" line="122"/>
         <source>Choose Arduino IDE</source>
         <translation>选择Arduino IDE</translation>
     </message>
@@ -470,52 +505,52 @@
         <translation>尝试 波特率: %1</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="223"/>
+        <location filename="serialcheck.cpp" line="224"/>
         <source>Port: </source>
         <translation>端口: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="224"/>
+        <location filename="serialcheck.cpp" line="225"/>
         <source>Location: </source>
         <translation>位置: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="225"/>
+        <location filename="serialcheck.cpp" line="226"/>
         <source>Description: </source>
         <translation>描述: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="226"/>
+        <location filename="serialcheck.cpp" line="227"/>
         <source>Manufacturer: </source>
         <translation>制造商: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="227"/>
+        <location filename="serialcheck.cpp" line="228"/>
         <source>Serial number: </source>
         <translation>串口编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="228"/>
+        <location filename="serialcheck.cpp" line="229"/>
         <source>Vendor Identifier: </source>
         <translation>制造商编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="229"/>
+        <location filename="serialcheck.cpp" line="230"/>
         <source>Product Identifier: </source>
         <translation>产品编号: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="230"/>
+        <location filename="serialcheck.cpp" line="231"/>
         <source>Busy: </source>
         <translation>忙碌: </translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="230"/>
+        <location filename="serialcheck.cpp" line="231"/>
         <source>Yes</source>
         <translation>是的</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="230"/>
+        <location filename="serialcheck.cpp" line="231"/>
         <source>No</source>
         <translation>否</translation>
     </message>
@@ -528,13 +563,13 @@
 <context>
     <name>SerialCheck</name>
     <message>
-        <location filename="serialcheck.cpp" line="185"/>
-        <location filename="serialcheck.cpp" line="190"/>
+        <location filename="serialcheck.cpp" line="186"/>
+        <location filename="serialcheck.cpp" line="191"/>
         <source>Reload</source>
         <translation>重新连接</translation>
     </message>
     <message>
-        <location filename="serialcheck.cpp" line="221"/>
+        <location filename="serialcheck.cpp" line="222"/>
         <source>Serial List</source>
         <translation>串口信息列表</translation>
     </message>
@@ -542,48 +577,48 @@
 <context>
     <name>TASKTOARDUINO_PRIVATE::Dialog</name>
     <message>
-        <location filename="tasktoarduino.cpp" line="46"/>
-        <location filename="tasktoarduino.cpp" line="65"/>
+        <location filename="tasktoarduino.cpp" line="47"/>
+        <location filename="tasktoarduino.cpp" line="66"/>
         <source>Abort</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="51"/>
+        <location filename="tasktoarduino.cpp" line="52"/>
         <source>Upload ...</source>
         <translation>载入...</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="64"/>
+        <location filename="tasktoarduino.cpp" line="65"/>
         <source>Uploading task to Board</source>
         <translation>载入 任务文件 到板卡上</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="70"/>
+        <location filename="tasktoarduino.cpp" line="71"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="82"/>
+        <location filename="tasktoarduino.cpp" line="83"/>
         <source>error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="83"/>
+        <location filename="tasktoarduino.cpp" line="84"/>
         <source>can&apos;t</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="84"/>
+        <location filename="tasktoarduino.cpp" line="85"/>
         <source>Problem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="85"/>
+        <location filename="tasktoarduino.cpp" line="86"/>
         <source>exit status 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="86"/>
+        <location filename="tasktoarduino.cpp" line="87"/>
         <source> not </source>
         <translation type="unfinished"></translation>
     </message>
@@ -591,33 +626,37 @@
 <context>
     <name>TasktoArduino</name>
     <message>
-        <location filename="tasktoarduino.cpp" line="209"/>
-        <location filename="tasktoarduino.cpp" line="219"/>
+        <location filename="tasktoarduino.cpp" line="210"/>
+        <location filename="tasktoarduino.cpp" line="221"/>
         <source>Error</source>
         <translation type="unfinished">错误</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="209"/>
+        <location filename="tasktoarduino.cpp" line="210"/>
         <source>None Serial-Port selected!</source>
         <translation type="unfinished">没有选择串口!</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="215"/>
         <source>Uploading %1 to UNO@(%2)</source>
-        <translation>正在把 %1 下载到 UNO@(%2)</translation>
+        <translation type="vanished">正在把 %1 下载到 UNO@(%2)</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="219"/>
+        <location filename="tasktoarduino.cpp" line="217"/>
+        <source>Uploading %1 to %2@(%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tasktoarduino.cpp" line="221"/>
         <source>None invalid task-file exsits!</source>
         <translation>没有选择合适的 &quot;任务&quot;!</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="230"/>
+        <location filename="tasktoarduino.cpp" line="231"/>
         <source>Invaild arduino-debuger %1</source>
         <translation>无效的 arduino-debuger %1</translation>
     </message>
     <message>
-        <location filename="tasktoarduino.cpp" line="233"/>
+        <location filename="tasktoarduino.cpp" line="234"/>
         <source>No [arduino-debuger] finded, please pick it &amp; retry</source>
         <translation>没有找到 [arduino-debuger], 请配置后重试</translation>
     </message>

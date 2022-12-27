@@ -1,3 +1,4 @@
+#include <QPushButton>
 #include "tcpserver.h"
 
 using namespace TCPSERVER_PRIVATE;
@@ -71,7 +72,7 @@ bool TcpServer::tcpcmd_stop_record(char *outmsg)
         strcpy(outmsg, "Error! Device not connected.");
         return false;
     }
-    onlineManagerBar->on_BTN_start_clicked();
+    emit onlineManagerBar->BTN_start->clicked();
     strcpy(outmsg, "OK! Task should be stopping.");
     return true;
 }
