@@ -10,6 +10,11 @@ The new board -- Board V3
 
 ![Figure2](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1_2.jpg)
 
+## Data file convert
+ArControl use raw txt file to store recording data. It's easy to convert that to other general platforms.
+>ArControl -> Python (auto) \
+ ArControl -> Matlab (auto) \
+ ArControl -> [NWB](https://www.nwb.org/) format (see [converter](https://github.com/chenxinfeng4/ArControl-covert2-nwb))
 ## Features
 
 - [x] Comprehensive – it combines **software and hardware**, **behavioral task design and experimental data collection**.
