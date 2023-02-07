@@ -12,7 +12,12 @@ void TcpServer::on_socket_activate(bool activate)
 {
     if(activate){
         quint16 port = 20171;
-        if(this->listen(QHostAddress::Any, port) || this->listen(QHostAddress::Any))
+        if(listen(QHostAddress::Any, port)
+            || listen(QHostAddress::Any, port+1)
+            || listen(QHostAddress::Any, port+2)
+            || listen(QHostAddress::Any, port+3)
+            || listen(QHostAddress::Any, port+4)
+            || listen(QHostAddress::Any))
         {
             qDebug() << "Server started!" << this->serverPort();
             emit tell_socket_port(QString("PORT[%1]").arg(this->serverPort()));

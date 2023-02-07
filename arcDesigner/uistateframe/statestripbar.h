@@ -18,6 +18,17 @@ namespace STATESTRIPBAR_PARA{
     const QString WHENVAR_DEF_TEXT("//Write your Arduino C++ code below\n" \
                                     "bool wantToGoNextState = false;\n" \
                                     "return wantToGoNextState;");
+    class QLabelExt: public QLabel{
+        Q_OBJECT
+        using QLabel::QLabel;
+    public:
+        signals:
+            void doubleClicked();
+        protected:
+            void mouseDoubleClickEvent(QMouseEvent *){
+                emit doubleClicked();
+            }
+    };
 }
 class StateStripBar :public DynamicBox
 {
@@ -48,5 +59,6 @@ protected slots:
     void childWantAddBrotherPre(){}
     void childWantAddBrotherPost(){}
 };
+
 
 #endif // STATESTRIPBAR_H

@@ -158,7 +158,8 @@ void StateStripBar::initUI()
     /* add uicontrol to layout */
     QHBoxLayout * ly = new QHBoxLayout();
     this->setLayout(ly);
-    this->labelHint = new QLabel("   ");
+    QLabelExt * labeHintExt = new QLabelExt("   ");
+    this->labelHint = (QLabel *)labeHintExt;
     QString strStyle = STYLE_LABEL.arg(COLOR_TYPE.at(this->type));
     labelHint->setStyleSheet(strStyle);
     this->CKB_enable = new QCheckBox();
@@ -173,7 +174,7 @@ void StateStripBar::initUI()
     ly->addWidget(BTN_comm, 1);
     ly->setContentsMargins(0,0,0,0);
     /* QAction */
-    if(type==StripType::whenPin){
+    if(type==StripType::whenPin || type==StripType::doPin){
         QAction * ac_addpre = new QAction(tr("Add to pre."), this);
         QAction * ac_addpost= new QAction(tr("Add to post."), this);
         QAction * ac_dupl = new QAction(tr("Duplicate"), this);
@@ -182,6 +183,7 @@ void StateStripBar::initUI()
         connect(ac_dupl, SIGNAL(triggered(bool)), this, SIGNAL(wantMeDuplicate()));
         connect(ac_addpre, SIGNAL(triggered(bool)), this, SIGNAL(wantAddBrotherPre()));
         connect(ac_addpost, SIGNAL(triggered(bool)), this, SIGNAL(wantAddBrotherPost()));
+        connect(labeHintExt, SIGNAL(doubleClicked()), this, SIGNAL(wantAddBrotherPost()));
         QList<QAction *> acs = QList<QAction *>()<<ac_addpre<<ac_addpost<<ac_dupl<<ac_del;
         this->labelHint->addActions(acs);
         this->labelHint->setText(" + ");

@@ -60,13 +60,15 @@ void StateBox::childWantDel()
 
 void StateBox::childWantAddBrotherPre()
 {
-    QDomElement dom_obj = ChildClass::createEmptyDom();
+    ChildClass * obj = qobject_cast<ChildClass *> (this->sender());
+    QDomElement dom_obj = ChildClass::createEmptyDom(obj->getStripType());
     int index = this->indexChildSender();
     this->wantChildAddTo(dom_obj, index);
 }
 void StateBox::childWantAddBrotherPost()
 {
-    QDomElement dom_obj = ChildClass::createEmptyDom();
+    ChildClass * obj = qobject_cast<ChildClass *> (this->sender());
+    QDomElement dom_obj = ChildClass::createEmptyDom(obj->getStripType());
     int index = this->indexChildSender();
     this->wantChildAddTo(dom_obj, index+1);
 }

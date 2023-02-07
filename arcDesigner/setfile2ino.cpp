@@ -55,7 +55,7 @@ int get_countC(QDomElement dom_root); //[1-nc]
 int get_countCx(QDomElement dom_root, int numC); //[1-ns]
 QList<QString> get_commCx(QDomElement dom_root, int numC);
 void print_Cx_at(QDomElement dom_root, int numC);
-void print_Sx_at(QDomElement dom_Sx, int numC, int numS);
+void print_Sx_at(QDomElement dom_Sx, int numC, int num4S);
 
 void Setfile2INO::printIno(QString filePath)
 {
@@ -420,6 +420,27 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                 break;
             }
             case StripType::doPin :{
+                QString format = "\t%1->doPinList.addSubs(new %2); //%3";
+                QString inner;
+                QDomElement dom_dopin = dom_s_s.firstChildElement(DOM_DOPIN);
+                QString t = pick_t_c_s(dom_s_s.firstChildElement(DOM_TIME));
+                QString numPin = dom_dopin.attribute(ATT_NUMBER);
+                bool isTurnon  = dom_dopin.firstChildElement(DOM_TURN).attribute(ATT_ISENB) == "true";
+                QString duty   = dom_dopin.firstChildElement(DOM_BLINK).attribute(ATT_DUTY);
+                QString freq   = dom_dopin.firstChildElement(DOM_BLINK).attribute(ATT_FREQ);
+                QString outmode= dom_dopin.attribute(ATT_TYPE);
+                if(outmode==DOM_TURN){
+                    inner = QString("DoPinSwitch(OUT%1, %2)").arg(numPin).arg(isTurnon?"HIGH":"LOW");
+                }
+                else if(outmode==DOM_KEEPON){
+                    inner = QString("DoPinKeepon(OUT%1, []()->float{return %2;})").arg(numPin).arg(t);
+                }
+                else if(outmode==DOM_BLINK){
+                    inner = QString("DoPinBlink(OUT%1, []()->float{return %2;}, %3, %4)").arg(numPin).arg(t).arg(freq).arg(duty);
+                }
+                record_cond = format.arg(CxSx).arg(inner).arg(Strip_comm);
+                break;
+                /*
                 QString format = "\t%1->dofun = []()-> void {%2}; //%3";
                 QString inner;
                 QDomElement dom_dopin = dom_s_s.firstChildElement(DOM_DOPIN);
@@ -440,6 +461,7 @@ void print_Sx_at(QDomElement dom_s, int numC, int numS)
                 }
                 record_cond = format.arg(CxSx).arg(inner).arg(Strip_comm);
                 break;
+                */
             }
             case StripType::whenVar :{
                 QString format = "\t%1->varListener = []()-> bool {%2;\n\t}; //%3";

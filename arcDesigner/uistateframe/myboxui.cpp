@@ -38,7 +38,7 @@ int DynamicBox::indexChildSender()
     int i=-1;
     foreach(DynamicBox* temp, this->childList){
         ++i;
-        if((unsigned long)temp == (unsigned long)child) return i;
+        if((void *)temp == (void *)child) return i;
     }
     return -1;
 }
