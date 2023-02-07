@@ -9,7 +9,7 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
+#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -97,15 +97,15 @@ void State_SETUP()
 	C1S[1]->evtListenerSTATE = []()-> State* {int n=4; return C1S[n];};
 	C1S[1]->addlisten();
 	///C1S[2]: Green 3sec
-	C1S[2]->dofun = []()-> void {cpp_keepon(OUT1, 3);}; //Green 3sec
+	C1S[2]->doPinList.addSubs(new DoPinKeepon(OUT1, []()->float{return 3;})); //Green 3sec
 	C1S[2]->CountSet = []()-> int {return 1;}; //-> S1
 	C1S[2]->CountSetSTATE = []()-> State* {int n=1; return C1S[n];};
 	///C1S[3]: Red 2sec
-	C1S[3]->dofun = []()-> void {cpp_keepon(OUT2, 2);}; //Red 2sec
+	C1S[3]->doPinList.addSubs(new DoPinKeepon(OUT2, []()->float{return 2;})); //Red 2sec
 	C1S[3]->CountSet = []()-> int {return 1;}; //->S1
 	C1S[3]->CountSetSTATE = []()-> State* {int n=1; return C1S[n];};
 	///C1S[4]: Yellow 4sec
-	C1S[4]->dofun = []()-> void {cpp_keepon(OUT3, 4);}; //Yellow 4sec
+	C1S[4]->doPinList.addSubs(new DoPinKeepon(OUT3, []()->float{return 4;})); //Yellow 4sec
 	C1S[4]->CountSet = []()-> int {return 1;}; //-> S1
 	C1S[4]->CountSetSTATE = []()-> State* {int n=1; return C1S[n];};
 

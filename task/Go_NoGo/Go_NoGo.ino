@@ -9,12 +9,12 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
+#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
 #define INFO "" \
-		"@OUT1:#1\n" \
+		"@OUT1:#2P_Trigger\n" \
 		"@OUT2:#NoGoCue\n" \
 		"@OUT3:#3\n" \
 		"@OUT4:#GoCue\n" \
@@ -56,7 +56,7 @@ double Var_3 = 1;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////Hardware Setup///////////////////////////////////////
-const int OUT1 = 2; 	//#1
+const int OUT1 = 2; 	//#2P_Trigger
 const int OUT2 = 3; 	//#NoGoCue
 const int OUT3 = 4; 	//#3
 const int OUT4 = 5; 	//#GoCue
@@ -111,7 +111,7 @@ void State_SETUP()
 	C1S[1]->evtListenerSTATE = []()-> State* {int n=2; return C1S[n];};
 	C1S[1]->addlisten();
 	///C1S[2]: Water
-	C1S[2]->dofun = []()-> void {cpp_keepon(OUT6, 0.065);}; //OUT6 0.065s
+	C1S[2]->doPinList.addSubs(new DoPinKeepon(OUT6, []()->float{return 0.065;})); //OUT6 0.065s
 	C1S[2]->CountSet = []()-> int {return 4;}; //n=4 -> S3
 	C1S[2]->CountSetSTATE = []()-> State* {int n=3; return C1S[n];};
 	C1S[2]->TimerSet = []()-> float {return 2;}; //t=2 -> S1
@@ -125,7 +125,8 @@ void State_SETUP()
 	C2S[1]->TimerSet = []()-> float {return cpp_Range_float(4,6);}; //t=4~6 -> S2
 	C2S[1]->TimerSetSTATE = []()-> State* {int n=2; return C2S[n];};
 	///C2S[2]: Cue
-	C2S[2]->dofun = []()-> void {cpp_keepon(OUT4, 0.5);}; //OUT4 0.5sec
+	C2S[2]->doPinList.addSubs(new DoPinKeepon(OUT4, []()->float{return 0.5;})); //OUT4 0.5sec
+	C2S[2]->doPinList.addSubs(new DoPinKeepon(OUT1, []()->float{return 0.01;})); //Trigger 0.01sec
 	C2S[2]->CountSet = []()-> int {return 1;}; //->S3
 	C2S[2]->CountSetSTATE = []()-> State* {int n=3; return C2S[n];};
 	///C2S[3]: wait lick
@@ -135,7 +136,7 @@ void State_SETUP()
 	C2S[3]->evtListenerSTATE = []()-> State* {int n=4; return C2S[n];};
 	C2S[3]->addlisten();
 	///C2S[4]: Water
-	C2S[4]->dofun = []()-> void {cpp_keepon(OUT6, 0.075);}; //OUT6 0.075sec
+	C2S[4]->doPinList.addSubs(new DoPinKeepon(OUT6, []()->float{return 0.075;})); //OUT6 0.075sec
 	C2S[4]->TimerSet = []()-> float {return 1.5;}; //t=1.5->S6
 	C2S[4]->TimerSetSTATE = []()-> State* {int n=6; return C2S[n];};
 	///C2S[5]: Miss
@@ -152,7 +153,8 @@ void State_SETUP()
 	C3S[1]->TimerSet = []()-> float {return cpp_Range_float(4,6);}; //t=4~6 -> S2
 	C3S[1]->TimerSetSTATE = []()-> State* {int n=2; return C3S[n];};
 	///C3S[2]: Cue
-	C3S[2]->dofun = []()-> void {cpp_keepon(OUT2, 0.5);}; //OUT2 0.5sec
+	C3S[2]->doPinList.addSubs(new DoPinKeepon(OUT2, []()->float{return 0.5;})); //OUT2 0.5sec
+	C3S[2]->doPinList.addSubs(new DoPinKeepon(OUT1, []()->float{return 0.01;})); //Trigger 0.01sec
 	C3S[2]->CountSet = []()-> int {return 1;}; //->S3
 	C3S[2]->CountSetSTATE = []()-> State* {int n=3; return C3S[n];};
 	///C3S[3]: wait lick
@@ -162,7 +164,7 @@ void State_SETUP()
 	C3S[3]->evtListenerSTATE = []()-> State* {int n=4; return C3S[n];};
 	C3S[3]->addlisten();
 	///C3S[4]: Airpuff
-	C3S[4]->dofun = []()-> void {cpp_keepon(OUT5, 0.5);}; //OUT5 0.5sec
+	C3S[4]->doPinList.addSubs(new DoPinKeepon(OUT5, []()->float{return 0.5;})); //OUT5 0.5sec
 	C3S[4]->TimerSet = []()-> float {return 1.5;}; //t=1.5->S6
 	C3S[4]->TimerSetSTATE = []()-> State* {int n=6; return C3S[n];};
 	///C3S[5]: Miss

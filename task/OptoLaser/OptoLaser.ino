@@ -9,7 +9,7 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
+#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -84,7 +84,7 @@ void State_SETUP()
 	State::NEXTSTATE = C[1];//Entry of Session
 ///Component [1]:Optogenetic Laser Pattern
 	///C1S[1]: Active: 20Hz-5ms 1min
-	C1S[1]->dofun = []()-> void {cpp_Hz_A(OUT1, 60, 20, 10);}; //blink (20Hz-5ms 1min)
+	C1S[1]->doPinList.addSubs(new DoPinBlink(OUT1, []()->float{return 60;}, 20, 10)); //blink (20Hz-5ms 1min)
 	C1S[1]->CountSet = []()-> int {return 1;}; //->S2
 	C1S[1]->CountSetSTATE = []()-> State* {int n=2; return C1S[n];};
 	///C1S[2]: Resting: 4-5min

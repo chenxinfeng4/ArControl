@@ -9,7 +9,7 @@ const char taskName[] = __FILE__;
 #define UNO_SPEEDUP //only helpful to ArControl_AllinOne.h, improve AI-scaning
 #define AI2IN 1		//AIx -> INy
 #define DO2OUT -1	//DOx -> OUTy
-#include "C:/Users/666/Documents/ArControl-release/ino/ArControl_AllinOne.h"
+#include "D:/Git_Resp/ArControl_github_release/ino/ArControl_AllinOne.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////task info///////////////////////////////////////////
@@ -126,7 +126,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_P_right=75;
+		
+		
 		
 		
 		
@@ -146,7 +150,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_pumpL=0.085;
+		
+		
 		
 		
 		
@@ -166,6 +174,8 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_BLen=cpp_Range_int(7, 14);
 		
 		
@@ -176,7 +186,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_rewardNN=0;
+		
+		
 		
 		
 		
@@ -199,7 +213,13 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_reward = 0;
+		
+		
+		
+		
 		
 		
 		
@@ -214,7 +234,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_missC = 3;
+		
+		
 		
 		
 		
@@ -224,12 +248,18 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		else {
 		
 		
 		
 		
+		
+		
 			Var_missC = 7;
+		
+		
 		
 		
 		
@@ -242,7 +272,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		
 		
@@ -256,7 +290,7 @@ void State_SETUP()
 	C2S[1]->evtListenerSTATE = []()-> State* {int n=2; return C2S[n];};
 	C2S[1]->addlisten();
 	///C2S[2]: Choose Side
-	C2S[2]->dofun = []()-> void {cpp_keepon(OUT2, 0.5);}; //GoCue 0.5s
+	C2S[2]->doPinList.addSubs(new DoPinKeepon(OUT2, []()->float{return 0.5;})); //GoCue 0.5s
 	C2S[2]->evtListener = []()-> bool {return cpp_ListenAI(IN3, HIGH);}; //R_lick -> S6
 	C2S[2]->evtListenerSTATE = []()-> State* {int n=6; return C2S[n];};
 	C2S[2]->addlisten();
@@ -270,7 +304,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_reward = 1;
+		
+		
 		
 		
 		
@@ -280,7 +318,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_rewardN++;
+		
+		
 		
 		
 		
@@ -295,7 +337,13 @@ void State_SETUP()
 		
 		
 		
+		
+		
+		
+		
 		if(Var_Block!='L'){ //Block first trial
+		
+		
 		
 		
 		
@@ -305,19 +353,25 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_Block = 'L';
+		
+		
 		
 		
 		
 		
 		}
 	};
-	C2S[3]->dofun = []()-> void {cpp_keepon(OUT3, Var_pumpL);}; //Left_RWD on
+	C2S[3]->doPinList.addSubs(new DoPinKeepon(OUT3, []()->float{return Var_pumpL;})); //Left_RWD on
 	C2S[3]->CountSet = []()-> int {return 1;}; //-> S4
 	C2S[3]->CountSetSTATE = []()-> State* {int n=4; return C2S[n];};
 	///C2S[4]: If Switch
 	C2S[4]->varListener = []()-> bool {
 		//Write your Arduino C++ code below
+		
+		
 		
 		
 		
@@ -332,7 +386,13 @@ void State_SETUP()
 		
 		
 		
+		
+		
+		
+		
 		if (Var_reward==1 && Var_rewardN>=Var_BLen) {
+		
+		
 		
 		
 		
@@ -342,7 +402,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_missN=1;
+		
+		
 		
 		
 		
@@ -352,12 +416,26 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			ShouldgotoState = true;
 		
 		
 		
 		
+		
+		
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -388,7 +466,7 @@ void State_SETUP()
 	C2S[4]->TimerSet = []()-> float {return 1.5;}; //t= 1.5 -> S1
 	C2S[4]->TimerSetSTATE = []()-> State* {int n=1; return C2S[n];};
 	///C2S[5]: TimeOut
-	C2S[5]->dofun = []()-> void {cpp_keepon(OUT1, 3);}; //OUT1 3s
+	C2S[5]->doPinList.addSubs(new DoPinKeepon(OUT1, []()->float{return 3;})); //OUT1 3s
 	C2S[5]->CountSet = []()-> int {return 1;}; //-> S1
 	C2S[5]->CountSetSTATE = []()-> State* {int n=1; return C2S[n];};
 	///C2S[6]: ERR
@@ -397,6 +475,8 @@ void State_SETUP()
 	///C2S[7]: MISS
 	C2S[7]->dovar = []()-> void{
 		//Write your Arduino C++ code below
+		
+		
 		
 		
 		
@@ -419,7 +499,13 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_reward = 0;
+		
+		
+		
+		
 		
 		
 		
@@ -434,7 +520,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_missC = 3;
+		
+		
 		
 		
 		
@@ -444,12 +534,18 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		else {
 		
 		
 		
 		
+		
+		
 			Var_missC = 7;
+		
+		
 		
 		
 		
@@ -462,7 +558,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		
 		
@@ -476,7 +576,7 @@ void State_SETUP()
 	C3S[1]->evtListenerSTATE = []()-> State* {int n=2; return C3S[n];};
 	C3S[1]->addlisten();
 	///C3S[2]: Choose Side
-	C3S[2]->dofun = []()-> void {cpp_keepon(OUT2, 0.5);}; //GoCue 0.5s
+	C3S[2]->doPinList.addSubs(new DoPinKeepon(OUT2, []()->float{return 0.5;})); //GoCue 0.5s
 	C3S[2]->evtListener = []()-> bool {return cpp_ListenAI_edge(IN1, LOW);}; //L_lick -> S6
 	C3S[2]->evtListenerSTATE = []()-> State* {int n=6; return C3S[n];};
 	C3S[2]->addlisten();
@@ -490,7 +590,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_reward = 1;
+		
+		
 		
 		
 		
@@ -500,7 +604,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		Var_rewardN++;
+		
+		
 		
 		
 		
@@ -515,7 +623,13 @@ void State_SETUP()
 		
 		
 		
+		
+		
+		
+		
 		if(Var_Block!='R'){ //Block first trial
+		
+		
 		
 		
 		
@@ -525,14 +639,18 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_Block = 'R';
+		
+		
 		
 		
 		
 		
 		}
 	};
-	C3S[3]->dofun = []()-> void {cpp_keepon(OUT3, Var_pumpL);}; //Left_RWD on
+	C3S[3]->doPinList.addSubs(new DoPinKeepon(OUT3, []()->float{return Var_pumpL;})); //Left_RWD on
 	C3S[3]->CountSet = []()-> int {return 1;}; //-> S4
 	C3S[3]->CountSetSTATE = []()-> State* {int n=4; return C3S[n];};
 	///C3S[4]: If Switch
@@ -542,7 +660,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		boolean ShouldgotoState=false;
+		
+		
 		
 		
 		
@@ -552,7 +674,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_rewardN=0;
+		
+		
 		
 		
 		
@@ -562,7 +688,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 			Var_missN=1;
+		
+		
 		
 		
 		
@@ -572,7 +702,11 @@ void State_SETUP()
 		
 		
 		
+		
+		
 		}
+		
+		
 		
 		
 		
@@ -583,7 +717,7 @@ void State_SETUP()
 	C3S[4]->TimerSet = []()-> float {return 1.5;}; //t= 1.5 -> S1
 	C3S[4]->TimerSetSTATE = []()-> State* {int n=1; return C3S[n];};
 	///C3S[5]: TimeOut
-	C3S[5]->dofun = []()-> void {cpp_keepon(OUT1, 3);}; //OUT1 3s
+	C3S[5]->doPinList.addSubs(new DoPinKeepon(OUT1, []()->float{return 3;})); //OUT1 3s
 	C3S[5]->CountSet = []()-> int {return 1;}; //-> S1
 	C3S[5]->CountSetSTATE = []()-> State* {int n=1; return C3S[n];};
 	///C3S[6]: ERR
@@ -592,6 +726,16 @@ void State_SETUP()
 	///C3S[7]: MISS
 	C3S[7]->dovar = []()-> void{
 		//Write your Arduino C++ code below
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
