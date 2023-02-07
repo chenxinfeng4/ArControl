@@ -555,6 +555,7 @@ float cpp_GoElse(int chances, float a, float b)
 //cpp_ListenAI(int PinNum, int PinValue, boolean mode)
 //    PinValue: = 阈值; mode =1 高于阈值, =0 低于阈值
 //    适用于读取"模拟输入"端口
+byte AI_reverse = 0; //[NULL NULL A5<-A0]
 inline boolean cpp_ListenAI(int PinNum, boolean PinState = HIGH)
 {
     return digitalRead(PinNum + A0) == PinState; //A0==14 for Arduino-UNO
