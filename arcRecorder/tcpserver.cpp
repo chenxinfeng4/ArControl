@@ -152,17 +152,20 @@ void MyThread::readyRead()
     qint64 byteCount = socket->read(buffer, MaxLength);
     buffer[byteCount] = 0;
     qDebug() << socket->bytesAvailable() << buffer;
+    QString strbuffer = QString(buffer);
+    strbuffer = strbuffer.trimmed();
+    const char *buffertrim = strbuffer.toStdString().c_str();
 
     char response[MaxLength+1];
-    if(strcmp(buffer, "start_record")==0)
+    if(strcmp(buffertrim, "start_record")==0)
     {
         tcpServer->tcpcmd_start_record(response);
     }
-    else if(strcmp(buffer, "stop_record")==0)
+    else if(strcmp(buffertrim, "stop_record")==0)
     {
         tcpServer->tcpcmd_stop_record(response);
     }
-    else if(strcmp(buffer, "query_record")==0)
+    else if(strcmp(buffertrim, "query_record")==0)
     {
         tcpServer->tcpcmd_query_record(response);
     }
