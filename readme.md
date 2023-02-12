@@ -10,6 +10,12 @@ The new board -- Board V3
 
 ![Figure2](https://raw.githubusercontent.com/wiki/chenxinfeng4/ArControl/images/Figure1_2.jpg)
 
+## Task visulization
+ArControl Designer can export the behavior task to the State Machine Cat (smcat), which offers beautifual	visualization of the behavior task.
+See [converter](https://github.com/chenxinfeng4/ArControl-covert2-smcat). Take Go/No-Go for an example.
+
+<center><img src="https://github.com/chenxinfeng4/ArControl-convert2-smcat/blob/master/playground/Go_NoGo.svg" width="30%"></center>
+
 ## Data file convert
 ArControl use raw txt file to store recording data. It's easy to convert that to other general platforms.
 >ArControl -> Python (auto) \
