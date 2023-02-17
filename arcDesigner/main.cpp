@@ -10,6 +10,10 @@ static QTranslator* langRead();
 
 int main(int argc, char *argv[])
 {
+	//--set for High DPI windows display ---
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+	
     QApplication a(argc, argv);
 
     //--- set GUI language ---
