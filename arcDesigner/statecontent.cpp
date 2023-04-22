@@ -26,8 +26,8 @@ void StateContent::createUi(Ui::MainWindow *ui_)
     sp_retain.setRetainSizeWhenHidden(true);
     dock_w->setSizePolicy(sp_retain);
     this->setEnabled(false);
-    ui->comboBox_inChan->view()->setFixedHeight(95);    //full display 6 items
-    ui->comboBox_outChan->view()->setFixedHeight(128);  //full display 8 items
+//    ui->comboBox_inChan->view()->setFixedHeight(95);    //full display 6 items
+//    ui->comboBox_outChan->view()->setFixedHeight(128);  //full display 8 items
     QSizePolicy sp_retain2 = ui->radioButton_isC->sizePolicy();
     sp_retain2.setRetainSizeWhenHidden(true);
     ui->radioButton_isC->setSizePolicy(sp_retain2);

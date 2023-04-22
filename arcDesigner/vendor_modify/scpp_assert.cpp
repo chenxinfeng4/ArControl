@@ -28,7 +28,7 @@ void SCPP_AssertErrorHandler(const char* file_name,
 void SCPP_AssertErrorHandler_Throw(const char* file_name,
                                    unsigned line_number,
                                    const QString message)
-                                   throw (const QString)
+                                   noexcept(false)
 {
     // Throw an error
     throw errorstrconst(file_name, line_number, message);
