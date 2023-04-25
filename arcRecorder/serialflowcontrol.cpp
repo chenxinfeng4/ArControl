@@ -76,6 +76,8 @@ SerialFlowControl::SerialFlowControl(QObject     *parent,
     this->datastreamout.setDevice(this->datafile);
     this->datastreamout.setCodec("utf-8");
 
+    /* create datetime */
+    this->dateTime = QDateTime::currentDateTime();
 }
 
 void SerialFlowControl::calDataHot()
@@ -286,6 +288,7 @@ void SerialFlowControl::when_press_start()
     /* 需要等到硬件反馈到 "ArC" 信号 */
     if(this->isConnect){
         serial->write(MY_STRBEGIN);
+        this->dateTime = QDateTime::currentDateTime();
     }else{
         qDebug()<<"No Connection!";
     }
@@ -306,7 +309,11 @@ void SerialFlowControl::when_real_start()
         this->datafile->close();
     }
 
-    QString fname = QDateTime::currentDateTime().toString("yyyy-MMdd-HHmmss") + ".txt";
+    QDateTime now = QDateTime::currentDateTime();
+    if (this->dateTime.secsTo(now)>2){
+        this->dateTime = now;
+    }
+    QString fname = this->dateTime.toString("yyyy-MMdd-HHmmss-zzz") + ".txt";
     QString pfname = this->datadir + "/" + fname;
     this->datafile->setFileName(pfname);
     if(!this->datafile->open(QIODevice::WriteOnly)) {

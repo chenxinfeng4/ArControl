@@ -6,7 +6,7 @@
 #include <QtGlobal>
 #include <QtSerialPort/QSerialPort>
 #include <QTextStream>
-
+#include <QDateTime>
 #include "main.h"
 
 class QSerialPort;
@@ -84,6 +84,7 @@ private:
     QString       PTE_data_buff; //暂时没有传到PTE中的数据
     QHash<QString, StreamItem>  *datahash; //存放运行时的所有item计数
     QString       file_header;   //文件的 header 从 "ArControl"到"-----TASKNAME-----";
+    QDateTime     dateTime;      //Time for start recording
     void init_datahash();
 signals:
     void raise_spont_start();   //自发开始
