@@ -2,10 +2,9 @@ import os
 import sys
 import subprocess
 from tempfile import TemporaryDirectory
-import click
 import shutil
 import time
-
+import argparse
 
 """
 Fast upload arcontrol task to the arduino board, comparing to the original arduino ide. 
@@ -44,16 +43,20 @@ _hex_mtime = None
 _arc_board = None
 BOARD_MAP = {'Uno': 'arduino:avr:uno', 'Mega': 'arduino:avr:mega:cpu=atmega2560', 'Nano': 'arduino:avr:nano:cpu=atmega328'}
 
+def main():
+    parser = argparse.ArgumentParser(description='Arduino Sketch Builder')
+    parser.add_argument('--arcupdate', action='store_true', help='Build all ArControl sketches.')
+    parser.add_argument('--verify', action='store_true', help='Build the sketch.')
+    parser.add_argument('--upload', action='store_true', help='Build and upload the sketch.')
+    parser.add_argument('--board', type=str, default='arduino:avr:uno', help='Select the board to compile for. Unnecessary.')
+    parser.add_argument('--port', type=str, help='The port to upload.')
+    parser.add_argument('filename', nargs='+', help='The name of the file to build or upload.')
+    
+    
+    args = parser.parse_args()    
+    verify, upload, arcupdate = args.verify, args.upload, args.arcupdate
+    board, port, filename = args.board, args.port, args.filename
 
-@click.command()
-@click.option("--arcupdate", is_flag=True, help="Build all ArControl sketchs.")
-@click.option("--verify", is_flag=True, help="Build the sketch.")
-@click.option("--upload", is_flag=True, help="Build and upload the sketch.")
-@click.option("--board", default="arduino:avr:uno", help="Select the board to compile for. Unnecessary.")
-@click.option("--port", help="The port to upload.")
-@click.argument('filename', nargs=-1)
-def hello(arcupdate, verify, upload, board, port, filename):
-    """Simple program that greets NAME for a total of COUNT times."""
     ## CASE 1: --arcupdate
     if not (verify or upload) or arcupdate:
         do_arcupdate()
@@ -272,4 +275,4 @@ if __name__ == '__main__':
     if not init_check():
         sys.exit(1)
 
-    hello()
+    main()

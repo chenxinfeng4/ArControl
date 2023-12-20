@@ -48,7 +48,7 @@ PIN_AI::PIN_AI(uint ai_pin, QWidget *parent)
     });
     connect(_combobox, SIGNAL(activated(int)),
             stackedlayout, SLOT(setCurrentIndex(int)));
-    void (QComboBox::*eventFun)(int) = QComboBox::activated;
+    void (QComboBox::*eventFun)(int) = static_cast<void (QComboBox::*)(int)>(&QComboBox::activated);
     connect(_combobox, eventFun,
             [=](int mode){emit pinModeChange(_pin, mode);});
 }

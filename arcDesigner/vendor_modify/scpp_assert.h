@@ -32,7 +32,7 @@ void SCPP_AssertErrorHandler(const char* file_name,
 void SCPP_AssertErrorHandler_Throw(const char* file_name,
                                    unsigned line_number,
                                    const QString message = DEFLAUT_MSG)
-                                   throw (const QString);
+                                   noexcept(false);
 void SCPP_AssertErrorHandler_Dialog(const char* file_name,
                                    unsigned line_number,
                                    const QString message = DEFLAUT_MSG);

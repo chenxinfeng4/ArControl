@@ -104,11 +104,13 @@ void ProfileReader::checkProfile(bool newapath)
     debugFile = "arduino_debug.exe";
 #endif
 #ifdef Q_OS_LINUX
-    debugFile = "arduino";
+    debugFile = "arduino-cli";
 #endif
 #ifdef Q_OS_MAC
     debugFile = "arduino.app";
 #endif
+
+#if defined(Q_OS_MAC) || defined(Q_OS_WIN)
     reChoose =(debugFile.isEmpty() || !debuger.exists() || !debuger.isFile() || !debuger.isExecutable());
     if(newapath || reChoose){
         QMessageBox::about(0, tr("About"),
@@ -124,6 +126,10 @@ void ProfileReader::checkProfile(bool newapath)
          if(!arduino_path.isEmpty())
             dom_arduino.firstChild().setNodeValue(arduino_path);
     }
+#elif defined(Q_OS_LINUX)
+    dom_arduino.firstChild().setNodeValue("arduino-cli");
+#endif
+
     f.resize(0);
     QTextStream out(&f);
     doc.save(out, QDomNode::EncodingFromDocument);
@@ -143,8 +149,8 @@ void ProfileReader::checkProfile(bool newapath)
 //        dom_arduinoBoard.firstChild().setNodeValue(STR_L_ARDUINOBOARD.at(0));
 //    }
     QString arduino_board_tmp = dom_arduinoBoard.text();
-    SCPP_ASSERT_THROW( STR_L_ARDUINOBOARD.contains(arduino_board_tmp) );
     qDebug()<<">>>>arduino_board_tmp"<<arduino_board_tmp;
+    SCPP_ASSERT_THROW( STR_L_ARDUINOBOARD.contains(arduino_board_tmp) );
     if(indexOf(STR_L_ARDUINOBOARD, arduino_board_tmp)==0){
         this->arduino_board = "uno";
     }
