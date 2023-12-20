@@ -4,8 +4,8 @@
 void pinScanning();
 void edgeScanning();
 void pinWriting(int, boolean);
-void sendmsg(char [], int, unsigned long, unsigned long);
-void sendmsg(char [], int);
+void sendmsg(const char [], int, unsigned long, unsigned long);
+void sendmsg(const char [], int);
 #define delay(t) {unsigned long i = millis() + t; while(millis()<i) pinScanning();}
 #define digitalWrite(pin,level) {digitalWrite(pin,level);pinWriting(pin,level);}
 #define analogWrite(pin,level) {analogWrite(pin,level);pinWriting(pin,(boolean)level);}
@@ -231,7 +231,7 @@ void pinWriting(int pin, boolean level)
 // Serial.print for 'pinScanning()', 'pinWriting()'
 // "OUT3:100 300": D3, turn on at 100ms, off at 300ms, duration as 200ms
 // "IN3:100 300" : AI3, turn on at 100ms, off at 300ms, duration as 200ms
-void sendmsg(char prefix[], int pin, unsigned long t_raise, unsigned long t_decline)
+void sendmsg(const char prefix[], int pin, unsigned long t_raise, unsigned long t_decline)
 {
     char buf[40], temp[11];  //long is 10 char + '\0';
     unsigned long AppBeginTime = mySaver.getAppBeginTime();
@@ -245,7 +245,7 @@ void sendmsg(char prefix[], int pin, unsigned long t_raise, unsigned long t_decl
     strcat(buf, "\n");
     Serial.print(buf);
 }
-void sendmsg(char prefix[], int pin)
+void sendmsg(const char prefix[], int pin)
 {
     char buf[7], temp[3];
     buf[0] = '\0';
