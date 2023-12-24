@@ -9,6 +9,8 @@
 #include <QDir>
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QProcess>
+#include <QCoreApplication>
 #include "designersetfile.h"
 #include "main.h"
 #include "setfile2ino.h"
@@ -197,6 +199,24 @@ void DesignerSetFile::want_task_save()
 
     /* .config => *.ino */
     setfile2Ino->printIno(file->fileName());
+}
+
+void DesignerSetFile::want_task_export_pdf()
+{
+    /* It's a wild task */
+    if(this->file->fileName().isEmpty()){
+        this->want_task_saveas();
+        if(this->file->fileName().isEmpty())
+            return;
+    }
+
+    /* aconf 转化为 pdf 文件 */
+    QString pathName = QFileInfo(this->file->fileName()).path();
+//    QString CONVERTER = QDir::currentPath()+"/pytools/export_task_to_graphviz";
+    QString CONVERTER = QCoreApplication::applicationDirPath()+"/pytools/export_task_to_graphviz";
+    QProcess *p = new QProcess();QCoreApplication::applicationDirPath();
+    QStringList arglist = QStringList() << pathName;
+    p->start(CONVERTER, arglist);
 }
 
 void DesignerSetFile::want_task_savedefault()

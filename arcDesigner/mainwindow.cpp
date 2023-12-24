@@ -46,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave, SIGNAL(triggered(bool)), designerSetFile, SLOT(want_task_save()));
     connect(ui->actionSave_as, SIGNAL(triggered(bool)), designerSetFile, SLOT(want_task_saveas()));
     connect(ui->actionSave_as_defualt, SIGNAL(triggered(bool)), designerSetFile, SLOT(want_task_savedefault()));
+    connect(ui->actionExport_pdf, SIGNAL(triggered(bool)), designerSetFile, SLOT(want_task_export_pdf()));
     connect(ui->actionNew,  SIGNAL(triggered(bool)), designerSetFile, SLOT(want_task_new()));
     connect(ui->actionPin_Assignment, SIGNAL(triggered(bool)), pinAssignDialog, SLOT(show()));
     connect(ui->actionVar_Assignment, SIGNAL(triggered(bool)), varAssignDialog, SLOT(show()));

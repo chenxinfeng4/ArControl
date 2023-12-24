@@ -54,6 +54,7 @@ public slots:
     void want_task_saveas();
     void want_task_save();
     void want_task_savedefault();
+    void want_task_export_pdf();
     void want_task_load();
     void want_task_load(const QString file);
     void want_task_loaddefault();

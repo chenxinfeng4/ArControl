@@ -2,8 +2,10 @@
 
 #How to set up this environment
 ## 1. install python package
-pip install shutil pyinstaller mat4py
-python == 3.7.0
+conda create -n arcontrol python=3.7.0
+conda activate arcontrol
+pip install pyinstaller mat4py graphviz
+
 
 ## 2. Scripts to EXEs
 pyinstaller BF_arc2mat_proxy.py
