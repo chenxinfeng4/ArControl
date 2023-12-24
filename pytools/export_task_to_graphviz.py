@@ -73,13 +73,14 @@ def convert(filepath):
     components = session.getElementsByTagName('COMPONENT')
 
     components_d = {}
+    auto_hide_C1 = 'cluster_C' if len(components)>=2 else 'C'
     for ci, component in enumerate(components, start=1):
         name = component.getAttribute('comment')
         states = component.getElementsByTagName('STATE')
         states_d = {}
         components_d[ci] = (name, states_d)
         component_label = f'C{ci} : {name}' if name else f'C{ci}'
-        with dot.subgraph(name=f'cluster_C{ci}') as subg:
+        with dot.subgraph(name=f'{auto_hide_C1}{ci}') as subg:
             subg.attr(style='rounded', color='lightgrey', label=component_label)
 
             for si, state in enumerate(states, start=1):
