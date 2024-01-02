@@ -558,7 +558,7 @@ float cpp_GoElse(int chances, float a, float b)
 byte AI_reverse = 0; //[NULL NULL A5<-A0]
 inline boolean cpp_ListenAI(int PinNum, boolean PinState = HIGH)
 {
-    return digitalRead(PinNum + A0) == PinState; //A0==14 for Arduino-UNO
+    return digitalRead(PinNum + A0) == (PinState!=bitRead(AI_reverse,PinNum)); //A0==14 for Arduino-UNO
 }
 
 ///////////////////////////// SESSION Begin&End /////////////////////////////////////////
